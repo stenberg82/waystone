@@ -87,6 +87,7 @@ def find_existing(folder: Path) -> tuple[Path, list[games.Game]]:
 def apply_battlenet_defaults(library: Path | None) -> None:
     """Write our preferences into Battle.net.config. Only call while
     Battle.net is not running – it rewrites the file on exit."""
+    apply_account_defaults()
     target = to_windows(library) if library else "C:/Program Files (x86)"
     seen = set()
     for cfg in paths.battlenet_configs():
@@ -106,3 +107,35 @@ def apply_battlenet_defaults(library: Path | None) -> None:
         tmp = real.with_suffix(".waystone-tmp")
         tmp.write_text(json.dumps(data, indent=4))
         tmp.replace(real)
+
+
+# Battle.net per-account settings (Roaming/Battle.net/<id>.config) we preset
+# for new users only; a value the user has chosen is never overwritten.
+ACCOUNT_DEFAULTS = {
+    # Closing the window hides Battle.net instead of quitting, so a running
+    # download keeps going while Waystone shows its progress.
+    "HideOnClose": "true",
+    "DisplayExitPrompt": "false",
+}
+
+
+def apply_account_defaults() -> None:
+    """Only call while Battle.net is not running."""
+    for cfg in paths.battlenet_configs():
+        folder = cfg.resolve().parent
+        for account_cfg in folder.glob("*.config"):
+            if account_cfg.name == "Battle.net.config":
+                continue
+            try:
+                data = json.loads(account_cfg.read_text(errors="replace"))
+            except (OSError, ValueError):
+                continue
+            client = data.setdefault("User", {}).setdefault("Client", {})
+            missing = {k: v for k, v in ACCOUNT_DEFAULTS.items() if k not in client}
+            if not missing:
+                continue
+            client.update(missing)
+            tmp = account_cfg.with_suffix(".waystone-tmp")
+            tmp.write_text(json.dumps(data, indent=4))
+            tmp.replace(account_cfg)
+        break  # all user dirs point at the same folder

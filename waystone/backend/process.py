@@ -118,3 +118,23 @@ def process_running(token: str) -> bool:
         if needle in argv0.lower():
             return True
     return False
+
+
+def prefix_active(prefix: Path) -> bool:
+    """True while anything (wineserver, Battle.net Agent, a game) runs in
+    ``prefix``. Proton's default verb would block until all of it exits."""
+    target = os.path.realpath(prefix)
+    for entry in Path("/proc").iterdir():
+        if not entry.name.isdigit():
+            continue
+        try:
+            env = (entry / "environ").read_bytes()
+        except OSError:
+            continue
+        for var in env.split(b"\0"):
+            if var.startswith(b"WINEPREFIX="):
+                value = var[len(b"WINEPREFIX="):].decode(errors="replace")
+                if os.path.realpath(value) == target:
+                    return True
+                break
+    return False

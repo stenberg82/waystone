@@ -185,11 +185,10 @@ class Launcher:
         return found
 
     def open_battlenet(self, extra: list[str] | None = None) -> None:
-        running = self.battlenet_running()
-        if not running:
+        if not self.battlenet_running():
             library.apply_battlenet_defaults(self.library())
         self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, *(extra or [])],
-                          env=self._verb_env(running))
+                          env=self._verb_env())
 
     def install_game(self, game: games.Game) -> None:
         self.install_requested.add(game.id)
@@ -197,23 +196,21 @@ class Launcher:
 
     def play(self, game: games.Game) -> None:
         fixes.apply(game, self.settings)
-        running = self.battlenet_running()
-        if not running:
+        if not self.battlenet_running():
             library.apply_battlenet_defaults(self.library())
         self.launch_started = time.monotonic()
         self.runner.spawn(
             paths.BNET_EXE,
             [*fixes.BATTLENET_ARGS, f"--exec=launch {game.launch_code}"],
-            env={**fixes.env(game), **self._verb_env(running)},
+            env={**fixes.env(game), **self._verb_env()},
         )
 
     @staticmethod
-    def _verb_env(battlenet_running: bool) -> dict[str, str]:
+    def _verb_env() -> dict[str, str]:
         # Proton's default verb (waitforexitandrun) blocks until everything in
-        # the prefix has exited, so with Battle.net already open a launch would
-        # just queue forever. runinprefix hands the command to the running
-        # Battle.net instead.
-        return {"PROTON_VERB": "runinprefix"} if battlenet_running else {}
+        # the prefix has exited (Battle.net, its Agent, wineserver), so a launch
+        # would just queue. runinprefix joins the running prefix instead.
+        return {"PROTON_VERB": "runinprefix"} if process.prefix_active(paths.PREFIX) else {}
 
     def stop(self) -> None:
         self.launch_started = None
