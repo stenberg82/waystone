@@ -4,12 +4,13 @@ from __future__ import annotations
 
 import enum
 import json
+import os
 import shutil
 import time
 from typing import Callable
 
 from .. import games
-from . import fixes, net, paths, process, umu
+from . import fixes, net, paths, process, productdb, umu
 from .config import Settings
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
@@ -23,6 +24,7 @@ class State(enum.Enum):
     WAITING_LOGIN = "waiting-login"
     INSTALL = "install"
     INSTALLING = "installing"
+    UPDATING = "updating"
     READY = "ready"
     LAUNCHING = "launching"
     RUNNING = "running"
@@ -34,6 +36,7 @@ class Launcher:
         self.runner = process.Runner(settings)
         self.launch_started: float | None = None
         self.install_requested: set[str] = set()
+        self._calibration: dict[str, tuple[float, int]] = {}
 
     # ---------- detection ----------
 
@@ -53,7 +56,13 @@ class Launcher:
         return False
 
     @staticmethod
-    def game_installed(game: games.Game) -> bool:
+    def product(game: games.Game) -> productdb.ProductStatus | None:
+        return productdb.find(game.launch_code, game.folder)
+
+    @staticmethod
+    def game_installed(game: games.Game, product: productdb.ProductStatus | None = None) -> bool:
+        if product and product.installed and product.playable:
+            return True
         folder = paths.WOW_DIR / game.folder
         return folder.is_dir() and any(folder.glob("*.exe"))
 
@@ -73,12 +82,53 @@ class Launcher:
         bnet_open = self.battlenet_running()
         if not self.logged_in():
             return State.WAITING_LOGIN if bnet_open else State.LOGIN
-        if not self.game_installed(game):
+        product = self.product(game)
+        # Battle.net flags a game installed+playable while the first download
+        # is still running, so "downloading" is decided from the byte counters
+        # and "install vs update" from whether we have ever seen it ready.
+        downloading = bool(product and not product.update_complete and product.remaining_bytes > 0)
+        was_ready = bool(self.settings.game(game.id).get("ready_once"))
+        if downloading:
+            return State.UPDATING if was_ready else State.INSTALLING
+        if not self.game_installed(game, product):
             if bnet_open and game.id in self.install_requested:
                 return State.INSTALLING
             self.install_requested.discard(game.id)
             return State.INSTALL
+        if not was_ready:
+            self.settings.set_game(game.id, "ready_once", True)
         return State.READY
+
+    def download_progress(self, game: games.Game,
+                          product: productdb.ProductStatus) -> tuple[int, int]:
+        """(downloaded, total) bytes, live.
+
+        The Agent only rewrites product.db every few minutes, so we measure
+        bytes on disk and re-anchor against product.db whenever it changes
+        (the Data folder is shared between WoW flavours, hence the offset).
+        """
+        total = product.total_bytes
+        db_done = total - product.remaining_bytes
+        root = _to_unix(product.install_path) or paths.WOW_DIR
+        try:
+            mtime = productdb.PRODUCT_DB.stat().st_mtime
+        except OSError:
+            return db_done, total
+        size = _allocated_size(root)
+        calib = self._calibration.get(game.id)
+        if not calib:
+            # First look: product.db may be minutes old. If nothing else lives
+            # in this folder, every byte on disk belongs to this download.
+            shared = any(p.install_path == product.install_path and p.uid != product.uid
+                         for p in productdb.read())
+            calib = (mtime, size - db_done if shared else 0)
+            self._calibration[game.id] = calib
+        elif calib[0] != mtime:
+            # Fresh numbers from the Agent: re-anchor to them.
+            calib = (mtime, size - db_done)
+            self._calibration[game.id] = calib
+        live = size - calib[1]
+        return max(db_done, min(live, total)), total
 
     # ---------- actions ----------
 
@@ -155,3 +205,20 @@ def _find_key(data: object, key: str) -> object:
 
 def _short(line: str, limit: int = 90) -> str:
     return line if len(line) <= limit else line[: limit - 1] + "…"
+
+
+def _to_unix(win_path: str):
+    if not win_path or len(win_path) < 3 or win_path[1] != ":":
+        return None
+    return paths.DRIVE_C / win_path[3:].replace("\\", "/")
+
+
+def _allocated_size(root) -> int:
+    total = 0
+    for dirpath, _dirs, files in os.walk(root):
+        for name in files:
+            try:
+                total += os.lstat(os.path.join(dirpath, name)).st_blocks * 512
+            except OSError:
+                pass
+    return total

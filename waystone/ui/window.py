@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import collections
 import threading
+import time
 import traceback
 
 from gi.repository import Adw, Gio, GLib, Gtk
@@ -59,6 +61,7 @@ class MainWindow(Adw.ApplicationWindow):
         self.game = games.get(settings["game"])
         self.busy: tuple[str, float | None] | None = None
         self.state: State | None = None
+        self.samples: dict[str, collections.deque] = {}
 
         self.toasts = Adw.ToastOverlay()
         self.set_content(self.toasts)
@@ -305,15 +308,47 @@ class MainWindow(Adw.ApplicationWindow):
             S.INSTALL: (f"{g.short} is not installed",
                         "Battle.net will download it. Keep the window open until it's done.",
                         "INSTALL", True, False),
-            S.INSTALLING: ("Installing in Battle.net",
-                           f"Download {g.short} in the Battle.net window. We'll notice when it's done.",
+            S.INSTALLING: (f"Installing {g.short}",
+                           "Press Install in the Battle.net window to start the download.",
                            "INSTALLING", False, True),
+            S.UPDATING: (f"Updating {g.short}", "Battle.net is downloading an update.",
+                         "UPDATING", False, True),
             S.READY: ("Ready to play", g.name, "PLAY", True, False),
             S.LAUNCHING: ("Starting…", "Battle.net is launching the game.", "STARTING", False, True),
             S.RUNNING: ("Playing", "Have fun in Azeroth!", "PLAYING", False, False),
         }
         title, detail, label, enabled, spinner = table[self.state]
         self._render(title, detail, label, enabled, spinner)
+        if self.state in (S.INSTALLING, S.UPDATING):
+            self._render_download(g, label)
+        else:
+            self.samples.pop(g.id, None)
+
+    def _render_download(self, game: games.Game, label: str) -> None:
+        prod = self.launcher.product(game)
+        if not prod or prod.total_bytes <= 0:
+            return
+        done, total = self.launcher.download_progress(game, prod)
+        remaining = total - done
+        frac = max(0.0, min(done / total, 1.0))
+
+        now = time.monotonic()
+        hist = self.samples.setdefault(game.id, collections.deque(maxlen=30))
+        if not hist or hist[-1][1] != remaining:
+            hist.append((now, remaining))
+        while len(hist) > 2 and now - hist[0][0] > 30:
+            hist.popleft()
+        speed = 0.0
+        if len(hist) >= 2 and hist[-1][0] > hist[0][0]:
+            speed = (hist[0][1] - hist[-1][1]) / (hist[-1][0] - hist[0][0])
+
+        detail = f"{_gb(done)} of {_gb(total)}"
+        if speed > 0:
+            detail += f"  ·  {speed / 1e6:.1f} MB/s  ·  {_eta(remaining / speed)} left"
+        self.status_detail.set_label(detail)
+        self.play_label.set_label(f"{label}  {frac:.0%}")
+        self.progress.set_visible(True)
+        self.progress.set_fraction(frac)
 
     def _render(self, title: str, detail: str, label: str, enabled: bool, spinner: bool) -> None:
         self.status_title.set_label(title)
@@ -321,6 +356,10 @@ class MainWindow(Adw.ApplicationWindow):
         self.play_label.set_label(label)
         self.play_button.set_sensitive(enabled)
         self.play_spinner.set_visible(spinner)
+        if spinner:
+            self.play_button.add_css_class("busy")
+        else:
+            self.play_button.remove_css_class("busy")
 
     # ------------------------------------------------------------------ actions
 
@@ -384,3 +423,15 @@ class MainWindow(Adw.ApplicationWindow):
 
     def toast(self, text: str) -> None:
         self.toasts.add_toast(Adw.Toast(title=GLib.markup_escape_text(text), timeout=5))
+
+
+def _gb(n: int) -> str:
+    return f"{n / 1e9:.1f} GB" if n >= 1e9 else f"{n / 1e6:.0f} MB"
+
+
+def _eta(seconds: float) -> str:
+    seconds = int(seconds)
+    if seconds < 60:
+        return "<1 min"
+    h, m = divmod(seconds // 60, 60)
+    return f"{h} h {m} min" if h else f"{m} min"

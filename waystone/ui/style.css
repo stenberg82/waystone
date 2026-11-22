@@ -264,6 +264,15 @@ button.play-button:disabled {
   box-shadow: none;
 }
 
+button.play-button.busy:disabled {
+  background-image: linear-gradient(180deg,
+    color-mix(in srgb, var(--ws-accent) 34%, transparent),
+    color-mix(in srgb, var(--ws-accent) 20%, transparent));
+  color: var(--ws-accent-hi);
+  box-shadow: 0 10px 34px color-mix(in srgb, var(--ws-accent) 18%, transparent),
+              inset 0 1px rgba(255, 255, 255, 0.12);
+}
+
 menubutton.play-more > button {
   min-height: 64px;
   min-width: 48px;
