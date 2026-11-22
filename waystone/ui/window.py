@@ -298,7 +298,8 @@ class MainWindow(Adw.ApplicationWindow):
         """Background weekly refresh of the bundled umu (never while running)."""
         from ..backend import process, umu
 
-        if self.busy or self.launcher.runner.alive() or process.process_running("umu-run"):
+        if (self.busy or self.launcher.runner.alive()
+                or self.launcher.battlenet_running() or process.process_running("wineserver")):
             return GLib.SOURCE_REMOVE
 
         def worker():

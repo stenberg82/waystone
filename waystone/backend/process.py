@@ -103,14 +103,18 @@ class Runner:
 
 
 def process_running(token: str) -> bool:
-    """True if any process command line contains ``token`` (case-insensitive)."""
+    """True if a process' executable path (argv[0]) contains ``token``,
+    case-insensitive. Wine processes show their Windows path there, e.g.
+    'C:\\...\\_forever_\\Wow.exe'. Only argv[0] is checked so that shells or
+    launchers merely *mentioning* the path don't count."""
     needle = token.lower().encode()
     for entry in Path("/proc").iterdir():
         if not entry.name.isdigit():
             continue
         try:
-            if needle in (entry / "cmdline").read_bytes().lower():
-                return True
+            argv0 = (entry / "cmdline").read_bytes().split(b"\0", 1)[0]
         except OSError:
             continue
+        if needle in argv0.lower():
+            return True
     return False
