@@ -97,7 +97,10 @@ class Launcher:
             on_line=lambda line: status(_short(line), None),
             on_exit=lambda rc: done.__setitem__("rc", rc),
         )
-        while not self.battlenet_installed():
+        # Battle.net.exe appears early while the installer is still unpacking,
+        # so wait until the installer has finished or has started the client.
+        while not (self.battlenet_installed()
+                   and (done["rc"] is not None or self.battlenet_running())):
             if done["rc"] is not None and not self.battlenet_installed():
                 raise RuntimeError(f"Battle.net installer exited ({done['rc']}). See the log.")
             time.sleep(1)
