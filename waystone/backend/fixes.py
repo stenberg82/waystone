@@ -5,12 +5,12 @@ from __future__ import annotations
 import re
 
 from .. import games
-from . import paths
+from . import library
 from .config import Settings
 
 
 def config_wtf(game: games.Game):
-    return paths.WOW_DIR / game.folder / "WTF" / "Config.wtf"
+    return library.game_dir(game) / "WTF" / "Config.wtf"
 
 
 def _set_cvar(text: str, name: str, value: str | None) -> str:

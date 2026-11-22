@@ -26,6 +26,17 @@ Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.wayston
 - **Optional:** force DirectX 11 per game (writes `SET gxApi "D3D11"` to `Config.wtf`).
 - **Optional:** native Wayland (`PROTON_ENABLE_WAYLAND=1`).
 
+### Game library on another disk
+
+- **Preferences → Game library:** pick any folder, for example on a second disk. Waystone maps it into the prefix as drive **W:** and sets it as Battle.net's default install location, so new installs go there.
+- **Use existing installation…** (in the menu next to Play): point Waystone at an existing `World of Warcraft` folder, for example from Windows, Lutris or Steam. Waystone maps it, then you click **Locate the game** in Battle.net. Battle.net verifies the files and downloads only what is missing.
+
+### Updates
+
+- **Battle.net** updates itself inside the prefix, just like on Windows.
+- **GE-Proton** is fetched in its latest version by umu.
+- **umu-launcher:** a system copy is updated by the package manager. Otherwise Waystone checks for a newer release once a week and swaps it in only while nothing is running.
+
 ### Product codes
 
 | Game | Battle.net code | Folder |

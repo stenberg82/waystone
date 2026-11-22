@@ -7,10 +7,11 @@ import json
 import os
 import shutil
 import time
+from pathlib import Path
 from typing import Callable
 
 from .. import games
-from . import fixes, net, paths, process, productdb, umu
+from . import fixes, library, net, paths, process, productdb, umu
 from .config import Settings
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
@@ -63,7 +64,7 @@ class Launcher:
     def game_installed(game: games.Game, product: productdb.ProductStatus | None = None) -> bool:
         if product and product.installed and product.playable:
             return True
-        folder = paths.WOW_DIR / game.folder
+        folder = library.game_dir(game, product)
         return folder.is_dir() and any(folder.glob("*.exe"))
 
     @staticmethod
@@ -109,7 +110,7 @@ class Launcher:
         """
         total = product.total_bytes
         db_done = total - product.remaining_bytes
-        root = _to_unix(product.install_path) or paths.WOW_DIR
+        root = library.game_root(game, product)
         try:
             mtime = productdb.PRODUCT_DB.stat().st_mtime
         except OSError:
@@ -161,7 +162,31 @@ class Launcher:
             status("Installing Battle.net – follow the Blizzard installer window…", None)
         status("Battle.net installed.", 1.0)
 
+    def library(self) -> Path | None:
+        lib = self.settings["library"]
+        return Path(lib) if lib else None
+
+    def set_library(self, folder: Path | None) -> None:
+        """Use ``folder`` (any disk) for new game installs."""
+        self.settings["library"] = str(folder) if folder else None
+        library.set_library(folder)
+        if not self.battlenet_running():
+            library.apply_battlenet_defaults(folder)
+
+    def use_existing(self, folder: Path, game: games.Game) -> list[games.Game]:
+        """Make an existing WoW install reachable and open Battle.net so it
+        can be located there. Returns the flavours found in that folder."""
+        root, found = library.find_existing(folder)
+        if not found:
+            return []
+        self.set_library(root.parent)
+        target = next((g for g in found if g is game), found[0])
+        self.open_battlenet([f"--game={target.launch_code}"])
+        return found
+
     def open_battlenet(self, extra: list[str] | None = None) -> None:
+        if not self.battlenet_running():
+            library.apply_battlenet_defaults(self.library())
         self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, *(extra or [])])
 
     def install_game(self, game: games.Game) -> None:
@@ -170,6 +195,8 @@ class Launcher:
 
     def play(self, game: games.Game) -> None:
         fixes.apply(game, self.settings)
+        if not self.battlenet_running():
+            library.apply_battlenet_defaults(self.library())
         self.launch_started = time.monotonic()
         self.runner.spawn(
             paths.BNET_EXE,
@@ -206,11 +233,6 @@ def _find_key(data: object, key: str) -> object:
 def _short(line: str, limit: int = 90) -> str:
     return line if len(line) <= limit else line[: limit - 1] + "…"
 
-
-def _to_unix(win_path: str):
-    if not win_path or len(win_path) < 3 or win_path[1] != ":":
-        return None
-    return paths.DRIVE_C / win_path[3:].replace("\\", "/")
 
 
 def _allocated_size(root) -> int:

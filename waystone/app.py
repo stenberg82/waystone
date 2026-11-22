@@ -56,7 +56,7 @@ class WaystoneApp(Adw.Application):
             self.window.toast("Prefix removed. Run setup again.")
             self.window.refresh()
 
-        PreferencesDialog(self.settings, reset).present(self.window)
+        PreferencesDialog(self.settings, self.window.launcher, reset).present(self.window)
 
     def _on_about(self, *_):
         Adw.AboutDialog(

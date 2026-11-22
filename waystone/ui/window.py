@@ -10,7 +10,7 @@ import traceback
 from gi.repository import Adw, Gio, GLib, Gtk
 
 from .. import games
-from ..backend import paths
+from ..backend import library, paths
 from ..backend.config import Settings
 from ..backend.launcher import Launcher, State
 from .particles import ParticleField
@@ -77,6 +77,7 @@ class MainWindow(Adw.ApplicationWindow):
         self._install_actions()
         self._select_game(self.game, initial=True)
         GLib.timeout_add_seconds(REFRESH_SECONDS, self._tick)
+        GLib.timeout_add_seconds(5, self._check_updates)
 
     # ------------------------------------------------------------------ layout
 
@@ -222,6 +223,7 @@ class MainWindow(Adw.ApplicationWindow):
         main = Gio.Menu()
         main.append("Open Battle.net", "win.open-battlenet")
         main.append("Install or repair game", "win.install-game")
+        main.append("Use existing installation…", "win.use-existing")
         main.append("Open game folder", "win.open-folder")
         menu.append_section(None, main)
         danger = Gio.Menu()
@@ -241,6 +243,7 @@ class MainWindow(Adw.ApplicationWindow):
             ("open-battlenet", lambda *_: self._safe(self.launcher.open_battlenet)),
             ("install-game", lambda *_: self._safe(self.launcher.install_game, self.game)),
             ("open-folder", self._on_open_folder),
+            ("use-existing", self._on_use_existing),
             ("stop", lambda *_: (self.launcher.stop(), self.refresh())),
             ("show-log", self._on_show_log),
         ):
@@ -268,6 +271,25 @@ class MainWindow(Adw.ApplicationWindow):
         self.refresh()
 
     # ------------------------------------------------------------------ state rendering
+
+    def _check_updates(self) -> bool:
+        """Background weekly refresh of the bundled umu (never while running)."""
+        from ..backend import process, umu
+
+        if self.busy or self.launcher.runner.alive() or process.process_running("umu-run"):
+            return GLib.SOURCE_REMOVE
+
+        def worker():
+            try:
+                tag = umu.maybe_update()
+            except Exception as exc:  # offline etc. – try again next start
+                process.Log.write(f"umu update check failed: {exc}")
+                return
+            if tag:
+                GLib.idle_add(self.toast, f"Updated umu-launcher to {tag}")
+
+        threading.Thread(target=worker, daemon=True).start()
+        return GLib.SOURCE_REMOVE
 
     def _tick(self) -> bool:
         self.refresh()
@@ -408,12 +430,46 @@ class MainWindow(Adw.ApplicationWindow):
         self.refresh()
 
     def _on_open_folder(self, *_):
-        folder = paths.WOW_DIR / self.game.folder
+        folder = library.game_dir(self.game)
         target = folder if folder.exists() else paths.PREFIX
         if not target.exists():
             self.toast("Nothing installed yet.")
             return
         Gtk.FileLauncher.new(Gio.File.new_for_path(str(target))).launch(self, None, None)
+
+    def _on_use_existing(self, *_):
+        dialog = Gtk.FileDialog(title="Select your World of Warcraft folder", modal=True)
+        dialog.select_folder(self, None, self._on_existing_chosen)
+
+    def _on_existing_chosen(self, dialog, result):
+        try:
+            folder = dialog.select_folder_finish(result)
+        except Exception:
+            return  # cancelled
+        if not folder or not folder.get_path():
+            return
+        from pathlib import Path
+        try:
+            found = self.launcher.use_existing(Path(folder.get_path()), self.game)
+        except Exception as exc:
+            self.toast(str(exc))
+            return
+        if not found:
+            self.toast("No World of Warcraft installation found in that folder.")
+            return
+        names = ", ".join(g.short for g in found)
+        self._show_locate_help(names)
+        self.refresh()
+
+    def _show_locate_help(self, names: str) -> None:
+        dialog = Adw.AlertDialog(
+            heading="Almost there",
+            body=f"Found: {names}.\n\nIn the Battle.net window, click “Locate the game” "
+                 "under the Install button and choose\nW:\\World of Warcraft\n\n"
+                 "Battle.net checks the files and only downloads what is missing.",
+        )
+        dialog.add_response("ok", "Got it")
+        dialog.present(self)
 
     def _on_show_log(self, *_):
         if not paths.LOG_FILE.exists():

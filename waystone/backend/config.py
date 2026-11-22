@@ -15,6 +15,8 @@ DEFAULTS: dict[str, Any] = {
     "proton": "GE-Proton",
     "gameid": "umu-default",
     "wayland": False,
+    # Linux folder mapped as drive W: for game installs (None = inside the prefix).
+    "library": None,
     "games": {
         "forever": {"dx11": False},
         "retail": {"dx11": False},

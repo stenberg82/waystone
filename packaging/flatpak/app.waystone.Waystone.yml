@@ -14,6 +14,10 @@ finish-args:
   - --allow=devel             # needed by pressure-vessel / umu
   - --filesystem=~/.steam/root/compatibilitytools.d:ro
   - --filesystem=~/.local/share/Steam/compatibilitytools.d:ro
+  - --filesystem=/mnt           # game libraries on other disks
+  - --filesystem=/media
+  - --filesystem=/run/media
+  - --filesystem=~/Games
   - --talk-name=org.freedesktop.Notifications
 add-extensions:
   org.freedesktop.Platform.GL32:

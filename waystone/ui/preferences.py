@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from gi.repository import Adw, Gtk
+from gi.repository import Adw, Gio, Gtk
 
 from .. import games
 from ..backend.config import Settings
@@ -32,9 +32,10 @@ def _local_protons() -> list[tuple[str, str]]:
 
 
 class PreferencesDialog(Adw.PreferencesDialog):
-    def __init__(self, settings: Settings, on_reset) -> None:
+    def __init__(self, settings: Settings, launcher, on_reset) -> None:
         super().__init__(title="Preferences", search_enabled=False)
         self.settings = settings
+        self.launcher = launcher
 
         page = Adw.PreferencesPage(title="General", icon_name="emblem-system-symbolic")
         self.add(page)
@@ -59,6 +60,23 @@ class PreferencesDialog(Adw.PreferencesDialog):
         wayland.connect("notify::active", lambda r, _p: settings.__setitem__("wayland", r.get_active()))
         compat.add(wayland)
 
+        lib = Adw.PreferencesGroup(
+            title="Game library",
+            description="Where Battle.net installs new games. Pick a folder on any disk "
+                        "(ext4 or btrfs recommended). It shows up as drive W: in Battle.net.")
+        page.add(lib)
+        self.lib_row = Adw.ActionRow(title="Install location")
+        choose = Gtk.Button(label="Choose…", valign=Gtk.Align.CENTER)
+        choose.connect("clicked", self._on_choose_library)
+        self.lib_reset = Gtk.Button(icon_name="edit-undo-symbolic", valign=Gtk.Align.CENTER,
+                                    tooltip_text="Use the default location")
+        self.lib_reset.add_css_class("flat")
+        self.lib_reset.connect("clicked", lambda *_: self._set_library(None))
+        self.lib_row.add_suffix(self.lib_reset)
+        self.lib_row.add_suffix(choose)
+        lib.add(self.lib_row)
+        self._update_library_row()
+
         graphics = Adw.PreferencesGroup(
             title="Graphics",
             description="DirectX 11 is slower but avoids crashes or flicker on some GPUs.")
@@ -76,6 +94,33 @@ class PreferencesDialog(Adw.PreferencesDialog):
         reset.add_css_class("destructive-action")
         reset.connect("activated", lambda *_: self._confirm_reset(on_reset))
         danger.add(reset)
+
+    def _update_library_row(self) -> None:
+        current = self.settings["library"]
+        self.lib_row.set_subtitle(current or "Default (inside Waystone's data folder)")
+        self.lib_reset.set_visible(bool(current))
+
+    def _on_choose_library(self, *_):
+        dialog = Gtk.FileDialog(title="Choose a game library folder", modal=True)
+        dialog.select_folder(self.get_root(), None, self._on_library_chosen)
+
+    def _on_library_chosen(self, dialog, result):
+        try:
+            folder = dialog.select_folder_finish(result)
+        except Exception:
+            return  # cancelled
+        if folder and folder.get_path():
+            self._set_library(Path(folder.get_path()))
+
+    def _set_library(self, folder):
+        try:
+            self.launcher.set_library(folder)
+        except OSError as exc:
+            self.add_toast(Adw.Toast(title=f"Could not use that folder: {exc}"))
+            return
+        self._update_library_row()
+        if self.launcher.battlenet_running():
+            self.add_toast(Adw.Toast(title="Restart Battle.net for the new location to apply."))
 
     def _on_proton(self, row: Adw.ComboRow, _pspec) -> None:
         self.settings["proton"] = self.protons[row.get_selected()][1]
