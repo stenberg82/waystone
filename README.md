@@ -54,7 +54,6 @@ sudo pacman -S python-gobject python-cairo gtk4 libadwaita
 - **Fedora (COPR):** `packaging/fedora/waystone.spec`
 - **Manual:** `sudo make install` / `sudo make uninstall`
 
-Replace `OWNER` in the PKGBUILD and spec with the GitHub user or organization.
 
 ## Requirements
 

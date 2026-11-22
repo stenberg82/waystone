@@ -3,7 +3,7 @@ Version:        0.1.0
 Release:        1%{?dist}
 Summary:        Simple, good-looking launcher for World of Warcraft on Linux
 License:        GPL-3.0-or-later
-URL:            https://github.com/OWNER/waystone
+URL:            https://github.com/stenberg82/waystone
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  make

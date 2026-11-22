@@ -10,6 +10,11 @@
     Blizzard's own login window, and then starts World of Warcraft: Forever, Retail or Classic with a single button.</p>
     <p>Not affiliated with or endorsed by Blizzard Entertainment.</p>
   </description>
+  <url type="homepage">https://github.com/stenberg82/waystone</url>
+  <url type="bugtracker">https://github.com/stenberg82/waystone/issues</url>
+  <developer id="io.github.stenberg82">
+    <name>Waystone contributors</name>
+  </developer>
   <launchable type="desktop-id">app.waystone.Waystone.desktop</launchable>
   <content_rating type="oars-1.1"/>
   <releases>
