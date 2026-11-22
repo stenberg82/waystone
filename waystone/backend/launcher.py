@@ -237,6 +237,9 @@ class Launcher:
                 deadline = time.monotonic() + 30
                 while time.monotonic() < deadline:
                     if process.process_running(game.folder):
+                        if self.settings["close_battlenet"]:
+                            time.sleep(3)  # let Battle.net hand over to the game
+                            self.close_battlenet()
                         return
                     time.sleep(1)
             self.launch_started = None
@@ -244,6 +247,16 @@ class Launcher:
         except Exception as exc:  # surfaced by the UI
             self.launch_started = None
             self.launch_error = str(exc)
+
+    def close_battlenet(self) -> None:
+        """Close the Battle.net window the polite way (like clicking ✕).
+
+        Works on every desktop, unlike minimising, which some Wayland
+        compositors ignore. A running game is unaffected; with Battle.net's
+        HideOnClose it hides, otherwise it exits."""
+        if self.battlenet_running():
+            self.runner.spawn(Path("taskkill"), ["/IM", "Battle.net.exe"],
+                              env={"PROTON_VERB": "runinprefix"})
 
     @staticmethod
     def _session_log(since: float = 0.0) -> Path | None:

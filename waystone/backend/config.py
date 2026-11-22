@@ -15,6 +15,7 @@ DEFAULTS: dict[str, Any] = {
     "proton": "GE-Proton",
     "gameid": "umu-default",
     "wayland": False,
+    "close_battlenet": True,
     # Linux folder mapped as drive W: for game installs (None = inside the prefix).
     "library": None,
     "games": {

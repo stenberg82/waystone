@@ -60,6 +60,13 @@ class PreferencesDialog(Adw.PreferencesDialog):
         wayland.connect("notify::active", lambda r, _p: settings.__setitem__("wayland", r.get_active()))
         compat.add(wayland)
 
+        close_bnet = Adw.SwitchRow(title="Close Battle.net when the game starts",
+                                   subtitle="Keeps the desktop tidy. The game keeps running.",
+                                   active=settings["close_battlenet"])
+        close_bnet.connect("notify::active",
+                           lambda r, _p: settings.__setitem__("close_battlenet", r.get_active()))
+        compat.add(close_bnet)
+
         lib = Adw.PreferencesGroup(
             title="Game library",
             description="Where Battle.net installs new games. Pick a folder on any disk "
