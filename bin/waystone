@@ -4,7 +4,7 @@ import os
 import sys
 
 here = os.path.dirname(os.path.realpath(__file__))
-for candidate in (os.path.join(here, ".."), os.path.join(here, "..", "share", "waystone")):
+for candidate in (os.path.join(here, ".."), os.path.join(here, "..", "lib", "waystone")):
     if os.path.isdir(os.path.join(candidate, "waystone")):
         sys.path.insert(0, os.path.abspath(candidate))
         break

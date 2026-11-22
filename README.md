@@ -79,7 +79,7 @@ sudo pacman -S python-gobject python-cairo gtk4 libadwaita
 - **Flatpak** (all distros): `flatpak-builder --user --install build-dir packaging/flatpak/app.waystone.Waystone.yml`
 - **Arch (AUR):** `packaging/arch/PKGBUILD`
 - **Fedora (COPR):** `packaging/fedora/waystone.spec`
-- **Manual:** `sudo make install` / `sudo make uninstall`
+- **Manual:** `make install PREFIX=~/.local` (just you) or `sudo make install` (system-wide). Uninstall the same way. Your Wine prefix and games in `~/.local/share/waystone` are never touched.
 
 
 ## Requirements

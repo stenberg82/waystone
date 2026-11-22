@@ -25,7 +25,7 @@ make install DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %license LICENSE
 %doc README.md
 %{_bindir}/waystone
-%{_datadir}/waystone/
+%{_prefix}/lib/waystone/
 %{_datadir}/applications/app.waystone.Waystone.desktop
 %{_datadir}/metainfo/app.waystone.Waystone.metainfo.xml
 %{_datadir}/icons/hicolor/scalable/apps/app.waystone.Waystone.svg
