@@ -8,7 +8,8 @@ fields we need with a tiny schema-less wire-format reader:
                       UserSettings settings = 3; CachedProductState state = 4; }
     UserSettings    { string install_path = 1; }
     CachedProductState { BaseProductState base = 1; UpdateProgress update = 4; }
-    BaseProductState   { bool installed = 1; bool playable = 2; bool update_complete = 3; }
+    BaseProductState   { bool installed = 1; bool playable = 2; bool update_complete = 3;
+                         string current_version = 7; }
     UpdateProgress     { double progress = 2; uint64 total_to_download = 4;
                          uint64 download_remaining = 5; }
 """
@@ -32,6 +33,7 @@ class ProductStatus:
     installed: bool = False
     playable: bool = False
     update_complete: bool = False
+    version: str = ""                    # e.g. '1.60.1.71037'
     progress: float | None = None        # 0..1
     total_bytes: int = 0
     remaining_bytes: int = 0
@@ -98,6 +100,8 @@ def parse(data: bytes) -> list[ProductStatus]:
                 for sn, sw, sv in _fields(v):
                     if sn == 1 and sw == 2:
                         for bn, bw, bv in _fields(sv):
+                            if bn == 7 and bw == 2:
+                                st.version = bv.decode(errors="replace")
                             if bw == 0:
                                 if bn == 1: st.installed = bool(bv)
                                 elif bn == 2: st.playable = bool(bv)
@@ -133,3 +137,12 @@ def find(launch_code: str, folder: str, products: list[ProductStatus] | None = N
                      or p.uid.lower().endswith(hint)):
             return p
     return None
+
+
+def interface_number(version: str) -> int | None:
+    """'1.60.1.71037' -> 16001 (the ## Interface value addons declare)."""
+    try:
+        major, minor, patch = (int(x) for x in version.split(".")[:3])
+    except ValueError:
+        return None
+    return major * 10000 + minor * 100 + patch

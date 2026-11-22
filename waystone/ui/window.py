@@ -67,9 +67,15 @@ class MainWindow(Adw.ApplicationWindow):
         self.set_content(self.toasts)
 
         view = Adw.ToolbarView(extend_content_to_top_edge=True)
-        header = Adw.HeaderBar(show_title=False)
+        header = Adw.HeaderBar()
         header.add_css_class("ws-header")
         header.pack_end(self._app_menu())
+        self.tabs = Adw.ToggleGroup(css_classes=["ws-tabs", "round"])
+        self.tabs.add(Adw.Toggle(name="play", label="Play"))
+        self.tabs.add(Adw.Toggle(name="addons", label="Addons"))
+        self.tabs.set_active_name("play")
+        self.tabs.connect("notify::active-name", self._on_tab)
+        header.set_title_widget(self.tabs)
         view.add_top_bar(header)
         view.set_content(self._build_body())
         self.toasts.set_child(view)
@@ -101,7 +107,13 @@ class MainWindow(Adw.ApplicationWindow):
 
         layout = Gtk.Box()
         layout.append(self._build_sidebar())
-        layout.append(self._build_hero())
+        self.pages = Gtk.Stack(transition_type=Gtk.StackTransitionType.CROSSFADE,
+                               transition_duration=250, hexpand=True)
+        self.pages.add_named(self._build_hero(), "play")
+        from .addons_page import AddonsPage
+        self.addons_page = AddonsPage(self)
+        self.pages.add_named(self.addons_page, "addons")
+        layout.append(self.pages)
         overlay.add_overlay(layout)
         return overlay
 
@@ -253,6 +265,12 @@ class MainWindow(Adw.ApplicationWindow):
 
     # ------------------------------------------------------------------ game switching
 
+    def _on_tab(self, group, _pspec) -> None:
+        name = group.get_active_name() or "play"
+        self.pages.set_visible_child_name(name)
+        if name == "addons":
+            self.addons_page.set_game(self.game)
+
     def _on_tile_toggled(self, tile: GameTile) -> None:
         if tile.get_active() and tile.game is not self.game:
             self._select_game(tile.game)
@@ -266,6 +284,10 @@ class MainWindow(Adw.ApplicationWindow):
         self.bg.set_visible_child_name(game.id)
         self.info.set_visible_child_name(game.id)
         self.particles.set_style(game.particles)
+        if hasattr(self, "addons_page") and self.pages.get_visible_child_name() == "addons":
+            self.addons_page.set_game(game)
+        elif hasattr(self, "addons_page"):
+            self.addons_page.game = game
         if not initial:
             self.settings["game"] = game.id
         self.refresh()

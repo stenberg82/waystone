@@ -37,6 +37,18 @@ Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.wayston
 - **GE-Proton** is fetched in its latest version by umu.
 - **umu-launcher:** a system copy is updated by the package manager. Otherwise Waystone checks for a newer release once a week and swaps it in only while nothing is running.
 
+### Addons
+
+The **Addons** tab, next to Play in the title bar, manages addons for the selected game:
+
+- Lists everything in `Interface/AddOns`, reading each `.toc`. It understands flavour-specific files such as `_Forever`/`_Camelot`, `_Mainline` and `_Classic`.
+- Flags addons built for another game version. The game's interface number comes from Battle.net, for example Forever 1.60.1 is 16001.
+- **Add from GitHub:** paste `owner/name` or a URL. Waystone reads the packager's `release.json` to pick the zip for the right game.
+- **Add .zip…** or drag and drop a zip file onto the page.
+- Checks for updates, updates and removes addons. Multi-folder addons are handled as one package, tracked in `Interface/AddOns/.waystone.json`.
+
+CurseForge and Wago require approved API keys, so they are not supported yet.
+
 ### Product codes
 
 | Game | Battle.net code | Folder |
