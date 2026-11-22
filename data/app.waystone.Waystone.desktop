@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Waystone
+GenericName=Game Launcher
+Comment=Play World of Warcraft on Linux with one click
+Exec=waystone
+Icon=app.waystone.Waystone
+Terminal=false
+Type=Application
+Categories=Game;
+Keywords=wow;warcraft;battle.net;blizzard;proton;
+StartupNotify=true

@@ -1,0 +1,18 @@
+# Maintainer: Waystone contributors
+pkgname=waystone
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Simple, good-looking launcher for World of Warcraft on Linux"
+arch=('any')
+url="https://github.com/OWNER/waystone"
+license=('GPL-3.0-or-later')
+depends=('python' 'python-gobject' 'python-cairo' 'gtk4' 'libadwaita' 'vulkan-icd-loader')
+optdepends=('umu-launcher: use the system umu instead of the bundled download')
+makedepends=('make')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+package() {
+  cd "$pkgname-$pkgver"
+  make install DESTDIR="$pkgdir" PREFIX=/usr
+}

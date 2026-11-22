@@ -1,0 +1,300 @@
+/* ---------- Per-game palettes (CSS custom properties, GTK ≥ 4.16) ---------- */
+
+window.waystone.theme-forever {
+  --ws-accent: #35e0a1;
+  --ws-accent-hi: #a6f7d6;
+  --ws-accent-ink: #032418;
+  --ws-glow: rgba(53, 224, 161, 0.38);
+  --accent-bg-color: #35e0a1;
+  --accent-fg-color: #032418;
+  --accent-color: #6ff0bd;
+}
+
+window.waystone.theme-retail {
+  --ws-accent: #3d8bff;
+  --ws-accent-hi: #a3cbff;
+  --ws-accent-ink: #f4f8ff;
+  --ws-glow: rgba(61, 139, 255, 0.40);
+  --accent-bg-color: #3d8bff;
+  --accent-fg-color: #ffffff;
+  --accent-color: #79b0ff;
+}
+
+window.waystone.theme-classic {
+  --ws-accent: #e8a33d;
+  --ws-accent-hi: #ffd88a;
+  --ws-accent-ink: #2a1600;
+  --ws-glow: rgba(232, 163, 61, 0.40);
+  --accent-bg-color: #e8a33d;
+  --accent-fg-color: #2a1600;
+  --accent-color: #f4bf6a;
+}
+
+window.waystone {
+  background-color: #06070b;
+  color: #eef1f6;
+}
+
+/* ---------- Backgrounds (cross-faded by a GtkStack) ---------- */
+
+.bg-forever {
+  background-color: #04110d;
+  background-image:
+    radial-gradient(circle farthest-side at 78% 18%, rgba(53, 224, 161, 0.42), transparent),
+    radial-gradient(circle farthest-side at 55% 0%, rgba(140, 95, 255, 0.30), transparent),
+    radial-gradient(circle farthest-side at 95% 85%, rgba(40, 140, 255, 0.22), transparent),
+    linear-gradient(165deg, #062019, #04090c 70%);
+}
+
+.bg-retail {
+  background-color: #050a1a;
+  background-image:
+    radial-gradient(circle farthest-side at 80% 22%, rgba(61, 139, 255, 0.45), transparent),
+    radial-gradient(circle farthest-side at 100% 100%, rgba(245, 185, 66, 0.20), transparent),
+    radial-gradient(circle farthest-side at 40% 0%, rgba(120, 200, 255, 0.18), transparent),
+    linear-gradient(160deg, #0b1633, #04060d 72%);
+}
+
+.bg-classic {
+  background-color: #120a04;
+  background-image:
+    radial-gradient(circle farthest-side at 78% 26%, rgba(232, 140, 50, 0.42), transparent),
+    radial-gradient(circle farthest-side at 100% 100%, rgba(170, 40, 20, 0.30), transparent),
+    radial-gradient(circle farthest-side at 50% 0%, rgba(255, 210, 120, 0.14), transparent),
+    linear-gradient(160deg, #24150a, #080503 72%);
+}
+
+.vignette {
+  background-image:
+    linear-gradient(to right, rgba(5, 6, 10, 0.92) 0%, rgba(5, 6, 10, 0.55) 38%, rgba(5, 6, 10, 0.0) 72%),
+    linear-gradient(to top, rgba(5, 6, 10, 0.90) 0%, rgba(5, 6, 10, 0.0) 42%);
+}
+
+/* ---------- Header bar ---------- */
+
+.ws-header {
+  background: none;
+  box-shadow: none;
+  color: #eef1f6;
+}
+
+.ws-header button {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  background-color: rgba(8, 10, 16, 0.55);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 22px 14px 18px 14px;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: #ffffff;
+}
+
+.brand-mark {
+  color: var(--ws-accent);
+  font-size: 22px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.40);
+  margin: 20px 6px 6px 6px;
+}
+
+button.game-tile {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  transition: background 200ms ease, border-color 200ms ease, box-shadow 250ms ease;
+  color: #eef1f6;
+}
+
+button.game-tile:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+button.game-tile:checked {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--ws-accent);
+  box-shadow: 0 0 0 1px var(--ws-accent), 0 10px 30px var(--ws-glow);
+}
+
+.tile-name {
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.tile-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.monogram {
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 13px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.monogram.forever { background-image: linear-gradient(135deg, #3ff0b0, #1d7d8f 60%, #6b46d8); color: #031a12; }
+.monogram.retail  { background-image: linear-gradient(135deg, #5aa2ff, #1b3fa8); }
+.monogram.classic { background-image: linear-gradient(135deg, #ffcf6e, #b8641c); color: #2a1600; }
+
+.badge {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background-color: var(--ws-accent);
+  color: var(--ws-accent-ink);
+}
+
+.badge.static-forever {
+  background-color: #35e0a1;
+  color: #032418;
+}
+
+.account {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.account-dot {
+  min-width: 9px;
+  min-height: 9px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.account-dot.online {
+  background-color: #3ee08f;
+  box-shadow: 0 0 10px rgba(62, 224, 143, 0.8);
+}
+
+.account-title { font-weight: 700; font-size: 13px; }
+.account-sub { font-size: 12px; color: rgba(255, 255, 255, 0.5); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 40px 56px 44px 56px;
+}
+
+.game-kicker {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: var(--ws-accent-hi);
+}
+
+.game-title {
+  font-size: 58px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #ffffff;
+}
+
+.game-tagline {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-size: 13px;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---------- Action bar ---------- */
+
+.action-panel {
+  background-color: rgba(10, 12, 18, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+button.play-button {
+  min-height: 64px;
+  min-width: 250px;
+  padding: 0 34px;
+  border-radius: 18px 6px 6px 18px;
+  background-image: linear-gradient(180deg, var(--ws-accent-hi), var(--ws-accent) 55%);
+  color: var(--ws-accent-ink);
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  box-shadow: 0 12px 40px var(--ws-glow), inset 0 1px rgba(255, 255, 255, 0.55);
+  transition: box-shadow 250ms ease, filter 150ms ease;
+}
+
+button.play-button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 14px 54px var(--ws-glow), inset 0 1px rgba(255, 255, 255, 0.65);
+}
+
+button.play-button:active {
+  filter: brightness(0.94);
+}
+
+button.play-button:disabled {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.10));
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+}
+
+menubutton.play-more > button {
+  min-height: 64px;
+  min-width: 48px;
+  border-radius: 6px 18px 18px 6px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+menubutton.play-more > button:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.status-title {
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.status-detail {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+progressbar.ws-progress > trough {
+  min-height: 6px;
+  border-radius: 99px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+progressbar.ws-progress > trough > progress {
+  min-height: 6px;
+  border-radius: 99px;
+  background-color: var(--ws-accent);
+  box-shadow: 0 0 12px var(--ws-glow);
+}

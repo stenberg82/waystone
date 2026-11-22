@@ -1,0 +1,38 @@
+app-id: app.waystone.Waystone
+runtime: org.gnome.Platform
+runtime-version: '49'
+sdk: org.gnome.Sdk
+command: waystone
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --device=all              # GPU + controllers
+  - --allow=multiarch         # 32-bit bits used by Wine/Proton
+  - --allow=devel             # needed by pressure-vessel / umu
+  - --filesystem=~/.steam/root/compatibilitytools.d:ro
+  - --filesystem=~/.local/share/Steam/compatibilitytools.d:ro
+  - --talk-name=org.freedesktop.Notifications
+add-extensions:
+  org.freedesktop.Platform.GL32:
+    directory: lib/i386-linux-gnu/GL
+    version: '25.08'
+    versions: 25.08;25.08-extra
+    subdirectories: true
+    no-autodownload: true
+    autodelete: false
+    add-ld-path: lib
+    merge-dirs: vulkan/icd.d;glvnd/egl_vendor.d;OpenCL/vendors;lib/dri;lib/d3d;vulkan/explicit_layer.d;vulkan/implicit_layer.d
+    download-if: active-gl-driver
+    enable-if: active-gl-driver
+modules:
+  - name: waystone
+    buildsystem: simple
+    build-commands:
+      - make install PREFIX=/app
+      - mkdir -p /app/lib/i386-linux-gnu/GL
+    sources:
+      - type: dir
+        path: ../..
