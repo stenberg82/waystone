@@ -61,6 +61,27 @@ class Runner:
         full_env.update(env or {})
         cmd = [str(umu_run), str(exe), *(args or [])]
         Log.write("$ " + " ".join(cmd))
+        if on_line is None:
+            # Write straight to the log file: no pipe that could break (and
+            # take Battle.net or the game down with SIGPIPE) if Waystone quits.
+            paths.ensure_dirs()
+            logfile = open(paths.LOG_FILE, "a", encoding="utf-8", errors="replace")
+            proc = subprocess.Popen(cmd, env=full_env, stdout=logfile, stderr=subprocess.STDOUT,
+                                    stdin=subprocess.DEVNULL, start_new_session=True)
+            logfile.close()
+            self.procs.append(proc)
+
+            def wait() -> None:
+                rc = proc.wait()
+                Log.write(f"process exited with {rc}")
+                if proc in self.procs:
+                    self.procs.remove(proc)
+                if on_exit:
+                    on_exit(rc)
+
+            threading.Thread(target=wait, daemon=True).start()
+            return proc
+
         proc = subprocess.Popen(
             cmd,
             env=full_env,

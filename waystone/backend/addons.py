@@ -339,8 +339,11 @@ def _pick_asset(release: dict, game: games.Game) -> dict:
             for e in entries:
                 if matches(e, lambda m: int(m.get("interface", 0)) // 100 == iface // 100):
                     return by_name[e["filename"]]
+        # Patch day: the addon may not list the brand-new minor version yet,
+        # so accept the right flavour from the same major version.
         for e in entries:
-            if matches(e, lambda m: str(m.get("flavor", "")).lower() in flavors):
+            if matches(e, lambda m: str(m.get("flavor", "")).lower() in flavors
+                       and (not iface or int(m.get("interface", 0)) // 10000 == iface // 10000)):
                 return by_name[e["filename"]]
         raise NotSupported(f"This addon has no release for {game.short}.")
 
@@ -400,3 +403,15 @@ def update(game: games.Game, addon: Addon, progress: net.Progress | None = None)
         if target.is_dir():
             shutil.rmtree(target)
     return new
+
+
+def supports(flavor_map: dict[str, list[int]], game: games.Game, interface: int | None) -> bool:
+    """Index entry compatibility, using the same rule as installing."""
+    names = PACKAGER_FLAVORS.get(game.id, ())
+    for flavor, ifaces in flavor_map.items():
+        for i in ifaces:
+            if interface and i // 100 == interface // 100:
+                return True
+            if flavor in names and (not interface or i // 10000 == interface // 10000):
+                return True
+    return False

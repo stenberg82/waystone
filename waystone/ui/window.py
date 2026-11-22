@@ -338,6 +338,9 @@ class MainWindow(Adw.ApplicationWindow):
 
         self.progress.set_visible(False)
         g = self.game
+        if self.launcher.launch_error:
+            self.toast(self.launcher.launch_error)
+            self.launcher.launch_error = None
         self.state = self.launcher.state(g)
         S = State
         table = {
@@ -359,7 +362,8 @@ class MainWindow(Adw.ApplicationWindow):
             S.UPDATING: (f"Updating {g.short}", "Battle.net is downloading an update.",
                          "UPDATING", False, True),
             S.READY: ("Ready to play", g.name, "PLAY", True, False),
-            S.LAUNCHING: ("Starting…", "Battle.net is launching the game.", "STARTING", False, True),
+            S.LAUNCHING: ("Starting…", "Signing in to Battle.net in the background and launching the game.",
+                          "STARTING", False, True),
             S.RUNNING: ("Playing", "Have fun in Azeroth!", "PLAYING", False, False),
         }
         title, detail, label, enabled, spinner = table[self.state]

@@ -1,0 +1,6865 @@
+{
+ "generated": "2026-11-22T14:03:53+00:00",
+ "addons": [
+  {
+   "repo": "WeakAuras/WeakAuras2",
+   "name": "WeakAuras2",
+   "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
+   "stars": 1449,
+   "updated": "2026-10-10T17:21:31Z",
+   "version": "5.22.1",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Questie/Questie",
+   "name": "Questie",
+   "description": "Questie: The WoW Classic quest helper",
+   "stars": 1170,
+   "updated": "2026-11-21T17:09:44Z",
+   "version": "bundle/v12.12.0+v1.1.4",
+   "games": [
+    "classic",
+    "forever"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "wrath": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DeadlyBossMods",
+   "name": "DeadlyBossMods",
+   "description": "The ultimate encounter helper to give you fight info that's easy to process at a glance. DBM aims to focus on what's happening to you, and what YOU need to do about it.",
+   "stars": 284,
+   "updated": "2026-11-22T09:48:27Z",
+   "version": "12.1.24",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs",
+   "name": "BigWigs",
+   "description": "Modular and lightweight approach to providing you with the tools you need to beat any boss encounter.",
+   "stars": 277,
+   "updated": "2026-11-22T02:12:41Z",
+   "version": "v428.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "oUF-wow/oUF",
+   "name": "oUF",
+   "description": "WoW AddOn - Unit frame framework.",
+   "stars": 239,
+   "updated": "2026-11-14T16:10:54Z",
+   "version": "14.3.1",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "enderneko/Cell",
+   "name": "Cell",
+   "description": "A World of Warcraft raid frame addon.",
+   "stars": 216,
+   "updated": "2026-01-22T11:17:15Z",
+   "version": "r274-release",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     110207
+    ],
+    "mists": [
+     50503
+    ],
+    "titan": [
+     38000
+    ]
+   }
+  },
+  {
+   "repo": "SavedInstances/SavedInstances",
+   "name": "SavedInstances",
+   "description": "Addon that keeps track of the instance/raid lockouts saved against your characters, and related currencies and cooldowns.",
+   "stars": 151,
+   "updated": "2026-09-03T18:38:05Z",
+   "version": "12.1.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "NoM0Re/WeakAuras-WotLK",
+   "name": "WeakAuras-WotLK",
+   "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
+   "stars": 121,
+   "updated": "2026-11-21T06:20:33Z",
+   "version": "5.22.1-dc4b1108",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "wrath": [
+     30305
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/LittleWigs",
+   "name": "LittleWigs",
+   "description": "Boss warnings for 5-man dungeons & scenarios.",
+   "stars": 116,
+   "updated": "2026-11-04T18:52:31Z",
+   "version": "v12.1.23",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "ascott18/TellMeWhen",
+   "name": "TellMeWhen",
+   "description": "TellMeWhen is a combat tracking AddOn for World of Warcraft Retail and Classic",
+   "stars": 108,
+   "updated": "2026-10-12T16:28:50Z",
+   "version": "12.1.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "tullamods/OmniCC",
+   "name": "OmniCC",
+   "description": "Cooldown count for everything",
+   "stars": 107,
+   "updated": "2025-12-14T21:07:04Z",
+   "version": "11.2.8",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     110207
+    ],
+    "mists": [
+     50503
+    ],
+    "titan": [
+     38000
+    ]
+   }
+  },
+  {
+   "repo": "RealUI/RealUI",
+   "name": "RealUI",
+   "description": "A minimalistic UI for World of Warcraft designed to be functional, yet also efficient and elegant.",
+   "stars": 86,
+   "updated": "2026-11-21T03:32:08Z",
+   "version": "4.2.8",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "kesava-wow/kuinameplates2",
+   "name": "kuinameplates2",
+   "description": "Prettier nameplates.",
+   "stars": 84,
+   "updated": "2025-07-08T20:14:28Z",
+   "version": "2.29.20",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11501
+    ],
+    "mainline": [
+     100207,
+     110000,
+     110002
+    ],
+    "mists": [
+     50500
+    ]
+   }
+  },
+  {
+   "repo": "0xbs/premade-groups-filter",
+   "name": "premade-groups-filter",
+   "description": "A World of Warcraft addon for powerful filtering of premade group listings.",
+   "stars": 84,
+   "updated": "2026-10-19T18:16:34Z",
+   "version": "7.6.5",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "tullamods/Dominos",
+   "name": "Dominos",
+   "description": "A main actionbar replacement",
+   "stars": 83,
+   "updated": "2026-11-21T22:32:25Z",
+   "version": "12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "WowRarity/Rarity",
+   "name": "Rarity",
+   "description": "Collectibles and statistics tracking addon for World of Warcraft",
+   "stars": 74,
+   "updated": "2026-01-03T21:16:00Z",
+   "version": "r751-release",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     110207
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "wardz/ClassicCastbars",
+   "name": "ClassicCastbars",
+   "description": "[WoW] Customizable target castbars for Classic.",
+   "stars": 65,
+   "updated": "2026-07-11T16:18:02Z",
+   "version": "v1.9.1",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "raethkcj/RatingBuster",
+   "name": "RatingBuster",
+   "description": "An item comparison tool for WoW Classic.",
+   "stars": 61,
+   "updated": "2026-11-21T23:49:32Z",
+   "version": "2.10.1",
+   "games": [
+    "classic",
+    "forever"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30404
+    ]
+   }
+  },
+  {
+   "repo": "Stanzilla/AdvancedInterfaceOptions",
+   "name": "AdvancedInterfaceOptions",
+   "description": "WoW Addon that restores access to removed interface options in Legion",
+   "stars": 59,
+   "updated": "2026-09-27T17:09:29Z",
+   "version": "2.1.14",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120001,
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "IrcDirk/Carbonite-All-in-One-Retail-Classic",
+   "name": "Carbonite-All-in-One-Retail-Classic",
+   "description": "Carbonite + Modules for WoW Retail and Classic",
+   "stars": 57,
+   "updated": "2026-11-15T23:28:28Z",
+   "version": "v12.1.0-00024",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "kurapica/Scorpio",
+   "name": "Scorpio",
+   "description": "Scorpio Addon FrameWork for World of Warcraft",
+   "stars": 57,
+   "updated": "2026-11-16T06:20:32Z",
+   "version": "265",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20504
+    ],
+    "cata": [
+     40400
+    ],
+    "classic": [
+     11503
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50500
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/SexyMap",
+   "name": "SexyMap",
+   "description": "Spice up your minimap in World of Warcraft with some sexy options.",
+   "stars": 57,
+   "updated": "2026-11-05T18:57:52Z",
+   "version": "v12.1.7",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque",
+   "name": "Masque",
+   "description": "A button-skinning engine for World of Warcraft.",
+   "stars": 54,
+   "updated": "2026-11-02T17:54:22Z",
+   "version": "12.1.8",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BugSack",
+   "name": "BugSack",
+   "description": "A simple display for collected errors in World of Warcraft.",
+   "stars": 47,
+   "updated": "2026-10-26T19:16:41Z",
+   "version": "v12.1.9",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Snakybo/Clicked",
+   "name": "Clicked",
+   "description": "A keybind management addon for World of Warcraft.",
+   "stars": 46,
+   "updated": "2026-11-06T10:27:20Z",
+   "version": "v1.19.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Bodify/BetterBlizzPlates",
+   "name": "BetterBlizzPlates",
+   "description": "Standard Blizzard nameplates with more features and easy settings",
+   "stars": 44,
+   "updated": "2026-11-20T00:11:11Z",
+   "version": "v2.2.5c",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38000,
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "RaiderIO/raiderio-addon",
+   "name": "raiderio-addon",
+   "description": "RaiderIO AddOn",
+   "stars": 44,
+   "updated": "2026-11-22T07:43:15Z",
+   "version": "v202611220600",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "silverwind/idTip",
+   "name": "idTip",
+   "description": "WoW Addon: Adds IDs to the ingame tooltips",
+   "stars": 43,
+   "updated": "2026-11-11T22:22:17Z",
+   "version": "12.1.10",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120001,
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Syiana/SUI",
+   "name": "SUI",
+   "description": "SUI - The Dark Side of World of Warcraft",
+   "stars": 42,
+   "updated": "2025-03-04T10:47:20Z",
+   "version": "11.0.38",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110100
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/Capping",
+   "name": "Capping",
+   "description": "Battleground timers and other PvP features.",
+   "stars": 34,
+   "updated": "2026-11-19T23:58:45Z",
+   "version": "v12.1.10",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-Dungeons",
+   "name": "DBM-Dungeons",
+   "description": "This mod will add support for 5 man Dungeons and World Events, spanning Classic all the way to Dragonflight, to Deadly Boss Mods (DBM).",
+   "stars": 33,
+   "updated": "2026-11-22T09:52:19Z",
+   "version": "r273",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "spartanui-wow/SpartanUI",
+   "name": "SpartanUI",
+   "description": "SpartanUI",
+   "stars": 32,
+   "updated": "2026-11-15T04:25:30Z",
+   "version": "9.0.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Kiatra/BlizzMove",
+   "name": "BlizzMove",
+   "description": "World of Warcraft add-on to make the default windows movable via drag & drop.",
+   "stars": 31,
+   "updated": "2026-11-07T13:35:07Z",
+   "version": "v3.8.8",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy",
+   "name": "BadBoy",
+   "description": "A simple spam blocker & reporter for World of Warcraft.",
+   "stars": 27,
+   "updated": "2026-10-23T00:11:37Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "NumyAddon/MacroToolkit",
+   "name": "MacroToolkit",
+   "description": "https://www.curseforge.com/wow/addons/macro-toolkit",
+   "stars": 27,
+   "updated": "2026-10-14T09:11:53Z",
+   "version": "v2.3.53",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "mooreatv/AuctionDB",
+   "name": "AuctionDB",
+   "description": "Wow (classic) Auction Database addon",
+   "stars": 25,
+   "updated": "2026-11-18T19:31:30Z",
+   "version": "v2.8.1",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "parnic/ice-hud",
+   "name": "ice-hud",
+   "description": "IceHUD addon for World of Warcraft",
+   "stars": 25,
+   "updated": "2026-11-21T16:39:57Z",
+   "version": "v1.17.32",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Wetxius/ShestakUI",
+   "name": "ShestakUI",
+   "description": "Repositories for ShestakUI",
+   "stars": 25,
+   "updated": "2026-10-14T09:10:18Z",
+   "version": "11.2.6",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "mooreatv/BetterVendorPrice",
+   "name": "BetterVendorPrice",
+   "description": "Vendor price with stack information to make better decisions (WoW Classic, BC and Shadowlands)",
+   "stars": 24,
+   "updated": "2026-11-17T23:45:08Z",
+   "version": "v2.1.4",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "eltreum0/eltruism",
+   "name": "eltruism",
+   "description": "An ElvUI Plugin containing many features not available in ElvUI alongside DPS/Tank/Healer profiles and settings for other addons",
+   "stars": 24,
+   "updated": "2026-11-20T22:20:03Z",
+   "version": "v5.2.2.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Kiatra/Arcana",
+   "name": "Arcana",
+   "description": "Arcana, a World of Warcraft mod to displays information in customizable panels. Extendable via broker plugins.",
+   "stars": 23,
+   "updated": "2026-05-20T13:36:07Z",
+   "version": "v5.4.3",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120005,
+     120007
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "ynazar1/Arh",
+   "name": "Arh",
+   "description": "WoW Archaeology Helper addon",
+   "stars": 23,
+   "updated": "2026-06-22T01:22:22Z",
+   "version": "2.1.0-1207",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402,
+     40403
+    ],
+    "mainline": [
+     120007,
+     120100
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/oRA3",
+   "name": "oRA3",
+   "description": "Raid and Party Assist.",
+   "stars": 23,
+   "updated": "2026-10-22T20:45:03Z",
+   "version": "v12.1.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "evil-morfar/RCLootCouncil2",
+   "name": "RCLootCouncil2",
+   "description": "RCLootCouncil - addon for World of Warcraft",
+   "stars": 23,
+   "updated": "2026-11-06T18:52:58Z",
+   "version": "3.25.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "NoM0Re/Cell-WotLK",
+   "name": "Cell-WotLK",
+   "description": "A World of Warcraft raid frame addon",
+   "stars": 22,
+   "updated": "2026-11-21T06:20:05Z",
+   "version": "r279-9a7fc31",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "wrath": [
+     30305
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/LibEditMode",
+   "name": "LibEditMode",
+   "description": "Library that allows integration with the Edit Mode",
+   "stars": 22,
+   "updated": "2026-11-03T15:23:56Z",
+   "version": "19",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "spamwax/EavesDrop",
+   "name": "EavesDrop",
+   "description": "WoW Addon to glance at incoming/outgoing hits & heals quickly and easily!",
+   "stars": 20,
+   "updated": "2026-01-21T02:49:50Z",
+   "version": "3.6.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "cata": [
+     40400
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120000,
+     120001
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "tullamods/tullaRange",
+   "name": "tullaRange",
+   "description": "Colors actionbuttons when out of range",
+   "stars": 20,
+   "updated": "2026-10-02T22:56:26Z",
+   "version": "12.2.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BasicMinimap",
+   "name": "BasicMinimap",
+   "description": "BasicMinimap is a basic solution to a clean, square minimap for World of Warcraft.",
+   "stars": 19,
+   "updated": "2026-10-22T13:28:40Z",
+   "version": "v12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "mooreatv/MAMA-multiboxing",
+   "name": "MAMA-multiboxing",
+   "description": "not so Minimal anymore yet Awesome Multiboxing Assistant - WoW addon",
+   "stars": 19,
+   "updated": "2026-11-17T20:52:25Z",
+   "version": "v2.21.2",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Twintop/TwintopInsanityBar",
+   "name": "TwintopInsanityBar",
+   "description": "Twintop's Resource Bar (formerly Twintop's Insanity Bar), a multi-class resource addon for World of Warcraft",
+   "stars": 19,
+   "updated": "2026-11-18T14:14:39Z",
+   "version": "12.1.5.15-release",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "tullamods/tullaCTC",
+   "name": "tullaCTC",
+   "description": "Cooldown Text Customizer",
+   "stars": 18,
+   "updated": "2026-10-11T20:05:32Z",
+   "version": "v12.1.4",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "enderneko/AbstractFramework",
+   "name": "AbstractFramework",
+   "description": "Minimalist World of Warcraft addon framework for fast, pixel-perfect UI development.",
+   "stars": 17,
+   "updated": "2026-03-13T03:11:47Z",
+   "version": "r20",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120001
+    ],
+    "mists": [
+     50503
+    ],
+    "titan": [
+     38000
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/Molinari",
+   "name": "Molinari",
+   "description": "One-click Milling, Prospecting, Disenchanting and Lockpicking!",
+   "stars": 17,
+   "updated": "2026-10-31T11:54:28Z",
+   "version": "120100.151-Release",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "exochron/MountJournalEnhanced",
+   "name": "MountJournalEnhanced",
+   "description": "This is an interface addon for World of Warcraft, which extends the ingame mount journal with some cool stuff.",
+   "stars": 17,
+   "updated": "2026-11-01T16:52:39Z",
+   "version": "2.56.2",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Xuerian/XLoot",
+   "name": "XLoot",
+   "description": "World of Warcraft addon enhancing loot related functionality",
+   "stars": 17,
+   "updated": "2026-11-20T06:10:42Z",
+   "version": "12.23.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "moody/Dejunk",
+   "name": "Dejunk",
+   "description": "Configurable junk seller and destroyer for World of Warcraft.",
+   "stars": 16,
+   "updated": "2026-11-05T00:39:05Z",
+   "version": "3.5.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Dragnogd/Instance-Achievement-Tracker",
+   "name": "Instance-Achievement-Tracker",
+   "description": "Track the completion and failure of achievements in raids and dungeons",
+   "stars": 16,
+   "updated": "2026-10-18T20:08:50Z",
+   "version": "V6.13.0-Release",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "LenweSaralonde/Musician",
+   "name": "Musician",
+   "description": "Add-on for World of Warcraft to perform music in game.",
+   "stars": 16,
+   "updated": "2026-11-21T17:15:02Z",
+   "version": "1.9.18.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/MuteSoundFile",
+   "name": "MuteSoundFile",
+   "description": "Mute sound files in World of Warcraft.",
+   "stars": 16,
+   "updated": "2026-10-22T20:51:07Z",
+   "version": "v12.1.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "mooreatv/DynamicBoxer",
+   "name": "DynamicBoxer",
+   "description": "Multiboxing with dynamic teams wow addon",
+   "stars": 15,
+   "updated": "2025-08-06T00:06:02Z",
+   "version": "v3.15.2",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     110200
+    ],
+    "mists": [
+     50500
+    ],
+    "wrath": [
+     30300
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/ExtraQuestButton",
+   "name": "ExtraQuestButton",
+   "description": "An extra button for quest items!",
+   "stars": 15,
+   "updated": "2026-10-31T11:56:23Z",
+   "version": "120100.73-Release",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "Stanzilla/BindPad",
+   "name": "BindPad",
+   "description": "Personal fork of the BindPad WoW Addon",
+   "stars": 14,
+   "updated": "2025-07-22T15:57:15Z",
+   "version": "2.1.22",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110107
+    ],
+    "mists": [
+     50500
+    ]
+   }
+  },
+  {
+   "repo": "DanderBot/DandersFrames",
+   "name": "DandersFrames",
+   "description": "Customizable party and raid frame addon for World of Warcraft",
+   "stars": 14,
+   "updated": "2026-11-05T12:28:55Z",
+   "version": "v5.6.2",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Bodify/BetterBlizzFrames",
+   "name": "BetterBlizzFrames",
+   "description": "Standard Blizzard unit frames with more features and easy settings",
+   "stars": 13,
+   "updated": "2026-11-20T00:47:21Z",
+   "version": "v2.2.3c",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38000,
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "HizurosWoWAddOns/Broker_Everything",
+   "name": "Broker_Everything",
+   "description": "A collection of module to display informations about own character, friends, guild and more on minimap or panel addons like Bazooka, ChcolateBar, TitanPanel and more.",
+   "stars": 13,
+   "updated": "2026-11-21T01:09:21Z",
+   "version": "5.0.2-release",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-Vanilla",
+   "name": "DBM-Vanilla",
+   "description": "Deadly Boss Mods (DBM) - Vanilla and Season of Discovery mods (Classic and Retail)",
+   "stars": 13,
+   "updated": "2026-11-22T09:52:42Z",
+   "version": "r836",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "1onar/KeyUI",
+   "name": "KeyUI",
+   "description": "World of Warcraft addon that visualizes and manages keyboard, mouse and controller key configurations.",
+   "stars": 13,
+   "updated": "2026-11-15T18:35:46Z",
+   "version": "v4.4.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/QuickQuest",
+   "name": "QuickQuest",
+   "description": "Quest automation wizardry",
+   "stars": 13,
+   "updated": "2026-11-06T08:52:34Z",
+   "version": "120100.100-Release",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "ketho-wow/VendorPrice",
+   "name": "VendorPrice",
+   "description": "Displays the price of an item when not at a vendor",
+   "stars": 13,
+   "updated": "2026-01-23T03:30:03Z",
+   "version": "2.0.0",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BasicChatMods",
+   "name": "BasicChatMods",
+   "description": "Basic Chat Mods for World of Warcraft.",
+   "stars": 12,
+   "updated": "2026-11-15T16:21:02Z",
+   "version": "v12.1.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "PhenomDevel/BlizzHUDTweaks",
+   "name": "BlizzHUDTweaks",
+   "description": "World of Warcraft addon for WoW: Forever and Retail: fade the default Blizzard HUD by situation (combat, mouseover, target, resting) and tweak it, without replacing it.",
+   "stars": 11,
+   "updated": "2026-11-19T18:55:08Z",
+   "version": "v3.9.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "BreakBB/ExtendedCharacterStats",
+   "name": "ExtendedCharacterStats",
+   "description": "Extended Character Stats: A WoW Classic addon",
+   "stars": 11,
+   "updated": "2026-08-14T10:05:20Z",
+   "version": "v5.5.2",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "wrath": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "ZelionGG/KeystonePolaris",
+   "name": "KeystonePolaris",
+   "description": "Addon port of https://wago.io/4pHPrk9NM, and more!",
+   "stars": 11,
+   "updated": "2026-10-18T17:31:42Z",
+   "version": "3.12.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "ketho-wow/LargerMacroIconSelection",
+   "name": "LargerMacroIconSelection",
+   "description": "Shows you a much bigger icon selection frame",
+   "stars": 11,
+   "updated": "2026-01-25T01:26:29Z",
+   "version": "v1.11.0",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120000
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/LegionInvasionTimer",
+   "name": "LegionInvasionTimer",
+   "description": "Timer for the Legion Invasion in World of Warcraft.",
+   "stars": 11,
+   "updated": "2026-10-22T20:50:05Z",
+   "version": "v12.1.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "WeakAuras/LibRangeCheck-3.0",
+   "name": "LibRangeCheck-3.0",
+   "description": "A library to determine estimated range in World of Warcraft",
+   "stars": 11,
+   "updated": "2024-08-25T23:41:32Z",
+   "version": "1.0.17",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40400
+    ],
+    "classic": [
+     11403
+    ],
+    "mainline": [
+     110000,
+     110002
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/Transcriptor",
+   "name": "Transcriptor",
+   "description": "Logging utility for boss encounters.",
+   "stars": 11,
+   "updated": "2026-10-22T20:45:17Z",
+   "version": "v12.1.4",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "cjber/shortest-path-forever",
+   "name": "shortest-path-forever",
+   "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
+   "stars": 10,
+   "updated": "2026-11-22T13:49:20Z",
+   "version": "v1.45.2",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "ZelionGG/XIV_Databar-Continued",
+   "name": "XIV_Databar-Continued",
+   "description": "Continuation of XIV_Databar addon",
+   "stars": 10,
+   "updated": "2026-10-15T07:42:57Z",
+   "version": "5.9-fix1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Voice",
+   "name": "BigWigs_Voice",
+   "description": "A plugin for BigWigs that will play Text-To-Speech sounds for boss abilities.",
+   "stars": 9,
+   "updated": "2026-11-04T18:26:19Z",
+   "version": "v12.1.0.4",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "Caerdon/CaerdonWardrobe",
+   "name": "CaerdonWardrobe",
+   "description": "",
+   "stars": 9,
+   "updated": "2026-11-16T22:07:49Z",
+   "version": "v5.0.1",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     110205,
+     110207,
+     120000,
+     120001,
+     120005,
+     120007,
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-WotLK",
+   "name": "DBM-WotLK",
+   "description": "Deadly Boss Mods (DBM) - WotLK mods",
+   "stars": 9,
+   "updated": "2026-10-14T19:37:57Z",
+   "version": "r354",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/InteractiveWormholes",
+   "name": "InteractiveWormholes",
+   "description": "Shows clickable locations on the World Map when using engineering wormholes",
+   "stars": 9,
+   "updated": "2026-11-18T15:46:05Z",
+   "version": "120105.88-Release",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "Torhal/NPCScan",
+   "name": "NPCScan",
+   "description": "NPCScan helps you find NPCs by scanning nameplates, minimap vignettes, and mouseover targets.",
+   "stars": 9,
+   "updated": "2026-08-15T17:50:39Z",
+   "version": "12.1.0.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "paradosi/postal-community-edition",
+   "name": "postal-community-edition",
+   "description": "Enhanced mailbox tools for World of Warcraft.",
+   "stars": 9,
+   "updated": "2026-11-09T21:05:40Z",
+   "version": "v4.4.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50502
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "christopheml/soulshape-journal",
+   "name": "soulshape-journal",
+   "description": "World of Warcraft addon that tracks your Shadowlands soulshape collection.",
+   "stars": 9,
+   "updated": "2026-02-20T23:36:25Z",
+   "version": "1.3.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120001
+    ]
+   }
+  },
+  {
+   "repo": "BujuArena/AutoGear",
+   "name": "AutoGear",
+   "description": "WoW convenience addon that automatically handles gear looting and equipping",
+   "stars": 8,
+   "updated": "2026-10-23T10:22:57Z",
+   "version": "2026-10-23-release-2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20404,
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11507,
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     110107,
+     110200,
+     110205,
+     110207,
+     120000,
+     120001,
+     120100,
+     120105
+    ],
+    "mists": [
+     50500,
+     50501,
+     50502,
+     50503,
+     50504
+    ],
+    "titan": [
+     38000,
+     38002
+    ],
+    "wrath": [
+     30404,
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "cloudbells/AutoLoggerClassic",
+   "name": "AutoLoggerClassic",
+   "description": "A World of Warcraft: Classic addon for automatically triggering combat logging on and off in raids and/or dungeons.",
+   "stars": 8,
+   "updated": "2026-08-03T16:23:02Z",
+   "version": "v2.2.10-release",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "Ny0n/Nys_ToDoList",
+   "name": "Nys_ToDoList",
+   "description": "WoW addon that creates a simple in-game To-Do list",
+   "stars": 8,
+   "updated": "2026-10-27T22:12:23Z",
+   "version": "7.5.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "mooreatv/PixelPerfectAlign",
+   "name": "PixelPerfectAlign",
+   "description": "Pixel perfect alignment and measuring tape WoW addon",
+   "stars": 8,
+   "updated": "2025-08-06T01:02:01Z",
+   "version": "v1.16.0",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     110200
+    ],
+    "mists": [
+     50500
+    ]
+   }
+  },
+  {
+   "repo": "hastecraft/super-tweaks",
+   "name": "super-tweaks",
+   "description": "Opinionated and highly optimized quality-of-life tweaks for WoW Forever in one neat package.",
+   "stars": 8,
+   "updated": "2026-11-19T19:34:39Z",
+   "version": "v4.11.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "exochron/ToyBoxEnhanced",
+   "name": "ToyBoxEnhanced",
+   "description": "an interface addon for World of Warcraft and its ingame toy box",
+   "stars": 8,
+   "updated": "2026-10-07T16:24:21Z",
+   "version": "2.38.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "NinerBull/AccWideUILayoutSelection",
+   "name": "AccWideUILayoutSelection",
+   "description": "WoW Addon - Synchronises various Character-Specific Interface Settings Account Wide.",
+   "stars": 7,
+   "updated": "2026-10-27T22:53:04Z",
+   "version": "v2.5.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "KyrosKrane/AnnoyingPopupRemover",
+   "name": "AnnoyingPopupRemover",
+   "description": "World of Warcraft addon to remove some annoying popups in the game",
+   "stars": 7,
+   "updated": "2026-11-15T17:56:07Z",
+   "version": "v28.2.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "Bestride/BeStride",
+   "name": "BeStride",
+   "description": "A WoW mount manager based off Yay! Mounts",
+   "stars": 7,
+   "updated": "2025-02-26T13:17:12Z",
+   "version": "2.0.25",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40400
+    ],
+    "classic": [
+     11403
+    ],
+    "mainline": [
+     110100
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/BonusRollPreview",
+   "name": "BonusRollPreview",
+   "description": "Easily see what the bonus loot roll can yield",
+   "stars": 7,
+   "updated": "2026-06-13T17:38:23Z",
+   "version": "120000.54-Release",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120005,
+     120007
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "NoM0Re/DalaranAH",
+   "name": "DalaranAH",
+   "description": "DalaranAH adds a small, movable button for fast interaction with the Engineering Auction House NPC in Dalaran. Click to target the NPC, open the Auction House using Blizzard Interact keybinds, and select the gossip. Lightweight and unobtrusive.",
+   "stars": 7,
+   "updated": "2026-09-09T03:09:19Z",
+   "version": "1.3.1",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30300
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-PvP",
+   "name": "DBM-PvP",
+   "description": "This mod adds support for PvP battlegrounds and arena to Deadly Boss Mods.",
+   "stars": 7,
+   "updated": "2026-10-18T18:34:55Z",
+   "version": "r194",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "mundi4/debind",
+   "name": "debind",
+   "description": "Layered keybindings for World of Warcraft. Set a key once for every character, then override it on one class, one spec, or a single alt.",
+   "stars": 7,
+   "updated": "2026-10-11T03:34:36Z",
+   "version": "v4.2",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120000,
+     120001,
+     120005,
+     120007,
+     120100,
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "HizurosWoWAddOns/FarmHud",
+   "name": "FarmHud",
+   "description": "Turn your minimap into a hud for farming ore / herb.",
+   "stars": 7,
+   "updated": "2026-11-07T20:16:04Z",
+   "version": "11.0.0-release",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Oppzippy/GlobalSearch",
+   "name": "GlobalSearch",
+   "description": "World of Warcraft addon that provides a global search, similar to what you'd find in an IDE.",
+   "stars": 7,
+   "updated": "2026-11-06T22:31:52Z",
+   "version": "v0.23.30",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "hascat/HearthRoulette",
+   "name": "HearthRoulette",
+   "description": "Hearth using a random Hearthstone toy, item, or spell! Download the latest release from Curseforge, Twitch, WowInterface or right here on GitHub!",
+   "stars": 7,
+   "updated": "2026-04-07T14:06:06Z",
+   "version": "v36",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120000
+    ]
+   }
+  },
+  {
+   "repo": "PhenomDevel/PhenomRaidTools",
+   "name": "PhenomRaidTools",
+   "description": "World of Warcraft addon for Midnight and WoW: Forever: plan per boss which player sees which message or cooldown when, on a timeline, and sync the plan to your group before the pull.",
+   "stars": 7,
+   "updated": "2026-11-10T23:02:18Z",
+   "version": "v3.3.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "martinbjeldbak/Shotta",
+   "name": "Shotta",
+   "description": "World of Warcraft addon to take screenshots at specific events",
+   "stars": 7,
+   "updated": "2026-11-15T04:45:26Z",
+   "version": "v2.9.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "gsnerf/Baud-Bag",
+   "name": "Baud-Bag",
+   "description": "WoW bag addon",
+   "stars": 6,
+   "updated": "2026-11-13T20:41:26Z",
+   "version": "v12.1.5.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "WoW-Addons-Reforged/Factionizer",
+   "name": "Factionizer",
+   "description": "Ultimate multi-version Reputation, Renown, Paragon & Friendship tracker for World of Warcraft (Classic to Midnight 12.x) — featuring a Modern Dark-Gold UI, live bag/bank/quest preview bars, interactive LDB tooltips, and complete faction guides.",
+   "stars": 6,
+   "updated": "2026-11-14T07:08:00Z",
+   "version": "v7.0.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "CvCn/InputInput",
+   "name": "InputInput",
+   "description": "World of Warcraft addon",
+   "stars": 6,
+   "updated": "2026-11-18T12:09:46Z",
+   "version": "v1.1.5-release-03",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40401,
+     40402
+    ],
+    "classic": [
+     11506,
+     11507,
+     11509
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405,
+     30406
+    ]
+   }
+  },
+  {
+   "repo": "NumyAddon/LibTalentTree-1.0",
+   "name": "LibTalentTree-1.0",
+   "description": "A library that provides an interface for accessing talent trees and talent node information",
+   "stars": 6,
+   "updated": "2026-10-14T09:11:50Z",
+   "version": "v1.7.2",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "NephMakes/NeedToKnow",
+   "name": "NeedToKnow",
+   "description": "Timer bar addon for World of Warcraft",
+   "stars": 6,
+   "updated": "2025-10-11T16:13:27Z",
+   "version": "v4.7.9",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     110205
+    ],
+    "mists": [
+     50501
+    ]
+   }
+  },
+  {
+   "repo": "Limmek/PersonalPlayerNotes",
+   "name": "PersonalPlayerNotes",
+   "description": "Set a personal comment on players and adding it to player information tooltip.",
+   "stars": 6,
+   "updated": "2026-11-18T22:59:00Z",
+   "version": "1.1.8",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "NumyAddon/TalentTreeTweaks",
+   "name": "TalentTreeTweaks",
+   "description": "",
+   "stars": 6,
+   "updated": "2026-10-14T09:12:05Z",
+   "version": "v1.14.4",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "ViksUI/ViksUI",
+   "name": "ViksUI",
+   "description": "Repositories for ViksUI",
+   "stars": 6,
+   "updated": "2026-10-03T10:41:23Z",
+   "version": "12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007,
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "Talryn/AutoCombatLogger",
+   "name": "AutoCombatLogger",
+   "description": "WoW addon that automatically enables or disables combat logging based on location.",
+   "stars": 5,
+   "updated": "2026-10-30T02:10:48Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100,
+     120105
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy_CCleaner",
+   "name": "BadBoy_CCleaner",
+   "description": "Filter crap from your chat in World of Warcraft.",
+   "stars": 5,
+   "updated": "2026-10-23T00:03:17Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_CommonAuras",
+   "name": "BigWigs_CommonAuras",
+   "description": "Displays messages and bars for common raid cooldowns.",
+   "stars": 5,
+   "updated": "2025-09-02T17:10:18Z",
+   "version": "v11.2.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110105,
+     110107,
+     110200
+    ]
+   }
+  },
+  {
+   "repo": "zerbiniandrea/BuffReminders",
+   "name": "BuffReminders",
+   "description": "Track missing buffs at a glance",
+   "stars": 5,
+   "updated": "2026-11-16T17:26:57Z",
+   "version": "v6.11.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "WoW-Addons-Reforged/GuildGreet-Extended",
+   "name": "GuildGreet-Extended",
+   "description": "A Greeting Addon for WoW",
+   "stars": 5,
+   "updated": "2026-11-18T08:59:18Z",
+   "version": "v13.2.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20504,
+     20505
+    ],
+    "cata": [
+     40400,
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120000,
+     120002,
+     120105
+    ],
+    "mists": [
+     50500,
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "ketho-wow/OwoSpeak",
+   "name": "OwoSpeak",
+   "description": "uwu",
+   "stars": 5,
+   "updated": "2026-02-17T05:57:20Z",
+   "version": "2.0.2",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120001
+    ],
+    "mists": [
+     50503
+    ]
+   }
+  },
+  {
+   "repo": "tflo/PetWalker",
+   "name": "PetWalker",
+   "description": "WoW Retail addon. Automatically restores your lost companion pet or/and periodically auto-summons a new one from a configurable pool. Can be set to work globally (same pet(s) for all alts), or per char.",
+   "stars": 5,
+   "updated": "2026-11-13T19:07:42Z",
+   "version": "3.1.3",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BasicBuffs",
+   "name": "BasicBuffs",
+   "description": "Allows you to move the default buff frame in World of Warcraft.",
+   "stars": 4,
+   "updated": "2026-07-16T01:13:05Z",
+   "version": "v12.0.3",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "mainline": [
+     120005,
+     120007,
+     120100
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38001
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BFAInvasionTimer",
+   "name": "BFAInvasionTimer",
+   "description": "Timer for the BfA Invasion/Assaults in World of Warcraft.",
+   "stars": 4,
+   "updated": "2026-10-22T20:36:14Z",
+   "version": "v12.1.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Classic",
+   "name": "BigWigs_Classic",
+   "description": "A collection of BigWigs modules from the Classic era.",
+   "stars": 4,
+   "updated": "2026-11-04T22:49:10Z",
+   "version": "v12.1.3",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_MistsOfPandaria",
+   "name": "BigWigs_MistsOfPandaria",
+   "description": "A collection of BigWigs modules from the Mists of Pandaria era.",
+   "stars": 4,
+   "updated": "2026-11-04T18:21:01Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_WrathOfTheLichKing",
+   "name": "BigWigs_WrathOfTheLichKing",
+   "description": "A collection of BigWigs modules from the Wrath of the Lich King era.",
+   "stars": 4,
+   "updated": "2026-11-04T18:28:34Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-Cataclysm",
+   "name": "DBM-Cataclysm",
+   "description": "Deadly Boss Mods (DBM) - Cataclysm mods",
+   "stars": 4,
+   "updated": "2026-10-14T19:44:12Z",
+   "version": "r264",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-Legion",
+   "name": "DBM-Legion",
+   "description": "Deadly Boss Mods (DBM) - Legion mods",
+   "stars": 4,
+   "updated": "2026-10-26T17:34:07Z",
+   "version": "r69",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-MoP",
+   "name": "DBM-MoP",
+   "description": "Deadly Boss Mods (DBM) - MoP mods",
+   "stars": 4,
+   "updated": "2026-10-14T19:38:59Z",
+   "version": "r192",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "DeadlyBossMods/DBM-SoundEventsPack",
+   "name": "DBM-SoundEventsPack",
+   "description": "Several media files for DBM encounter Event feature.",
+   "stars": 4,
+   "updated": "2026-10-14T19:40:11Z",
+   "version": "1.6.46",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BreakBB/DisenchantBuddy",
+   "name": "DisenchantBuddy",
+   "description": "Disenchant Buddy is a lightweight World of Warcraft addon that displays disenchant results on item tooltips.",
+   "stars": 4,
+   "updated": "2026-11-15T23:33:31Z",
+   "version": "v2.9.0",
+   "games": [
+    "classic",
+    "forever"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "wrath": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/ErrorMonster",
+   "name": "ErrorMonster",
+   "description": "Redirect character errors, system messages and information messages in World of Warcraft.",
+   "stars": 4,
+   "updated": "2026-10-22T20:39:41Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Torhal/Frenemy",
+   "name": "Frenemy",
+   "description": "A combined Friends List and Guild display for World of Warcraft",
+   "stars": 4,
+   "updated": "2026-08-12T15:18:59Z",
+   "version": "12.1.0.3",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "CruelDrool/GuildRosterExport",
+   "name": "GuildRosterExport",
+   "description": "World of Warcraft addon for exporting the guild roster to CSV, HTML, JSON, MD, XML or YAML.",
+   "stars": 4,
+   "updated": "2026-11-07T17:46:54Z",
+   "version": "2.2.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107,
+     120200,
+     120205,
+     120207
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Caith",
+   "name": "Masque_Caith",
+   "description": "Caith skin for Masque.",
+   "stars": 4,
+   "updated": "2026-11-02T18:52:50Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "MelloCro/MelloUI",
+   "name": "MelloUI",
+   "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
+   "stars": 4,
+   "updated": "2026-11-22T09:49:00Z",
+   "version": "v2.1.71",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "will0w7/MoneyLooter",
+   "name": "MoneyLooter",
+   "description": "MoneyLooter - Loot and Gold Farm Tracker Addon for World of Warcraft",
+   "stars": 4,
+   "updated": "2026-10-15T12:10:07Z",
+   "version": "2.1.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100,
+     120105
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "NumyAddon/NoAutoClose",
+   "name": "NoAutoClose",
+   "description": "",
+   "stars": 4,
+   "updated": "2026-10-14T09:12:01Z",
+   "version": "v1.3.47",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/oUF_Experience",
+   "name": "oUF_Experience",
+   "description": "Experience Bar support for oUF layouts.",
+   "stars": 4,
+   "updated": "2024-07-23T20:16:41Z",
+   "version": "110000.33-Release",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110000,
+     110002
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/oUF_Reputation",
+   "name": "oUF_Reputation",
+   "description": "Reputation Bar support for oUF layouts",
+   "stars": 4,
+   "updated": "2024-07-23T20:15:57Z",
+   "version": "110000.23-Release",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110000,
+     110002
+    ]
+   }
+  },
+  {
+   "repo": "0xbs/premade-applicants-filter",
+   "name": "premade-applicants-filter",
+   "description": "Allows filtering of premade applicants using advanced filter expressions.",
+   "stars": 4,
+   "updated": "2026-10-19T18:45:44Z",
+   "version": "3.0.7",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "solocommand/Scoreboard",
+   "name": "Scoreboard",
+   "description": "Scoreboard (formerly TitanPoints) is an interface add-on for World of Warcraft that displays in-game currency amounts.",
+   "stars": 4,
+   "updated": "2026-01-21T21:03:59Z",
+   "version": "12.0.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120000,
+     120001
+    ]
+   }
+  },
+  {
+   "repo": "cybertk/WeeklyRewards",
+   "name": "WeeklyRewards",
+   "description": "WoW addon for keeping track of the weekly rewards progress accross all your characters.",
+   "stars": 4,
+   "updated": "2026-11-19T18:47:15Z",
+   "version": "v1.98",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "nrpieper/wow-misspelled",
+   "name": "wow-misspelled",
+   "description": "World of Warcraft addon: Misspelled is a chat spell-checker addon. Misspelled watches the chat messages you type, highlighting any misspellings and offering suggestions for any misspelled words it finds.",
+   "stars": 4,
+   "updated": "2026-01-25T18:24:16Z",
+   "version": "1.20.0",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120000,
+     120001
+    ],
+    "mists": [
+     50503
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Eyal-WowHub/WowInfo",
+   "name": "WowInfo",
+   "description": "Provides game and character information.",
+   "stars": 4,
+   "updated": "2026-06-23T01:08:57Z",
+   "version": "3.6.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "jianfan221/AddUI",
+   "name": "AddUI",
+   "description": "",
+   "stars": 3,
+   "updated": "2026-11-21T17:26:17Z",
+   "version": "20261122",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy_Guilded",
+   "name": "BadBoy_Guilded",
+   "description": "Removes guild advertising from public channels in World of Warcraft.",
+   "stars": 3,
+   "updated": "2026-10-23T00:03:43Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy_History",
+   "name": "BadBoy_History",
+   "description": "Log all chat that's removed by the various BadBoy addons in World of Warcraft.",
+   "stars": 3,
+   "updated": "2026-10-23T00:12:59Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy_Levels",
+   "name": "BadBoy_Levels",
+   "description": "Filter whispers by level in World of Warcraft.",
+   "stars": 3,
+   "updated": "2026-10-23T23:22:11Z",
+   "version": "v12.1.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "N6REJ/Bears_Audio_Switcher",
+   "name": "Bears_Audio_Switcher",
+   "description": "Quick audio switcher for WOW",
+   "stars": 3,
+   "updated": "2026-11-06T10:52:11Z",
+   "version": "2026.11.06",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_BattleForAzeroth",
+   "name": "BigWigs_BattleForAzeroth",
+   "description": "A collection of BigWigs modules from the Battle for Azeroth era.",
+   "stars": 3,
+   "updated": "2026-11-04T18:13:01Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Cataclysm",
+   "name": "BigWigs_Cataclysm",
+   "description": "A collection of BigWigs modules from the Cataclysm era.",
+   "stars": 3,
+   "updated": "2026-11-04T18:05:50Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Legion",
+   "name": "BigWigs_Legion",
+   "description": "A collection of BigWigs modules from the Legion era.",
+   "stars": 3,
+   "updated": "2026-11-04T18:19:30Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_WarlordsOfDraenor",
+   "name": "BigWigs_WarlordsOfDraenor",
+   "description": "A collection of BigWigs modules from the Warlords of Draenor era.",
+   "stars": 3,
+   "updated": "2026-11-04T18:26:46Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "NephMakes/Engraved",
+   "name": "Engraved",
+   "description": "Stylish class resource display for World of Warcraft",
+   "stars": 3,
+   "updated": "2025-10-18T12:01:38Z",
+   "version": "v2.4.3",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     110205
+    ],
+    "mists": [
+     50501
+    ]
+   }
+  },
+  {
+   "repo": "exochron/Favorite-Contacts",
+   "name": "Favorite-Contacts",
+   "description": "This is an interface addon for World of Warcraft, which adds more buttons to the mailbox to easily access to your favorite contacts",
+   "stars": 3,
+   "updated": "2026-11-22T07:46:12Z",
+   "version": "2.14.3",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "NoM0Re/Instance-Spell-Collector-WotLK",
+   "name": "Instance-Spell-Collector-WotLK",
+   "description": "Collect debuffs and enemy casts!",
+   "stars": 3,
+   "updated": "2026-08-31T23:04:03Z",
+   "version": "r20-606ad6a",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "wrath": [
+     30305
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Apathy",
+   "name": "Masque_Apathy",
+   "description": "Apathy skin for Masque.",
+   "stars": 3,
+   "updated": "2026-11-02T18:52:46Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Gears",
+   "name": "Masque_Gears",
+   "description": "Gears skins for Masque.",
+   "stars": 3,
+   "updated": "2026-11-02T18:52:37Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Serenity",
+   "name": "Masque_Serenity",
+   "description": "Serenity skins for Masque.",
+   "stars": 3,
+   "updated": "2026-11-02T18:52:22Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Memento",
+   "name": "Memento",
+   "description": "This is a World of Warcraft addon that automatically takes screenshots of selected gameplay moments.",
+   "stars": 3,
+   "updated": "2026-11-17T17:39:14Z",
+   "version": "v2.50",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Jordinarily/murgle",
+   "name": "murgle",
+   "description": "WoW Forever QOL Addon",
+   "stars": 3,
+   "updated": "2026-11-08T19:23:33Z",
+   "version": "v1.3.8",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "phistoh/phisHideUI",
+   "name": "phisHideUI",
+   "description": "WoW addon which hides names on hiding the UI",
+   "stars": 3,
+   "updated": "2026-02-21T10:13:41Z",
+   "version": "v1.3.18",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120001
+    ]
+   }
+  },
+  {
+   "repo": "0xbs/premade-regions",
+   "name": "premade-regions",
+   "description": "Provides region information in the premade groups and applicants listings as well as to other addons.",
+   "stars": 3,
+   "updated": "2026-10-19T18:27:24Z",
+   "version": "3.0.8",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/repbyzone",
+   "name": "repbyzone",
+   "description": "World of Warcraft AddOn that switches your watched faction by the player's zone",
+   "stars": 3,
+   "updated": "2026-09-06T19:38:59Z",
+   "version": "1.35.11",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "exochron/Scotty",
+   "name": "Scotty",
+   "description": "Scotty is your personal transportation assistant for WoW.",
+   "stars": 3,
+   "updated": "2026-10-15T17:16:01Z",
+   "version": "42",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "DustinChecketts/WideQuestLogPlus",
+   "name": "WideQuestLogPlus",
+   "description": "A World of Warcraft: Classic addon that provides a dual-pane quest log with quest levels and IDs.",
+   "stars": 3,
+   "updated": "2026-11-16T03:25:59Z",
+   "version": "v1.2.1",
+   "games": [
+    "classic",
+    "forever"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Aurarium",
+   "name": "Aurarium",
+   "description": "This is a World of Warcraft addon that tracks gold and currencies across characters.",
+   "stars": 2,
+   "updated": "2026-11-20T21:17:44Z",
+   "version": "v2.50",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Oppzippy/AutoPayout",
+   "name": "AutoPayout",
+   "description": "Quickly send out gold to many characters at once.",
+   "stars": 2,
+   "updated": "2026-11-06T23:06:19Z",
+   "version": "v2.2.26",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BasicComboPoints",
+   "name": "BasicComboPoints",
+   "description": "A numerical display of current combo points in World of Warcraft.",
+   "stars": 2,
+   "updated": "2026-10-21T21:45:35Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_BurningCrusade",
+   "name": "BigWigs_BurningCrusade",
+   "description": "A collection of BigWigs modules from the Burning Crusade era.",
+   "stars": 2,
+   "updated": "2026-11-04T23:34:08Z",
+   "version": "v12.1.12",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Transcriptor",
+   "name": "BigWigs_Transcriptor",
+   "description": "Simple addon that uses BigWigs for pull/win/wipe detection and starts or stops Transcriptor logging accordingly.",
+   "stars": 2,
+   "updated": "2026-11-04T18:23:29Z",
+   "version": "v12.1.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "NephMakes/DownInFront",
+   "name": "DownInFront",
+   "description": "Hides UI clutter in World of Warcraft",
+   "stars": 2,
+   "updated": "2025-10-18T13:36:14Z",
+   "version": "v2.4.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     110205
+    ],
+    "mists": [
+     50501
+    ]
+   }
+  },
+  {
+   "repo": "markoleptic/EncounterPlanner",
+   "name": "EncounterPlanner",
+   "description": "Assignment planning and reminder tool for mythic dungeon and raid boss encounters.",
+   "stars": 2,
+   "updated": "2026-04-22T00:19:42Z",
+   "version": "3.6.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120001,
+     120005
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Expositum",
+   "name": "Expositum",
+   "description": "This is a World of Warcraft addon that makes item tooltips more informative.",
+   "stars": 2,
+   "updated": "2026-11-17T17:39:14Z",
+   "version": "v2.44",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Ravendwyr/HandyNotes_HallowsEnd",
+   "name": "HandyNotes_HallowsEnd",
+   "description": "WoW Addon - Marks the locations of Hallow's End candy buckets on the worldmap and minimap.",
+   "stars": 2,
+   "updated": "2026-10-22T17:23:59Z",
+   "version": "v1.6.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Ravendwyr/HandyNotes_SummerFestival",
+   "name": "HandyNotes_SummerFestival",
+   "description": "WoW Addon - Marks the locations of Midsummer Fire Festival bonfires on the worldmap and minimap.",
+   "stars": 2,
+   "updated": "2026-10-19T22:24:12Z",
+   "version": "v1.9.1",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Horatum",
+   "name": "Horatum",
+   "description": "This is a World of Warcraft addon that records the duration and results of supported boss encounters.",
+   "stars": 2,
+   "updated": "2026-11-17T17:39:07Z",
+   "version": "v2.47",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "Jademalo/JadeUI",
+   "name": "JadeUI",
+   "description": "A UI designed around the Logitech G13 that fits the style and functionality of the default UI",
+   "stars": 2,
+   "updated": "2026-11-18T16:41:14Z",
+   "version": "v3.2.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Library",
+   "name": "Library",
+   "description": "This is a World of Warcraft addon that provides the shared foundation for all Arcane Wizard addons.",
+   "stars": 2,
+   "updated": "2026-11-20T21:10:07Z",
+   "version": "v1.57",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "Snakybo/LibTalentTome",
+   "name": "LibTalentTome",
+   "description": "A WoW library to get PvP talent info from any spec.",
+   "stars": 2,
+   "updated": "2026-10-26T22:12:02Z",
+   "version": "r30",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "BellaHealFr/Lyorune",
+   "name": "Lyorune",
+   "description": "Cadres de soin pour World of Warcraft: Forever : soin d'un clic et macros, touches au survol, répartition entre soigneurs, auras en combat, défensifs et contrôles, dissipation, blessés qui ressortent, soigneurs qui boivent, mana basse, portée, buffs JcE et JcJ, profils. Simples, légers et beaux. Healing frames for WoW Forever. FR / EN.",
+   "stars": 2,
+   "updated": "2026-11-22T10:25:47Z",
+   "version": "v1.33.6",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Onyx",
+   "name": "Masque_Onyx",
+   "description": "Onyx skins for Masque.",
+   "stars": 2,
+   "updated": "2026-11-02T18:52:22Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "LenweSaralonde/MusicianList",
+   "name": "MusicianList",
+   "description": "Load and save music in game for Musician",
+   "stars": 2,
+   "updated": "2026-10-18T19:02:36Z",
+   "version": "1.17.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "NinerBull/NPCRPGossip",
+   "name": "NPCRPGossip",
+   "description": "WoW Addon - Allows hidden NPC dialog to be shown.",
+   "stars": 2,
+   "updated": "2026-10-13T21:01:26Z",
+   "version": "v1.2.57",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "arcane-wizard-dev/Percursus",
+   "name": "Percursus",
+   "description": "This is a World of Warcraft addon that tracks times in supported races, including Skyriding, Skyrocketing, and Breakneck (D.R.I.V.E.).",
+   "stars": 2,
+   "updated": "2026-11-17T17:39:16Z",
+   "version": "v2.47",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "n9ash/PetBattlePerformance",
+   "name": "PetBattlePerformance",
+   "description": "A World of Warcraft Addon to print a pet battle performance after each pet battle.",
+   "stars": 2,
+   "updated": "2026-09-27T16:51:36Z",
+   "version": "v1.8",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "DustinChecketts/PetXPBarPlus",
+   "name": "PetXPBarPlus",
+   "description": "A World of Warcraft: Classic addon that displays a mini XP bar and current level of a Hunter's active pet in the PetFrame.",
+   "stars": 2,
+   "updated": "2026-10-07T05:24:29Z",
+   "version": "v1.3.1",
+   "games": [
+    "classic",
+    "forever"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "jianfan221/PlateColor",
+   "name": "PlateColor",
+   "description": "魔兽世界姓名板插件",
+   "stars": 2,
+   "updated": "2026-11-20T21:31:54Z",
+   "version": "20261121",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120000,
+     120001,
+     120005,
+     120007,
+     120100,
+     120105
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "p3lim-wow/QuestAutomation",
+   "name": "QuestAutomation",
+   "description": "Automation for annoying quests",
+   "stars": 2,
+   "updated": "2026-06-30T16:23:52Z",
+   "version": "120000.20-Release",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007,
+     120100
+    ]
+   }
+  },
+  {
+   "repo": "brues-code/ReforgeLite",
+   "name": "ReforgeLite",
+   "description": "5.4 ReforgeLite ported for Mists of Pandaria Classic",
+   "stars": 2,
+   "updated": "2026-08-03T04:17:31Z",
+   "version": "v3.0.0",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "sahammer/SimpleWowExporters",
+   "name": "SimpleWowExporters",
+   "description": "A collection of simple exporters for World of Warcraft",
+   "stars": 2,
+   "updated": "2026-10-12T23:00:49Z",
+   "version": "gre-v1.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Oppzippy/TankMD",
+   "name": "TankMD",
+   "description": "World of Warcraft addon for easily casting Misdirection on tanks.",
+   "stars": 2,
+   "updated": "2026-10-14T00:48:02Z",
+   "version": "v3.2.15",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/TargetPercent",
+   "name": "TargetPercent",
+   "description": "Adds a health percentage to the Blizzard unit frames in World of Warcraft.",
+   "stars": 2,
+   "updated": "2026-10-22T20:55:33Z",
+   "version": "v12.1.2",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Eyal-WowHub/TooltipInfo",
+   "name": "TooltipInfo",
+   "description": "Enhances the standard tooltip with additional information and visuals.",
+   "stars": 2,
+   "updated": "2026-06-19T19:07:49Z",
+   "version": "2.6",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "hmbanan666/wow-unbored",
+   "name": "wow-unbored",
+   "description": "Bored? Bory's got a plan. WoW Retail addon + Windows Companion: Bory the cat picks what to do now from your own game data, one step at a time with map pins 🤩🧭",
+   "stars": 2,
+   "updated": "2026-11-14T10:05:09Z",
+   "version": "v0.15.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "Zottelchens-WoW-Addons/A-Deal-with-de-Loa-Bwonsamdi",
+   "name": "A-Deal-with-de-Loa-Bwonsamdi",
+   "description": "An Addon that plays Bwonsamdi voicelines when you die.",
+   "stars": 1,
+   "updated": "2026-03-16T11:16:26Z",
+   "version": "2.0.8",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120000
+    ]
+   }
+  },
+  {
+   "repo": "AvyAddons/AdiBags_Dragonflight_Crafting",
+   "name": "AdiBags_Dragonflight_Crafting",
+   "description": "Filters for Dragonflight Crafting categories in AdiBags.",
+   "stars": 1,
+   "updated": "2024-04-13T06:46:13Z",
+   "version": "v2.3.3",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     100206
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BadBoy_Ignore",
+   "name": "BadBoy_Ignore",
+   "description": "A simple and infinite ignore list to block chat from players in World of Warcraft.",
+   "stars": 1,
+   "updated": "2026-10-23T00:04:26Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "DukulWoW/BigChatBox",
+   "name": "BigChatBox",
+   "description": "An easily customizable chat input box with channel display, history, scaling, full appearance control, snippet system, auto-complete and much more.",
+   "stars": 1,
+   "updated": "2026-11-15T15:06:42Z",
+   "version": "v7.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "DukulWoW/BigNoteBox",
+   "name": "BigNoteBox",
+   "description": "BigNoteBox is a fully-featured in-game notepad addon for World of Warcraft Retail & Forever. It lets you create, organize, and surface notes without ever leaving the game. Whether you are writing down a boss strategy, tracking quest objectives, jotting down crafting materials, or keeping notes on a player, BNB gets it in front of you when needed..",
+   "stars": 1,
+   "updated": "2026-11-17T21:54:39Z",
+   "version": "v2.1.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Countdown_HeroesOfTheStorm",
+   "name": "BigWigs_Countdown_HeroesOfTheStorm",
+   "description": "Adds countdown voices from Heroes of the Storm to BigWigs.",
+   "stars": 1,
+   "updated": "2026-11-04T18:08:17Z",
+   "version": "1.4.11",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Dragonflight",
+   "name": "BigWigs_Dragonflight",
+   "description": "A collection of BigWigs modules from the Dragonflight era.",
+   "stars": 1,
+   "updated": "2026-11-04T18:09:54Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_TheWarWithin",
+   "name": "BigWigs_TheWarWithin",
+   "description": "A collection of BigWigs modules from The War Within era.",
+   "stars": 1,
+   "updated": "2026-11-04T18:22:34Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "NinerBull/BlockBlizzChatChannels",
+   "name": "BlockBlizzChatChannels",
+   "description": "WoW Addon - Block various default Chat Channels such as Trade or Services, account wide.",
+   "stars": 1,
+   "updated": "2026-10-13T21:00:59Z",
+   "version": "v1.0.21",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Oppzippy/CopyAnything",
+   "name": "CopyAnything",
+   "description": "World of Warcraft addon to copy text from any visible frame.",
+   "stars": 1,
+   "updated": "2026-11-06T23:01:42Z",
+   "version": "v1.1.51",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/feedtillers",
+   "name": "feedtillers",
+   "description": "LDB plugin showing which food each Tiller eats, quantity per day fed, and where to find each Tiller",
+   "stars": 1,
+   "updated": "2026-10-28T07:10:56Z",
+   "version": "2.1.7",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "EllisKOsborn/forever-shortroyalty",
+   "name": "forever-shortroyalty",
+   "description": "Short Royalty: a World of Warcraft: Forever addon for our guild. Browse guildmates' gear, talents, professions and recipes in game, find crafters, level your professions with Forever's own skill-up data, and plan reagents with a shopping list. Shares data only over the guild addon channel.",
+   "stars": 1,
+   "updated": "2026-11-22T13:58:12Z",
+   "version": "v0.15.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "Oppzippy/GoldStockSummary",
+   "name": "GoldStockSummary",
+   "description": "World of Warcaft addon that tracks gold across all characters on an account.",
+   "stars": 1,
+   "updated": "2026-10-14T00:49:18Z",
+   "version": "v1.7.15",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20504
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "NerdyBertie/Itemwatch",
+   "name": "Itemwatch",
+   "description": "A WoW addon for tracking item counts in your bags with movable icon+count displays",
+   "stars": 1,
+   "updated": "2026-11-09T11:12:27Z",
+   "version": "v2.3.7",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "wow-rp-addons/LibRPMedia",
+   "name": "LibRPMedia",
+   "description": "LibRPMedia provides a common database of in-game resources for use by World of Warcraft RP addons.",
+   "stars": 1,
+   "updated": "2026-01-20T17:19:09Z",
+   "version": "v1.2.15",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "classic": [
+     11508
+    ],
+    "mainline": [
+     120000,
+     120001
+    ],
+    "mists": [
+     50503
+    ],
+    "titan": [
+     38000
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Entropy",
+   "name": "Masque_Entropy",
+   "description": "Entropy skins for Masque.",
+   "stars": 1,
+   "updated": "2026-11-02T18:52:34Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_Fusion",
+   "name": "Masque_Fusion",
+   "description": "Fusion skin for Masque.",
+   "stars": 1,
+   "updated": "2026-11-02T18:52:33Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "SFX-WoW/Masque_LiteStep",
+   "name": "Masque_LiteStep",
+   "description": "Litestep skin for Masque.",
+   "stars": 1,
+   "updated": "2026-11-02T18:52:21Z",
+   "version": "12.1.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "Huijting/MidnightHelper",
+   "name": "MidnightHelper",
+   "description": "A free World of Warcraft addon that explains why, not just what: weekly planning, Great Vault advice, Delves coaching, a beginner professions course and a class keybind coach. Seven languages built in, no dependencies.",
+   "stars": 1,
+   "updated": "2026-11-21T14:44:51Z",
+   "version": "v5.7.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120007,
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "mikebronka/MouseShift",
+   "name": "MouseShift",
+   "description": "WoW Addon: Bind SHIFT/ALT/CTRL to a mouse button",
+   "stars": 1,
+   "updated": "2026-11-13T22:20:52Z",
+   "version": "v0.3.1",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "NoobTaco/NoobTacoUI",
+   "name": "NoobTacoUI",
+   "description": "The complete UI configuration, profile, and media framework, ready for Midnight.",
+   "stars": 1,
+   "updated": "2026-02-26T14:32:50Z",
+   "version": "v2.2.8",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11507
+    ],
+    "mainline": [
+     120001
+    ],
+    "mists": [
+     50500
+    ]
+   }
+  },
+  {
+   "repo": "oxedtv/OxedHub",
+   "name": "OxedHub",
+   "description": "Feature-rich World of Warcraft addon for event-driven sound triggers, custom sprite animations, floating ToyBox dock, radial ring menus, and utilities.",
+   "stars": 1,
+   "updated": "2026-11-21T19:56:22Z",
+   "version": "v2.4.76",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ],
+    "cata": [
+     40401
+    ],
+    "classic": [
+     11508
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     110100,
+     120007,
+     120100,
+     120105
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/price-answer",
+   "name": "price-answer",
+   "description": "Sends gold values of items in response to a trigger",
+   "stars": 1,
+   "updated": "2026-11-11T00:38:50Z",
+   "version": "1.48",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/SharedMedia_Noto",
+   "name": "SharedMedia_Noto",
+   "description": "Add the Noto fonts to SharedMedia addons in World of Warcraft.",
+   "stars": 1,
+   "updated": "2026-10-22T20:43:24Z",
+   "version": "v12.1.1",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "valkyrnstudios/TankBuddy",
+   "name": "TankBuddy",
+   "description": "",
+   "stars": 1,
+   "updated": "2026-05-10T01:59:40Z",
+   "version": "v3.1.3",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "bcc": [
+     20505
+    ]
+   }
+  },
+  {
+   "repo": "Cieper/wow-guild-recruitment-helper",
+   "name": "wow-guild-recruitment-helper",
+   "description": "A WoW Addon that helps with Guild Recruitment.",
+   "stars": 1,
+   "updated": "2023-05-06T12:57:58Z",
+   "version": "100100",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     100100
+    ]
+   }
+  },
+  {
+   "repo": "GTSavvy/Wowdle",
+   "name": "Wowdle",
+   "description": "Wordle as a WoW themed World of Warcraft Addon",
+   "stars": 1,
+   "updated": "2026-05-13T15:45:23Z",
+   "version": "v0.1.7",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120005
+    ]
+   }
+  },
+  {
+   "repo": "sanjaygbhat/wowforever-waypoint-tracker",
+   "name": "wowforever-waypoint-tracker",
+   "description": "WoW Forever addon: 3D waypoint arrow, /way coordinates, quest, NPC and item finder, shareable map pins and treasure alerts. TomTom-compatible.",
+   "stars": 1,
+   "updated": "2026-11-21T08:28:51Z",
+   "version": "v1.5.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
+   "repo": "funkydude/BasicBuffHide",
+   "name": "BasicBuffHide",
+   "description": "Hide the Blizzard Buff frame in World of Warcraft.",
+   "stars": 0,
+   "updated": "2026-10-22T20:44:36Z",
+   "version": "v12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Countdown_Overwatch",
+   "name": "BigWigs_Countdown_Overwatch",
+   "description": "Adds countdown voices from the heroes in Overwatch to BigWigs.",
+   "stars": 0,
+   "updated": "2026-11-04T18:09:22Z",
+   "version": "1.8.4",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
+   "repo": "BigWigsMods/BigWigs_Shadowlands",
+   "name": "BigWigs_Shadowlands",
+   "description": "A collection of BigWigs modules from the Shadowlands era.",
+   "stars": 0,
+   "updated": "2026-11-04T18:21:25Z",
+   "version": "v12.1.1",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105,
+     120107
+    ]
+   }
+  },
+  {
+   "repo": "icbat/broker-call-to-arms",
+   "name": "broker-call-to-arms",
+   "description": "A Data Broker add-on for World of Warcraft that lists which Group Finder activities are offering extra rewards right now",
+   "stars": 0,
+   "updated": "2026-06-18T00:24:46Z",
+   "version": "v22",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "WaffleBar/BurntWaffleBar",
+   "name": "BurntWaffleBar",
+   "description": "Custom bar to replace the default Blizzard MicroBar with various WoW inspired themes.",
+   "stars": 0,
+   "updated": "2026-08-01T03:48:13Z",
+   "version": "v2.6.18",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "Jademalo/Cheese",
+   "name": "Cheese",
+   "description": "A simple World of Warcraft addon that automatically takes a screenshot when you level up",
+   "stars": 0,
+   "updated": "2026-11-18T16:52:31Z",
+   "version": "v1.1.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "timulacrum/chronicler",
+   "name": "chronicler",
+   "description": "Chronicler will follow you around to screenshot your major wow events for posterity.",
+   "stars": 0,
+   "updated": "2026-03-15T01:08:31Z",
+   "version": "v1.1.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120001
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/elvui_progressive_databars_colours",
+   "name": "elvui_progressive_databars_colours",
+   "description": "Customizable colours for ElvUI's databars (Azerite, Honor, Reputation, Experience)",
+   "stars": 0,
+   "updated": "2026-11-04T01:21:37Z",
+   "version": "2.61",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "jamespanter/GladiatorShuffleBlitzWinsTracker",
+   "name": "GladiatorShuffleBlitzWinsTracker",
+   "description": "A lightweight addon for Gladiator, Shuffle & Blitz wins tracking",
+   "stars": 0,
+   "updated": "2026-10-14T13:12:33Z",
+   "version": "v1.68",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/hideminimapbutton",
+   "name": "hideminimapbutton",
+   "description": "Hides the world map toggle button on the minimap",
+   "stars": 0,
+   "updated": "2026-06-03T16:20:39Z",
+   "version": "1.5.20",
+   "games": [
+    "classic"
+   ],
+   "flavors": {
+    "mists": [
+     50504
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/Incognito2",
+   "name": "Incognito2",
+   "description": "Modified version of the popular World of Warcraft AddOn \"Incognito\"",
+   "stars": 0,
+   "updated": "2026-11-15T00:34:06Z",
+   "version": "2.4.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/InstanceCollectionHelper",
+   "name": "InstanceCollectionHelper",
+   "description": "World of Warcraft AddOn designed to help collectors easily identify and set an appropriate instance difficulty when pursuing a collectible from a dungeon or raid.",
+   "stars": 0,
+   "updated": "2026-10-12T12:49:21Z",
+   "version": "20.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/libaboutpanel-2.0",
+   "name": "libaboutpanel-2.0",
+   "description": "Scans an addon's .toc fields and displays them in the addon's options",
+   "stars": 0,
+   "updated": "2026-10-31T21:23:39Z",
+   "version": "1.0.92",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/libresinfo-2.0",
+   "name": "libresinfo-2.0",
+   "description": "CLEU-free resurrection tracking library for World of Warcraft addons.",
+   "stars": 0,
+   "updated": "2026-10-17T02:12:29Z",
+   "version": "1.07",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/MrBigglesworthDeath",
+   "name": "MrBigglesworthDeath",
+   "description": "Prints to chat who killed Kel'Thuzad's cat in Naxxramas",
+   "stars": 0,
+   "updated": "2026-10-22T19:30:43Z",
+   "version": "2.1.81",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "icbat/open-those-pouches",
+   "name": "open-those-pouches",
+   "description": "A WoW addon to automatically open up any loot pouches as you get them",
+   "stars": 0,
+   "updated": "2026-06-23T23:58:49Z",
+   "version": "v23",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/PranGearView",
+   "name": "PranGearView",
+   "description": "World of Warcraft AddOn that provides configurable overlays for displaying customized information about characters in the Character Sheet and/or Character Inspect window(s).",
+   "stars": 0,
+   "updated": "2026-11-07T15:25:46Z",
+   "version": "3.1.1",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "jamespanter/PVPTalentHider",
+   "name": "PVPTalentHider",
+   "description": "A lightweight addon that allows players to hide PVP talents they never use",
+   "stars": 0,
+   "updated": "2026-10-14T13:12:56Z",
+   "version": "v1.11",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/RenownRewardTracker",
+   "name": "RenownRewardTracker",
+   "description": "World of Warcraft AddOn that provides a scrollable, filterable list of every renown reward across all major factions, showing only the ones your current character hasn't collected yet.",
+   "stars": 0,
+   "updated": "2026-10-14T11:51:59Z",
+   "version": "3.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Myrroddin/sharedmedia-classicalfonts",
+   "name": "sharedmedia-classicalfonts",
+   "description": "Adds fonts to LibSharedMedia-3.0's list for WoW addons to use",
+   "stars": 0,
+   "updated": "2026-10-17T05:05:20Z",
+   "version": "2.118",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "WaffleBar/ShieldFrames",
+   "name": "ShieldFrames",
+   "description": "Overshield overlay for Blizzard party and raid compact frames",
+   "stars": 0,
+   "updated": "2026-07-27T23:16:11Z",
+   "version": "v1.0.158",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120007
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/StuffFromCheevos",
+   "name": "StuffFromCheevos",
+   "description": "World of Warcraft AddOn that enables users to quickly identify achievements that provide rewards (\"stuff\") to see what they might be missing from their collections",
+   "stars": 0,
+   "updated": "2026-09-10T16:02:20Z",
+   "version": "2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120100,
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Jademalo/SurroundFix",
+   "name": "SurroundFix",
+   "description": "A World of Warcraft UI AddOn to fix various UI issues with multiple monitor setups",
+   "stars": 0,
+   "updated": "2026-11-18T16:52:42Z",
+   "version": "v5.0.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "Br3gGames/TheGrimRepair",
+   "name": "TheGrimRepair",
+   "description": "Automates repairs and sells poor quality items for you",
+   "stars": 0,
+   "updated": "2026-10-14T14:26:07Z",
+   "version": "1.4.6",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "NinerBull/tRP3_RDotIO",
+   "name": "tRP3_RDotIO",
+   "description": "WoW Addon - Adds Raider.IO Information to Total RP 3's tooltips.",
+   "stars": 0,
+   "updated": "2026-10-13T21:01:49Z",
+   "version": "v1.5.24",
+   "games": [
+    "classic",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
+   "repo": "0xbs/what-did-i-dispel-2",
+   "name": "what-did-i-dispel-2",
+   "description": "A World of Warcraft addon that tracks buffs/debuffs you dispel and displays them upon request",
+   "stars": 0,
+   "updated": "2025-12-29T20:00:38Z",
+   "version": "11.0.2",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     110207
+    ]
+   }
+  },
+  {
+   "repo": "pranavius/WhoDat",
+   "name": "WhoDat",
+   "description": "World of Warcraft AddOn that modifies raid or raid-style unit frames to display custom-defined nicknames for characters",
+   "stars": 0,
+   "updated": "2026-10-14T11:53:37Z",
+   "version": "1.1.3",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Zottelchens-WoW-Addons/ZandalariMoneyTracker",
+   "name": "ZandalariMoneyTracker",
+   "description": "Tracks the bonus money you've got thanks to the Zandalari racial \"Golden City\".",
+   "stars": 0,
+   "updated": "2026-03-16T11:15:57Z",
+   "version": "1.1.12",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120000
+    ]
+   }
+  }
+ ]
+}

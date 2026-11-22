@@ -1,66 +1,63 @@
-"""Addons tab: list, install (GitHub / zip / drag & drop), update, remove."""
+"""Addons tab: installed addons and a browsable GitHub index."""
 
 from __future__ import annotations
 
 import threading
+from datetime import datetime, timezone
 from pathlib import Path
 
 from gi.repository import Adw, Gdk, Gio, GLib, Gtk
 
 from .. import catalog, games
-from ..backend import addons
+from ..backend import addon_index, addons
+
+SORTS = (("popular", "Most popular"), ("updated", "Recently updated"), ("name", "Name"))
+NICE_NAMES = {c.repo.lower(): c.name for c in catalog.CATALOG}
 
 
 def _pretty_version(v: str) -> str:
     return v.split("/")[-1].split("+")[0] if v else ""
 
 
+def _stars(n: int) -> str:
+    return f"{n / 1000:.1f}k" if n >= 1000 else str(n)
+
+
+def _ago(iso: str) -> str:
+    try:
+        then = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+    except ValueError:
+        return ""
+    days = (datetime.now(timezone.utc) - then).days
+    if days < 1:
+        return "today"
+    if days < 2:
+        return "yesterday"
+    if days < 45:
+        return f"{days} days ago"
+    if days < 365:
+        months = max(days // 30, 1)
+        return f"{months} month{'s' if months > 1 else ''} ago"
+    return f"{days // 365} year{'s' if days >= 730 else ''} ago"
+
+
 class AddonsPage(Gtk.Box):
     def __init__(self, window) -> None:
-        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=18, hexpand=True)
+        super().__init__(orientation=Gtk.Orientation.VERTICAL, spacing=16, hexpand=True)
         self.add_css_class("addons-page")
         self.window = window
         self.game: games.Game = window.game
         self.items: list[addons.Addon] = []
+        self.index = addon_index.load()
         self.busy = False
+        self.sort = "popular"
 
         self.append(self._build_header())
-
-        self.search = Gtk.SearchEntry(placeholder_text="Filter installed addons")
-        self.search.add_css_class("addon-search")
-        self.search.connect("search-changed", lambda *_: self.listbox.invalidate_filter())
-        self.append(self.search)
+        self.append(self._build_toolbar())
 
         self.content = Gtk.Stack(transition_type=Gtk.StackTransitionType.CROSSFADE, vexpand=True)
-        body = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
-
-        self.discover_label = self._section("POPULAR ON GITHUB")
-        body.append(self.discover_label)
-        self.discover = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE, homogeneous=True,
-                                    min_children_per_line=2, max_children_per_line=4,
-                                    column_spacing=10, row_spacing=10)
-        self.discover.add_css_class("discover")
-        self.discover.set_vexpand(False)   # don't let cards stretch to fill the page
-        self.discover.set_valign(Gtk.Align.START)
-        body.append(self.discover)
-
-        installed_label = self._section("INSTALLED")
-        installed_label.set_margin_top(12)
-        body.append(installed_label)
-        self.listbox = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE, valign=Gtk.Align.START)
-        self.listbox.add_css_class("boxed-list")
-        self.listbox.add_css_class("addon-list")
-        self.listbox.set_filter_func(self._filter)
-        body.append(self.listbox)
-        self.empty = Gtk.Label(label="Nothing installed yet. Pick one above, add from GitHub, "
-                                     "or drop a .zip file here.", xalign=0, wrap=True)
-        self.empty.add_css_class("status-detail")
-        body.append(self.empty)
-
-        scroller = Gtk.ScrolledWindow(hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True)
-        scroller.set_child(body)
-        self.content.add_named(scroller, "list")
-
+        self.content.add_named(self._build_installed(), "installed")
+        self.content.add_named(self._build_browse(), "browse")
         self.missing = Adw.StatusPage(icon_name="folder-download-symbolic", title="Game not installed",
                                       description="Install the game first, then manage its addons here.")
         self.missing.add_css_class("addon-empty")
@@ -70,6 +67,8 @@ class AddonsPage(Gtk.Box):
         drop = Gtk.DropTarget.new(Gdk.FileList, Gdk.DragAction.COPY)
         drop.connect("drop", self._on_drop)
         self.add_controller(drop)
+
+        threading.Thread(target=self._refresh_index, daemon=True).start()
 
     # ------------------------------------------------------------------ layout
 
@@ -98,44 +97,61 @@ class AddonsPage(Gtk.Box):
         row.append(actions)
         return row
 
-    @staticmethod
-    def _section(text: str) -> Gtk.Label:
-        lbl = Gtk.Label(label=text, xalign=0)
-        lbl.add_css_class("section-label")
-        lbl.set_margin_start(2)
-        return lbl
+    def _build_toolbar(self) -> Gtk.Widget:
+        bar = Gtk.Box(spacing=10)
+        self.view = Adw.ToggleGroup(css_classes=["ws-tabs", "round"], valign=Gtk.Align.CENTER)
+        self.view.add(Adw.Toggle(name="installed", label="Installed"))
+        self.view.add(Adw.Toggle(name="browse", label="Browse"))
+        self.view.set_active_name("installed")
+        self.view.connect("notify::active-name", self._on_view)
+        bar.append(self.view)
 
-    def _card(self, entry: catalog.CatalogAddon, installed: bool) -> Gtk.Widget:
-        card = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
-        card.add_css_class("addon-card")
-        top = Gtk.Box(spacing=10)
-        top.append(Adw.Avatar(text=entry.name, show_initials=True, size=34))
-        names = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, valign=Gtk.Align.CENTER)
-        name = Gtk.Label(label=entry.name, xalign=0, ellipsize=3)
-        name.add_css_class("card-name")
-        cat = Gtk.Label(label=entry.category, xalign=0)
-        cat.add_css_class("card-cat")
-        names.append(name)
-        names.append(cat)
-        top.append(names)
-        card.append(top)
-        blurb = Gtk.Label(label=entry.blurb, xalign=0, wrap=True, lines=2, ellipsize=3,
-                          max_width_chars=28, vexpand=True, valign=Gtk.Align.START,
-                          height_request=34)
-        blurb.add_css_class("card-blurb")
-        card.append(blurb)
-        if installed:
-            btn = Gtk.Button(label="Installed", sensitive=False)
-            btn.add_css_class("card-installed")
-        else:
-            btn = Gtk.Button(label="Install")
-            btn.add_css_class("addon-update")
-            btn.connect("clicked", lambda _b: self._run(
-                f"Installing {entry.name}…", lambda g: addons.install_github(g, entry.repo),
-                lambda a: f"Installed {a.title}"))
-        btn.set_sensitive(btn.get_sensitive() and not self.busy)
-        card.append(btn)
-        return card
+        self.search = Gtk.SearchEntry(placeholder_text="Search installed addons", hexpand=True)
+        self.search.add_css_class("addon-search")
+        self.search.connect("search-changed", self._on_search)
+        bar.append(self.search)
+
+        self.sort_dd = Gtk.DropDown.new_from_strings([label for _, label in SORTS])
+        self.sort_dd.add_css_class("addon-sort")
+        self.sort_dd.set_tooltip_text("Sort")
+        self.sort_dd.connect("notify::selected", self._on_sort)
+        self.sort_dd.set_visible(False)
+        bar.append(self.sort_dd)
+        return bar
+
+    def _build_installed(self) -> Gtk.Widget:
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=12)
+        self.listbox = self._listbox(self._matches)
+        box.append(self.listbox)
+        self.empty = Gtk.Label(label="Nothing installed yet. Find something under Browse, "
+                                     "add from GitHub, or drop a .zip file here.", xalign=0, wrap=True)
+        self.empty.add_css_class("status-detail")
+        box.append(self.empty)
+        return self._scroll(box)
+
+    def _build_browse(self) -> Gtk.Widget:
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=10)
+        self.browse_note = Gtk.Label(xalign=0, wrap=True)
+        self.browse_note.add_css_class("status-detail")
+        box.append(self.browse_note)
+        self.browse_list = self._listbox(self._matches)
+        self.browse_list.set_sort_func(self._sort_browse)
+        box.append(self.browse_list)
+        return self._scroll(box)
+
+    @staticmethod
+    def _listbox(filter_func) -> Gtk.ListBox:
+        lb = Gtk.ListBox(selection_mode=Gtk.SelectionMode.NONE, valign=Gtk.Align.START)
+        lb.add_css_class("boxed-list")
+        lb.add_css_class("addon-list")
+        lb.set_filter_func(filter_func)
+        return lb
+
+    @staticmethod
+    def _scroll(child: Gtk.Widget) -> Gtk.Widget:
+        sw = Gtk.ScrolledWindow(hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True)
+        sw.set_child(child)
+        return sw
 
     @staticmethod
     def _button(icon: str | None, text: str, cb) -> Gtk.Button:
@@ -143,6 +159,13 @@ class AddonsPage(Gtk.Box):
         btn.add_css_class("addon-secondary")
         btn.connect("clicked", cb)
         return btn
+
+    @staticmethod
+    def _pill(text: str, kind: str) -> Gtk.Label:
+        lbl = Gtk.Label(label=text, valign=Gtk.Align.CENTER)
+        lbl.add_css_class("pill")
+        lbl.add_css_class(kind)
+        return lbl
 
     # ------------------------------------------------------------------ data
 
@@ -160,25 +183,26 @@ class AddonsPage(Gtk.Box):
             self._set_actions(False)
             return
         self._set_actions(not self.busy)
+        self.content.set_visible_child_name(self.view.get_active_name() or "installed")
         self.items = addons.scan(game)
         iface = addons.game_interface(game)
 
-        while (child := self.listbox.get_first_child()) is not None:
-            self.listbox.remove(child)
+        self._clear(self.listbox)
         for item in self.items:
-            self.listbox.append(self._row(item, iface))
+            self.listbox.append(self._installed_row(item, iface))
         self.listbox.set_visible(bool(self.items))
         self.empty.set_visible(not self.items)
 
         keys = {a.key for a in self.items}
-        folders = {f for a in self.items for f in a.folders}
-        self.discover.remove_all()
-        entries = catalog.for_game(game.id)
-        for entry in entries:
-            installed = f"github:{entry.repo.lower()}" in keys or entry.folder in folders
-            self.discover.append(self._card(entry, installed))
-        self.discover_label.set_visible(bool(entries))
-        self.discover.set_visible(bool(entries))
+        folders = {f.lower() for a in self.items for f in a.folders}
+        self._clear(self.browse_list)
+        available = [a for a in self.index if addons.supports(a.flavors, game, iface)]
+        for entry in available:
+            done = f"github:{entry.repo.lower()}" in keys or entry.name.lower() in folders
+            self.browse_list.append(self._browse_row(entry, done))
+        self.browse_note.set_label(
+            f"{len(available)} addons on GitHub with a verified release for {game.short}. "
+            "Compatibility is checked again when you install.")
 
         updates = sum(a.update_available for a in self.items)
         sub = f"{len(self.items)} installed"
@@ -187,22 +211,34 @@ class AddonsPage(Gtk.Box):
         if iface:
             sub += f"  ·  game interface {iface}"
         self.subtitle.set_label(sub)
-        self.content.set_visible_child_name("list")
+
+    @staticmethod
+    def _clear(lb: Gtk.ListBox) -> None:
+        while (child := lb.get_first_child()) is not None:
+            lb.remove(child)
 
     def _set_actions(self, enabled: bool) -> None:
         for w in (self.refresh_btn, self.github_btn):
             w.set_sensitive(enabled)
 
-    def _row(self, item: addons.Addon, iface: int | None) -> Gtk.Widget:
+    def _refresh_index(self) -> None:
+        if addon_index.refresh():
+            def apply():
+                self.index = addon_index.load()
+                self.reload()
+            GLib.idle_add(apply)
+
+    # ------------------------------------------------------------------ rows
+
+    def _installed_row(self, item: addons.Addon, iface: int | None) -> Gtk.Widget:
         meta = [v for v in (_pretty_version(item.version), item.author) if v]
         subtitle = "  ·  ".join(meta)
         if item.notes:
             subtitle = f"{subtitle} — {item.notes}" if subtitle else item.notes
         row = Adw.ActionRow(title=GLib.markup_escape_text(item.title),
                             subtitle=GLib.markup_escape_text(subtitle), subtitle_lines=1)
-        row.addon = item
+        row.search_text = " ".join([item.title, *item.folders]).lower()
         row.add_prefix(Adw.Avatar(text=item.title, show_initials=True, size=38))
-
         if len(item.folders) > 1:
             row.add_suffix(self._pill(f"{len(item.folders)} modules", "neutral"))
         if item.source == "github":
@@ -217,28 +253,82 @@ class AddonsPage(Gtk.Box):
             upd.add_css_class("addon-update")
             upd.connect("clicked", lambda _b, a=item: self._on_update(a))
             row.add_suffix(upd)
-
-        remove = Gtk.Button(icon_name="user-trash-symbolic", tooltip_text="Remove",
-                            valign=Gtk.Align.CENTER)
+        remove = Gtk.Button(icon_name="user-trash-symbolic", tooltip_text="Remove", valign=Gtk.Align.CENTER)
         remove.add_css_class("flat")
         remove.connect("clicked", lambda _b, a=item: self._confirm_remove(a))
         row.add_suffix(remove)
         return row
 
-    @staticmethod
-    def _pill(text: str, kind: str) -> Gtk.Label:
-        lbl = Gtk.Label(label=text, valign=Gtk.Align.CENTER)
-        lbl.add_css_class("pill")
-        lbl.add_css_class(kind)
-        return lbl
+    def _browse_row(self, entry: addon_index.IndexAddon, installed: bool) -> Gtk.Widget:
+        name = NICE_NAMES.get(entry.repo.lower(), entry.name)
+        row = Adw.ActionRow(title=GLib.markup_escape_text(name),
+                            subtitle=GLib.markup_escape_text(entry.description or entry.repo),
+                            subtitle_lines=2)
+        row.entry = entry
+        row.search_text = f"{name} {entry.repo} {entry.description}".lower()
+        row.add_prefix(Adw.Avatar(text=name, show_initials=True, size=38))
 
-    def _filter(self, row: Gtk.ListBoxRow) -> bool:
+        meta = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, valign=Gtk.Align.CENTER, spacing=2)
+        stars = Gtk.Label(label=f"★ {_stars(entry.stars)}", xalign=1)
+        stars.add_css_class("browse-stars")
+        when = Gtk.Label(label=_ago(entry.updated), xalign=1)
+        when.add_css_class("browse-meta")
+        meta.append(stars)
+        meta.append(when)
+        row.add_suffix(meta)
+
+        link = Gtk.Button(icon_name="adw-external-link-symbolic", tooltip_text="Open on GitHub",
+                          valign=Gtk.Align.CENTER)
+        link.add_css_class("flat")
+        link.connect("clicked", lambda _b: Gtk.UriLauncher.new(
+            f"https://github.com/{entry.repo}").launch(self.window, None, None))
+        row.add_suffix(link)
+
+        if installed:
+            btn = Gtk.Button(label="Installed", sensitive=False, valign=Gtk.Align.CENTER)
+            btn.add_css_class("card-installed")
+        else:
+            btn = Gtk.Button(label="Install", valign=Gtk.Align.CENTER, sensitive=not self.busy)
+            btn.add_css_class("addon-update")
+            btn.connect("clicked", lambda _b: self._run(
+                f"Installing {name}…", lambda g: addons.install_github(g, entry.repo),
+                lambda a: f"Installed {a.title}"))
+        btn.set_size_request(96, -1)
+        row.add_suffix(btn)
+        return row
+
+    # ------------------------------------------------------------------ filtering / sorting
+
+    def _matches(self, row) -> bool:
         needle = self.search.get_text().strip().lower()
-        if not needle:
-            return True
-        item = getattr(row, "addon", None)
-        return bool(item) and (needle in item.title.lower()
-                               or any(needle in f.lower() for f in item.folders))
+        return not needle or all(word in getattr(row, "search_text", "") for word in needle.split())
+
+    def _sort_browse(self, a, b) -> int:
+        ea, eb = a.entry, b.entry
+        if self.sort == "updated":
+            key_a, key_b = eb.updated, ea.updated
+        elif self.sort == "name":
+            key_a = NICE_NAMES.get(ea.repo.lower(), ea.name).lower()
+            key_b = NICE_NAMES.get(eb.repo.lower(), eb.name).lower()
+        else:
+            key_a, key_b = -ea.stars, -eb.stars
+        return (key_a > key_b) - (key_a < key_b)
+
+    def _on_search(self, *_):
+        self.listbox.invalidate_filter()
+        self.browse_list.invalidate_filter()
+
+    def _on_sort(self, dd, _pspec):
+        self.sort = SORTS[dd.get_selected()][0]
+        self.browse_list.invalidate_sort()
+
+    def _on_view(self, group, _pspec):
+        name = group.get_active_name() or "installed"
+        self.sort_dd.set_visible(name == "browse")
+        self.search.set_placeholder_text("Search GitHub addons" if name == "browse"
+                                         else "Search installed addons")
+        if self.content.get_visible_child_name() != "missing":
+            self.content.set_visible_child_name(name)
 
     # ------------------------------------------------------------------ background work
 
@@ -288,8 +378,7 @@ class AddonsPage(Gtk.Box):
         def on_response(_d, response):
             text = entry.get_text().strip()
             if response == "add" and text:
-                self._run(f"Installing {text}…",
-                          lambda g: addons.install_github(g, text),
+                self._run(f"Installing {text}…", lambda g: addons.install_github(g, text),
                           lambda a: f"Installed {a.title}")
         dialog.connect("response", on_response)
         dialog.present(self.window)
@@ -319,12 +408,9 @@ class AddonsPage(Gtk.Box):
         return True
 
     def _install_files(self, files: list[Path]) -> None:
-        if not files:
-            return
-
-        def work(game):
-            return [addons.install_zip(game, f).title for f in files]
-        self._run("Installing…", work, lambda titles: "Installed " + ", ".join(titles))
+        if files:
+            self._run("Installing…", lambda g: [addons.install_zip(g, f).title for f in files],
+                      lambda titles: "Installed " + ", ".join(titles))
 
     def _on_check(self, *_):
         self._run("Checking for updates…", addons.check_updates,

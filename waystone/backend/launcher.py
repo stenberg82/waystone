@@ -6,6 +6,7 @@ import enum
 import json
 import os
 import shutil
+import threading
 import time
 from pathlib import Path
 from typing import Callable
@@ -13,6 +14,8 @@ from typing import Callable
 from .. import games
 from . import fixes, library, net, paths, process, productdb, umu
 from .config import Settings
+
+LOGIN_TIMEOUT = 120  # seconds to wait for Battle.net to sign in on its own
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
 
@@ -36,6 +39,7 @@ class Launcher:
         self.settings = settings
         self.runner = process.Runner(settings)
         self.launch_started: float | None = None
+        self.launch_error: str | None = None
         self.install_requested: set[str] = set()
         self._calibration: dict[str, tuple[float, int]] = {}
 
@@ -77,7 +81,7 @@ class Launcher:
         if process.process_running(game.folder):
             self.launch_started = None
             return State.RUNNING
-        if self.launch_started and time.monotonic() - self.launch_started < 120:
+        if self.launch_started and time.monotonic() - self.launch_started < LOGIN_TIMEOUT + 90:
             return State.LAUNCHING
         self.launch_started = None
         bnet_open = self.battlenet_running()
@@ -195,15 +199,75 @@ class Launcher:
         self.open_battlenet([f"--game={game.launch_code}"])
 
     def play(self, game: games.Game) -> None:
+        """Launch ``game``. Returns immediately; the work runs in a thread.
+
+        Battle.net ignores --exec until it has signed in, so on a cold start
+        we bring it up minimised (--autostarted), wait for the sign-in line in
+        its log and only then hand it the launch command.
+        """
         fixes.apply(game, self.settings)
-        if not self.battlenet_running():
-            library.apply_battlenet_defaults(self.library())
         self.launch_started = time.monotonic()
-        self.runner.spawn(
-            paths.BNET_EXE,
-            [*fixes.BATTLENET_ARGS, f"--exec=launch {game.launch_code}"],
-            env={**fixes.env(game), **self._verb_env()},
-        )
+        self.launch_error = None
+        threading.Thread(target=self._play_worker, args=(game,), daemon=True).start()
+
+    def _play_worker(self, game: games.Game) -> None:
+        try:
+            if not (self.battlenet_running() and self.battlenet_signed_in()):
+                if not self.battlenet_running():
+                    if not process.prefix_active(paths.PREFIX):
+                        library.apply_battlenet_defaults(self.library())
+                    started = time.time()
+                    self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, "--autostarted"],
+                                      env=self._verb_env())
+                else:
+                    started = 0.0
+                if not self._wait_signed_in(since=started, timeout=LOGIN_TIMEOUT):
+                    # Needs the user (password, authenticator…): show the window.
+                    self.launch_started = None
+                    self.launch_error = "Battle.net needs you to sign in. Then press Play again."
+                    self.open_battlenet()
+                    return
+                time.sleep(2)  # let the client finish settling after sign-in
+            for _attempt in range(2):
+                self.runner.spawn(
+                    paths.BNET_EXE,
+                    [*fixes.BATTLENET_ARGS, f"--exec=launch {game.launch_code}"],
+                    env={**fixes.env(game), **self._verb_env()},
+                )
+                deadline = time.monotonic() + 30
+                while time.monotonic() < deadline:
+                    if process.process_running(game.folder):
+                        return
+                    time.sleep(1)
+            self.launch_started = None
+            self.launch_error = "The game did not start. Try again, or open Battle.net from the menu."
+        except Exception as exc:  # surfaced by the UI
+            self.launch_started = None
+            self.launch_error = str(exc)
+
+    @staticmethod
+    def _session_log(since: float = 0.0) -> Path | None:
+        logs = list(paths.BNET_LOG_DIR.glob("battle.net-*.log")) if paths.BNET_LOG_DIR.is_dir() else []
+        logs = [p for p in logs if p.stat().st_mtime >= since]
+        return max(logs, key=lambda p: p.stat().st_mtime, default=None)
+
+    def battlenet_signed_in(self, since: float = 0.0) -> bool:
+        """Has the running Battle.net session finished signing in?"""
+        log = self._session_log(since)
+        if not log:
+            return False
+        try:
+            return "Logged into Battle.net successfully" in log.read_text(errors="replace")
+        except OSError:
+            return False
+
+    def _wait_signed_in(self, since: float, timeout: float) -> bool:
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            if self.battlenet_signed_in(since):
+                return True
+            time.sleep(1)
+        return False
 
     @staticmethod
     def _verb_env() -> dict[str, str]:

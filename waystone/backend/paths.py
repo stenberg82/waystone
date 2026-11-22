@@ -28,6 +28,8 @@ BNET_DIR = PROGRAM_FILES / "Battle.net"
 BNET_EXE = BNET_DIR / "Battle.net.exe"
 WOW_DIR = PROGRAM_FILES / "World of Warcraft"
 
+BNET_LOG_DIR = DRIVE_C / "users" / "steamuser" / "AppData" / "Local" / "Battle.net" / "Logs"
+
 BNET_INSTALL_PATH_WIN = r"C:\Program Files (x86)\Battle.net"
 
 
