@@ -33,6 +33,7 @@ class Launcher:
         self.settings = settings
         self.runner = process.Runner(settings)
         self.launch_started: float | None = None
+        self.install_requested: set[str] = set()
 
     # ---------- detection ----------
 
@@ -73,7 +74,10 @@ class Launcher:
         if not self.logged_in():
             return State.WAITING_LOGIN if bnet_open else State.LOGIN
         if not self.game_installed(game):
-            return State.INSTALLING if bnet_open else State.INSTALL
+            if bnet_open and game.id in self.install_requested:
+                return State.INSTALLING
+            self.install_requested.discard(game.id)
+            return State.INSTALL
         return State.READY
 
     # ---------- actions ----------
@@ -111,6 +115,7 @@ class Launcher:
         self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, *(extra or [])])
 
     def install_game(self, game: games.Game) -> None:
+        self.install_requested.add(game.id)
         self.open_battlenet([f"--game={game.launch_code}"])
 
     def play(self, game: games.Game) -> None:
