@@ -160,6 +160,10 @@ def scan(game: games.Game) -> list[Addon]:
             continue
         claimed.update(present)
         main = _folder_addon(folders[present[0]], game)
+        # Bundles ship one module per expansion; the package supports a game
+        # version if any of its folders does.
+        interfaces = sorted({i for f in present
+                             for i in (_folder_addon(folders[f], game) or Addon(f, f, [f])).interfaces})
         addon = Addon(
             key=key,
             title=pkg.get("name") or (main.title if main else key),
@@ -167,7 +171,7 @@ def scan(game: games.Game) -> list[Addon]:
             version=pkg.get("version", ""),
             author=main.author if main else "",
             notes=main.notes if main else "",
-            interfaces=main.interfaces if main else [],
+            interfaces=interfaces,
             source=pkg.get("source", "file"),
             repo=pkg.get("repo", ""),
             latest=pkg.get("latest", ""),
@@ -297,33 +301,48 @@ def _latest_release(repo: str) -> dict:
     raise ValueError(f"{repo} has no releases to install.")
 
 
+class NotSupported(ValueError):
+    """The addon's release does not support this game."""
+
+
+def release_flavors(release: dict) -> list[dict] | None:
+    """Entries from the BigWigs packager's release.json, or None without one."""
+    meta_asset = next((a for a in release.get("assets", []) if a.get("name") == "release.json"), None)
+    if not meta_asset:
+        return None
+    try:
+        meta = net.get_json(meta_asset["browser_download_url"])
+        return list(meta.get("releases", []))
+    except Exception:
+        return None
+
+
 def _pick_asset(release: dict, game: games.Game) -> dict:
     assets = [a for a in release.get("assets", []) if a.get("name", "").lower().endswith(".zip")]
     if not assets:
         raise ValueError("The latest release has no .zip to install.")
     by_name = {a["name"]: a for a in assets}
 
-    meta_asset = next((a for a in release.get("assets", []) if a.get("name") == "release.json"), None)
-    if meta_asset:
-        try:
-            meta = net.get_json(meta_asset["browser_download_url"])
-            iface = game_interface(game)
-            flavors = PACKAGER_FLAVORS.get(game.id, ())
-            entries = [e for e in meta.get("releases", []) if e.get("filename") in by_name]
-            entries.sort(key=lambda e: bool(e.get("nolib")))  # prefer the full package
+    entries = release_flavors(release)
+    if entries is not None:
+        # The packager metadata is authoritative: never fall back to a zip it
+        # doesn't declare for this game.
+        entries = [e for e in entries if e.get("filename") in by_name]
+        entries.sort(key=lambda e: bool(e.get("nolib")))  # prefer the full package
+        iface = game_interface(game)
+        flavors = PACKAGER_FLAVORS.get(game.id, ())
 
-            def matches(e, test):
-                return any(test(m) for m in e.get("metadata", []))
+        def matches(e, test):
+            return any(test(m) for m in e.get("metadata", []))
 
-            if iface:
-                for e in entries:
-                    if matches(e, lambda m: int(m.get("interface", 0)) // 100 == iface // 100):
-                        return by_name[e["filename"]]
+        if iface:
             for e in entries:
-                if matches(e, lambda m: str(m.get("flavor", "")).lower() in flavors):
+                if matches(e, lambda m: int(m.get("interface", 0)) // 100 == iface // 100):
                     return by_name[e["filename"]]
-        except Exception:
-            pass
+        for e in entries:
+            if matches(e, lambda m: str(m.get("flavor", "")).lower() in flavors):
+                return by_name[e["filename"]]
+        raise NotSupported(f"This addon has no release for {game.short}.")
 
     # No packager metadata: guess from file names.
     hints = PACKAGER_FLAVORS.get(game.id, ()) + tuple(s.strip("_-").lower() for s in TOC_SUFFIXES.get(game.id, ()))
@@ -332,9 +351,9 @@ def _pick_asset(release: dict, game: games.Game) -> dict:
             return a
     others = set().union(*(v for k, v in PACKAGER_FLAVORS.items() if k != game.id))
     neutral = [a for a in assets if not any(h in a["name"].lower() for h in others)]
-    if len(neutral) >= 1:
+    if neutral:
         return neutral[0]
-    raise ValueError(f"No download for {game.short} in the latest release.")
+    raise NotSupported(f"No download for {game.short} in the latest release.")
 
 
 def install_github(game: games.Game, text: str, progress: net.Progress | None = None) -> Addon:
@@ -344,7 +363,10 @@ def install_github(game: games.Game, text: str, progress: net.Progress | None = 
     tag = release.get("tag_name") or release.get("name") or ""
     with tempfile.TemporaryDirectory() as tmp:
         archive = net.download(asset["browser_download_url"], Path(tmp) / asset["name"], progress)
-        return install_zip(game, archive, key=f"github:{repo.lower()}", name=None,
+        from ..catalog import CATALOG
+
+        known = next((c.name for c in CATALOG if c.repo.lower() == repo.lower()), None)
+        return install_zip(game, archive, key=f"github:{repo.lower()}", name=known,
                            source="github", repo=repo, version=tag)
 
 
