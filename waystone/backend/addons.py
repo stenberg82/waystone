@@ -347,16 +347,23 @@ def _pick_asset(release: dict, game: games.Game) -> dict:
                 return by_name[e["filename"]]
         raise NotSupported(f"This addon has no release for {game.short}.")
 
-    # No packager metadata: guess from file names.
-    hints = PACKAGER_FLAVORS.get(game.id, ()) + tuple(s.strip("_-").lower() for s in TOC_SUFFIXES.get(game.id, ()))
+    asset = guess_asset(assets, game.id)
+    if asset:
+        return asset
+    raise NotSupported(f"No download for {game.short} in the latest release.")
+
+
+def guess_asset(assets: list[dict], game_id: str) -> dict | None:
+    """Without packager metadata, pick a release zip by its file name: one
+    named for this game, else one not named for another game. The addon
+    index builder uses this too, so it lists only what we can install."""
+    hints = PACKAGER_FLAVORS.get(game_id, ()) + tuple(s.strip("_-").lower() for s in TOC_SUFFIXES.get(game_id, ()))
     for a in assets:
         if any(h in a["name"].lower() for h in hints):
             return a
-    others = set().union(*(v for k, v in PACKAGER_FLAVORS.items() if k != game.id))
+    others = set().union(*(v for k, v in PACKAGER_FLAVORS.items() if k != game_id))
     neutral = [a for a in assets if not any(h in a["name"].lower() for h in others)]
-    if neutral:
-        return neutral[0]
-    raise NotSupported(f"No download for {game.short} in the latest release.")
+    return neutral[0] if neutral else None
 
 
 def install_github(game: games.Game, text: str, progress: net.Progress | None = None) -> Addon:

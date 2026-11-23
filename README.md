@@ -50,7 +50,7 @@ The **Addons** tab, next to Play in the title bar, manages addons for the select
 
 - **Browse:** search, and sort by most popular (GitHub stars), recently updated or name, among addons from `waystone/data/addon-index.json`.
 
-The index lists addons tagged `wow-addon`, `world-of-warcraft-addon` or `warcraft-addon` on GitHub. An addon is included only if its latest release has a BigWigs-packager `release.json` that declares a build for Forever, Retail or Classic. A copy ships with the app. A GitHub Action rebuilds it daily (`tools/build_addon_index.py`), and once the repository is public the app fetches the fresh copy.
+The index lists addons tagged `wow-addon`, `world-of-warcraft-addon` or `warcraft-addon` on GitHub. An addon is included only if its latest release has a BigWigs-packager `release.json` that declares a build for Forever, Retail or Classic. Many Forever addons are new and ship without a `release.json`. These are included for Forever if a `.toc` in the released version declares a Forever interface (`## Interface: 16001`), and the release has a zip that Waystone would install for Forever. A copy ships with the app. A GitHub Action rebuilds it daily (`tools/build_addon_index.py`), and once the repository is public the app fetches the fresh copy.
 
 CurseForge and Wago require approved API keys, so they are not supported.
 
