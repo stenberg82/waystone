@@ -10,7 +10,7 @@ depends=('python' 'python-gobject' 'python-cairo' 'gtk4' 'libadwaita' 'librsvg' 
 optdepends=('umu-launcher: use the system umu instead of the bundled download')
 makedepends=('make')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha256sums=('SKIP')
+sha256sums=('a9c73aa17ca70bb2794cda30b15c4e5bef054a335322b090336e8225b7b2896d')
 
 package() {
   cd "$pkgname-$pkgver"
