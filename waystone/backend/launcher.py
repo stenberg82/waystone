@@ -19,6 +19,7 @@ LOGIN_TIMEOUT = 120   # seconds Battle.net may take to sign in once it is up
 START_TIMEOUT = 300   # seconds for Battle.net to appear; umu may fetch a new Proton first
 STALL_SECONDS = 40    # its log silent this long while it spins the CPU = hung
 BUSY_CPU = 0.5        # "spinning": at least half a core on average while silent
+SIGN_IN_ATTEMPTS = 3  # Battle.net starts before giving up on a hung one
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
 
@@ -259,10 +260,13 @@ class Launcher:
 
     def _sign_in(self) -> bool:
         """Get a signed-in Battle.net, starting it if needed. A Battle.net that
-        hangs (it sometimes does on the first run of a new Proton) is
-        restarted once. On failure sets launch_error and returns False."""
-        for attempt in range(2):
-            self.launch_status = "Starting Battle.net…" if attempt == 0 else "Battle.net stopped responding. Restarting it…"
+        hangs (a Wine race, worse with ntsync) is restarted, up to
+        SIGN_IN_ATTEMPTS starts in all. On failure sets launch_error and
+        returns False."""
+        for attempt in range(SIGN_IN_ATTEMPTS):
+            self.launch_status = ("Starting Battle.net…" if attempt == 0 else
+                                  f"Battle.net stopped responding. Restarting it "
+                                  f"({attempt + 1}/{SIGN_IN_ATTEMPTS})…")
             since = self._ensure_battlenet()
             if since is None:
                 return False
@@ -278,7 +282,7 @@ class Launcher:
                 self.launch_error = "Battle.net needs you to sign in. Then press Play again."
                 self.open_battlenet()
                 return False
-            process.Log.write("Battle.net is not responding; restarting it")
+            process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
             if not process.kill_processes("battle.net.exe"):
                 break
         self.launch_error = ("Battle.net keeps getting stuck while starting. "

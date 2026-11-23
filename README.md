@@ -25,6 +25,7 @@ Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.wayston
 - **Forever:** sets `WINE_SIMULATE_WRITECOPY=1`, a reported fix for GPU hangs.
 - **Optional:** force DirectX 11 per game (writes `SET gxApi "D3D11"` to `Config.wtf`).
 - **Optional:** native Wayland (`PROTON_ENABLE_WAYLAND=1`).
+- **ntsync is off by default** (`PROTON_NO_NTSYNC=1`). With it, Battle.net often hangs right after "Connecting to server" and never signs in. It still hangs sometimes without it, so Play restarts a hung Battle.net, up to three starts in all. You can turn ntsync back on in Preferences.
 
 ### Game library on another disk
 

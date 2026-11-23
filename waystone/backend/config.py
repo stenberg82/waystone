@@ -15,6 +15,9 @@ DEFAULTS: dict[str, Any] = {
     "proton": "GE-Proton",
     "gameid": "umu-default",
     "wayland": False,
+    # Battle.net often hangs while signing in when Proton uses ntsync, so it
+    # is off unless the user turns it back on.
+    "ntsync": False,
     "close_battlenet": True,
     # Linux folder mapped as drive W: for game installs (None = inside the prefix).
     "library": None,

@@ -60,6 +60,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         wayland.connect("notify::active", lambda r, _p: settings.__setitem__("wayland", r.get_active()))
         compat.add(wayland)
 
+        ntsync = Adw.SwitchRow(title="Use ntsync",
+                               subtitle="Faster thread sync in Wine, but Battle.net often hangs "
+                                        "while signing in with it. Applies after Battle.net and "
+                                        "the game are closed.",
+                               active=settings["ntsync"])
+        ntsync.connect("notify::active", lambda r, _p: settings.__setitem__("ntsync", r.get_active()))
+        compat.add(ntsync)
+
         close_bnet = Adw.SwitchRow(title="Close Battle.net when the game starts",
                                    subtitle="Keeps the desktop tidy. The game keeps running.",
                                    active=settings["close_battlenet"])
