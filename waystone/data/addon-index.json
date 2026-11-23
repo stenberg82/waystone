@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T14:03:53+00:00",
+ "generated": "2026-11-23T14:42:57+00:00",
  "addons": [
   {
    "repo": "WeakAuras/WeakAuras2",
@@ -65,8 +65,8 @@
    "name": "DeadlyBossMods",
    "description": "The ultimate encounter helper to give you fight info that's easy to process at a glance. DBM aims to focus on what's happening to you, and what YOU need to do about it.",
    "stars": 284,
-   "updated": "2026-11-22T09:48:27Z",
-   "version": "12.1.24",
+   "updated": "2026-11-23T05:25:23Z",
+   "version": "12.1.25",
    "games": [
     "classic",
     "forever",
@@ -217,7 +217,7 @@
    "repo": "NoM0Re/WeakAuras-WotLK",
    "name": "WeakAuras-WotLK",
    "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
-   "stars": 121,
+   "stars": 123,
    "updated": "2026-11-21T06:20:33Z",
    "version": "5.22.1-dc4b1108",
    "games": [
@@ -354,6 +354,40 @@
    }
   },
   {
+   "repo": "tullamods/Dominos",
+   "name": "Dominos",
+   "description": "A main actionbar replacement",
+   "stars": 84,
+   "updated": "2026-11-21T22:32:25Z",
+   "version": "12.1.0",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105,
+     120107
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ]
+   }
+  },
+  {
    "repo": "kesava-wow/kuinameplates2",
    "name": "kuinameplates2",
    "description": "Prettier nameplates.",
@@ -395,40 +429,6 @@
     ],
     "mists": [
      50504
-    ]
-   }
-  },
-  {
-   "repo": "tullamods/Dominos",
-   "name": "Dominos",
-   "description": "A main actionbar replacement",
-   "stars": 83,
-   "updated": "2026-11-21T22:32:25Z",
-   "version": "12.1.0",
-   "games": [
-    "classic",
-    "forever",
-    "retail"
-   ],
-   "flavors": {
-    "bcc": [
-     20506
-    ],
-    "classic": [
-     11509
-    ],
-    "forever": [
-     16001
-    ],
-    "mainline": [
-     120105,
-     120107
-    ],
-    "mists": [
-     50504
-    ],
-    "titan": [
-     38002
     ]
    }
   },
@@ -558,8 +558,8 @@
    "name": "Carbonite-All-in-One-Retail-Classic",
    "description": "Carbonite + Modules for WoW Retail and Classic",
    "stars": 57,
-   "updated": "2026-11-15T23:28:28Z",
-   "version": "v12.1.0-00024",
+   "updated": "2026-11-23T13:44:44Z",
+   "version": "v12.1.0-00025",
    "games": [
     "classic",
     "forever",
@@ -787,7 +787,7 @@
    "repo": "Bodify/BetterBlizzPlates",
    "name": "BetterBlizzPlates",
    "description": "Standard Blizzard nameplates with more features and easy settings",
-   "stars": 44,
+   "stars": 45,
    "updated": "2026-11-20T00:11:11Z",
    "version": "v2.2.5c",
    "games": [
@@ -831,8 +831,8 @@
    "name": "raiderio-addon",
    "description": "RaiderIO AddOn",
    "stars": 44,
-   "updated": "2026-11-22T07:43:15Z",
-   "version": "v202611220600",
+   "updated": "2026-11-23T07:15:45Z",
+   "version": "v202611230600",
    "games": [
     "retail"
    ],
@@ -1134,8 +1134,8 @@
    "name": "AuctionDB",
    "description": "Wow (classic) Auction Database addon",
    "stars": 25,
-   "updated": "2026-11-18T19:31:30Z",
-   "version": "v2.8.1",
+   "updated": "2026-11-22T23:26:32Z",
+   "version": "v2.8.2",
    "games": [
     "forever",
     "retail"
@@ -1154,8 +1154,8 @@
    "name": "ice-hud",
    "description": "IceHUD addon for World of Warcraft",
    "stars": 25,
-   "updated": "2026-11-21T16:39:57Z",
-   "version": "v1.17.32",
+   "updated": "2026-11-22T20:43:01Z",
+   "version": "v1.17.33",
    "games": [
     "classic",
     "forever",
@@ -1224,8 +1224,8 @@
    "name": "eltruism",
    "description": "An ElvUI Plugin containing many features not available in ElvUI alongside DPS/Tank/Healer profiles and settings for other addons",
    "stars": 24,
-   "updated": "2026-11-20T22:20:03Z",
-   "version": "v5.2.2.1",
+   "updated": "2026-11-22T22:29:22Z",
+   "version": "v5.2.2.2",
    "games": [
     "classic",
     "forever",
@@ -1849,6 +1849,22 @@
    }
   },
   {
+   "repo": "catubba/twinmap-forever",
+   "name": "twinmap-forever",
+   "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
+   "stars": 15,
+   "updated": "2026-11-23T00:18:05Z",
+   "version": "v0.15.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
    "repo": "Stanzilla/BindPad",
    "name": "BindPad",
    "description": "Personal fork of the BindPad WoW Addon",
@@ -1873,8 +1889,8 @@
    "name": "DandersFrames",
    "description": "Customizable party and raid frame addon for World of Warcraft",
    "stars": 14,
-   "updated": "2026-11-05T12:28:55Z",
-   "version": "v5.6.2",
+   "updated": "2026-11-23T10:41:10Z",
+   "version": "v6.0.0",
    "games": [
     "forever",
     "retail"
@@ -1935,8 +1951,8 @@
    "name": "Broker_Everything",
    "description": "A collection of module to display informations about own character, friends, guild and more on minimap or panel addons like Bazooka, ChcolateBar, TitanPanel and more.",
    "stars": 13,
-   "updated": "2026-11-21T01:09:21Z",
-   "version": "5.0.2-release",
+   "updated": "2026-11-22T15:02:09Z",
+   "version": "5.0.3-release",
    "games": [
     "classic",
     "forever",
@@ -1968,8 +1984,8 @@
    "name": "DBM-Vanilla",
    "description": "Deadly Boss Mods (DBM) - Vanilla and Season of Discovery mods (Classic and Retail)",
    "stars": 13,
-   "updated": "2026-11-22T09:52:42Z",
-   "version": "r836",
+   "updated": "2026-11-23T05:26:02Z",
+   "version": "r837",
    "games": [
     "classic",
     "forever",
@@ -2126,8 +2142,8 @@
    "name": "BlizzHUDTweaks",
    "description": "World of Warcraft addon for WoW: Forever and Retail: fade the default Blizzard HUD by situation (combat, mouseover, target, resting) and tweak it, without replacing it.",
    "stars": 11,
-   "updated": "2026-11-19T18:55:08Z",
-   "version": "v3.9.0",
+   "updated": "2026-11-22T22:32:17Z",
+   "version": "v3.9.1",
    "games": [
     "forever",
     "retail"
@@ -2249,6 +2265,22 @@
    }
   },
   {
+   "repo": "cjber/shortest-path-forever",
+   "name": "shortest-path-forever",
+   "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
+   "stars": 11,
+   "updated": "2026-11-22T19:39:46Z",
+   "version": "v1.45.3",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
    "repo": "BigWigsMods/Transcriptor",
    "name": "Transcriptor",
    "description": "Logging utility for boss encounters.",
@@ -2289,22 +2321,6 @@
     ],
     "wrath": [
      30405
-    ]
-   }
-  },
-  {
-   "repo": "cjber/shortest-path-forever",
-   "name": "shortest-path-forever",
-   "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
-   "stars": 10,
-   "updated": "2026-11-22T13:49:20Z",
-   "version": "v1.45.2",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
     ]
    }
   },
@@ -2640,8 +2656,8 @@
    "name": "super-tweaks",
    "description": "Opinionated and highly optimized quality-of-life tweaks for WoW Forever in one neat package.",
    "stars": 8,
-   "updated": "2026-11-19T19:34:39Z",
-   "version": "v4.11.1",
+   "updated": "2026-11-23T01:04:50Z",
+   "version": "v4.12.0",
    "games": [
     "forever"
    ],
@@ -2960,8 +2976,8 @@
    "name": "PhenomRaidTools",
    "description": "World of Warcraft addon for Midnight and WoW: Forever: plan per boss which player sees which message or cooldown when, on a timeline, and sync the plan to your group before the pull.",
    "stars": 7,
-   "updated": "2026-11-10T23:02:18Z",
-   "version": "v3.3.0",
+   "updated": "2026-11-22T19:51:37Z",
+   "version": "v3.3.1",
    "games": [
     "forever",
     "retail"
@@ -3393,6 +3409,22 @@
     ],
     "wrath": [
      30403
+    ]
+   }
+  },
+  {
+   "repo": "MelloCro/MelloUI",
+   "name": "MelloUI",
+   "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
+   "stars": 5,
+   "updated": "2026-11-23T14:25:55Z",
+   "version": "v2.1.79",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
     ]
    }
   },
@@ -3854,22 +3886,6 @@
    }
   },
   {
-   "repo": "MelloCro/MelloUI",
-   "name": "MelloUI",
-   "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
-   "stars": 4,
-   "updated": "2026-11-22T09:49:00Z",
-   "version": "v2.1.71",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ]
-   }
-  },
-  {
    "repo": "will0w7/MoneyLooter",
    "name": "MoneyLooter",
    "description": "MoneyLooter - Loot and Gold Farm Tracker Addon for World of Warcraft",
@@ -4000,29 +4016,12 @@
    }
   },
   {
-   "repo": "solocommand/Scoreboard",
-   "name": "Scoreboard",
-   "description": "Scoreboard (formerly TitanPoints) is an interface add-on for World of Warcraft that displays in-game currency amounts.",
-   "stars": 4,
-   "updated": "2026-01-21T21:03:59Z",
-   "version": "12.0.0",
-   "games": [
-    "retail"
-   ],
-   "flavors": {
-    "mainline": [
-     120000,
-     120001
-    ]
-   }
-  },
-  {
    "repo": "cybertk/WeeklyRewards",
    "name": "WeeklyRewards",
    "description": "WoW addon for keeping track of the weekly rewards progress accross all your characters.",
    "stars": 4,
-   "updated": "2026-11-19T18:47:15Z",
-   "version": "v1.98",
+   "updated": "2026-11-22T15:02:35Z",
+   "version": "v1.99",
    "games": [
     "retail"
    ],
@@ -5071,10 +5070,10 @@
   {
    "repo": "BellaHealFr/Lyorune",
    "name": "Lyorune",
-   "description": "Cadres de soin pour World of Warcraft: Forever : soin d'un clic et macros, touches au survol, répartition entre soigneurs, auras en combat, défensifs et contrôles, dissipation, blessés qui ressortent, soigneurs qui boivent, mana basse, portée, buffs JcE et JcJ, profils. Simples, légers et beaux. Healing frames for WoW Forever. FR / EN.",
+   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres même en combat, qui buffe qui entre paladins, vos recharges et du groupe, auras, boucliers, affaiblissements utiles en combat, dissipation par type, mana des soigneurs, éléments placés, masqués",
    "stars": 2,
-   "updated": "2026-11-22T10:25:47Z",
-   "version": "v1.33.6",
+   "updated": "2026-11-23T08:08:27Z",
+   "version": "v1.43.1",
    "games": [
     "forever"
    ],
@@ -5471,6 +5470,45 @@
    }
   },
   {
+   "repo": "SFX-WoW/AceGUI-3.0_SFX-Widgets",
+   "name": "AceGUI-3.0_SFX-Widgets",
+   "description": "Custom widgets for AceGUI-3.0 and AceConfigDialog-3.0.",
+   "stars": 1,
+   "updated": "2026-10-14T23:32:11Z",
+   "version": "12.1.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
    "repo": "AvyAddons/AdiBags_Dragonflight_Crafting",
    "name": "AdiBags_Dragonflight_Crafting",
    "description": "Filters for Dragonflight Crafting categories in AdiBags.",
@@ -5763,8 +5801,8 @@
    "name": "forever-shortroyalty",
    "description": "Short Royalty: a World of Warcraft: Forever addon for our guild. Browse guildmates' gear, talents, professions and recipes in game, find crafters, level your professions with Forever's own skill-up data, and plan reagents with a shopping list. Shares data only over the guild addon channel.",
    "stars": 1,
-   "updated": "2026-11-22T13:58:12Z",
-   "version": "v0.15.1",
+   "updated": "2026-11-23T13:10:19Z",
+   "version": "v0.16.4",
    "games": [
     "forever"
    ],
@@ -5854,6 +5892,42 @@
     ],
     "titan": [
      38000
+    ]
+   }
+  },
+  {
+   "repo": "Snakybo/LogSink-Table",
+   "name": "LogSink-Table",
+   "description": "A custom sink for LibLog-1.0, adds a table view that allows you to see and filter live logs",
+   "stars": 1,
+   "updated": "2026-09-28T11:53:43Z",
+   "version": "1.0.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30405
     ]
    }
   },
@@ -5979,8 +6053,8 @@
    "name": "MidnightHelper",
    "description": "A free World of Warcraft addon that explains why, not just what: weekly planning, Great Vault advice, Delves coaching, a beginner professions course and a class keybind coach. Seven languages built in, no dependencies.",
    "stars": 1,
-   "updated": "2026-11-21T14:44:51Z",
-   "version": "v5.7.0",
+   "updated": "2026-11-22T21:40:38Z",
+   "version": "v5.8.0",
    "games": [
     "forever",
     "retail"
@@ -6048,8 +6122,8 @@
    "name": "OxedHub",
    "description": "Feature-rich World of Warcraft addon for event-driven sound triggers, custom sprite animations, floating ToyBox dock, radial ring menus, and utilities.",
    "stars": 1,
-   "updated": "2026-11-21T19:56:22Z",
-   "version": "v2.4.76",
+   "updated": "2026-11-22T21:27:18Z",
+   "version": "v2.4.78",
    "games": [
     "classic",
     "forever",
