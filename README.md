@@ -61,7 +61,7 @@ CurseForge and Wago require approved API keys, so they are not supported.
 | Retail | `WoW` | `_retail_` |
 | Classic | `WoWC` | `_classic_` |
 
-`WoWF` comes from community tooling and has not been verified against a live install yet.
+`WoWF` is verified against a live install of Forever 1.60.1.
 
 ## Running from source
 
@@ -89,7 +89,7 @@ Keep the data folder on ext4 or btrfs, not NTFS.
 
 ## Status
 
-Early prototype (0.1.0). The UI and the flow are done. The full end-to-end run against real Battle.net is still to be tested.
+Early prototype (0.1.0). Tested end to end against real Battle.net with Forever: set up, sign in, install and Play from a cold start. Retail and Classic are not tested yet.
 
 ## License
 

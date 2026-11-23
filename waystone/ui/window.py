@@ -362,7 +362,9 @@ class MainWindow(Adw.ApplicationWindow):
             S.UPDATING: (f"Updating {g.short}", "Battle.net is downloading an update.",
                          "UPDATING", False, True),
             S.READY: ("Ready to play", g.name, "PLAY", True, False),
-            S.LAUNCHING: ("Starting…", "Signing in to Battle.net in the background and launching the game.",
+            S.LAUNCHING: ("Starting…",
+                          self.launcher.launch_status
+                          or "Signing in to Battle.net in the background and launching the game.",
                           "STARTING", False, True),
             S.RUNNING: ("Playing", "Have fun in Azeroth!", "PLAYING", False, False),
         }

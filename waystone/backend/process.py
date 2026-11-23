@@ -123,12 +123,13 @@ class Runner:
                     pass
 
 
-def process_running(token: str) -> bool:
-    """True if a process' executable path (argv[0]) contains ``token``,
+def find_processes(token: str) -> list[int]:
+    """PIDs whose executable path (argv[0]) contains ``token``,
     case-insensitive. Wine processes show their Windows path there, e.g.
     'C:\\...\\_forever_\\Wow.exe'. Only argv[0] is checked so that shells or
     launchers merely *mentioning* the path don't count."""
     needle = token.lower().encode()
+    pids = []
     for entry in Path("/proc").iterdir():
         if not entry.name.isdigit():
             continue
@@ -137,7 +138,42 @@ def process_running(token: str) -> bool:
         except OSError:
             continue
         if needle in argv0.lower():
+            pids.append(int(entry.name))
+    return pids
+
+
+def process_running(token: str) -> bool:
+    return bool(find_processes(token))
+
+
+def cpu_seconds(pids: list[int]) -> float:
+    """Total CPU time (user + system) the given processes have used so far."""
+    ticks = 0
+    for pid in pids:
+        try:
+            stat = Path(f"/proc/{pid}/stat").read_text()
+        except OSError:
+            continue
+        # The command name in field 2 may contain spaces; fields after it are fixed.
+        fields = stat.rsplit(")", 1)[-1].split()
+        ticks += int(fields[11]) + int(fields[12])  # utime, stime
+    return ticks / os.sysconf("SC_CLK_TCK")
+
+
+def kill_processes(token: str, timeout: float = 10.0) -> bool:
+    """Force-quit every process matching ``token`` (see find_processes) and
+    wait for them to go. For a hung program that ignores a polite close.
+    Returns True once none are left."""
+    for pid in find_processes(token):
+        try:
+            os.kill(pid, signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            pass
+    deadline = time.monotonic() + timeout
+    while time.monotonic() < deadline:
+        if not process_running(token):
             return True
+        time.sleep(0.5)
     return False
 
 
