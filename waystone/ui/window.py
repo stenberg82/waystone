@@ -13,6 +13,7 @@ from .. import games
 from ..backend import library, paths
 from ..backend.config import Settings
 from ..backend.launcher import Launcher, State
+from .landscape import Landscape
 from .particles import ParticleField
 
 REFRESH_SECONDS = 2
@@ -47,6 +48,13 @@ class GameTile(Gtk.ToggleButton):
             badge.add_css_class(f"static-{game.id}")
             row.append(badge)
         self.set_child(row)
+
+
+def _ornament(**kwargs) -> Gtk.Widget:
+    """A gold rule with a diamond knot (art/divider.svg, styled in CSS)."""
+    box = Gtk.Box(halign=Gtk.Align.START, can_target=False, **kwargs)
+    box.add_css_class("ornament")
+    return box
 
 
 class MainWindow(Adw.ApplicationWindow):
@@ -92,11 +100,20 @@ class MainWindow(Adw.ApplicationWindow):
 
         self.bg = Gtk.Stack(transition_type=Gtk.StackTransitionType.CROSSFADE,
                             transition_duration=700, hexpand=True, vexpand=True)
+        self.landscapes: list[Landscape] = []
         for game in games.GAMES:
-            layer = Gtk.Box(hexpand=True, vexpand=True)
+            layer = Gtk.Overlay(hexpand=True, vexpand=True)
             layer.add_css_class(f"bg-{game.id}")
+            layer.set_child(Gtk.Box(hexpand=True, vexpand=True))
+            land = Landscape(game.id)
+            layer.add_overlay(land)
+            self.landscapes.append(land)
             self.bg.add_named(layer, game.id)
         overlay.set_child(self.bg)
+
+        motion = Gtk.EventControllerMotion()
+        motion.connect("motion", self._on_pointer)
+        self.add_controller(motion)
 
         self.particles = ParticleField()
         overlay.add_overlay(self.particles)
@@ -129,6 +146,7 @@ class MainWindow(Adw.ApplicationWindow):
         brand.append(mark)
         brand.append(name)
         side.append(brand)
+        side.append(_ornament(margin_top=12))
 
         label = Gtk.Label(label="GAMES", xalign=0)
         label.add_css_class("section-label")
@@ -190,7 +208,7 @@ class MainWindow(Adw.ApplicationWindow):
             chip = Gtk.Label(label=text)
             chip.add_css_class("chip")
             chips.append(chip)
-        for w in (kicker, title, tagline, chips):
+        for w in (kicker, title, _ornament(), tagline, chips):
             box.append(w)
         return box
 
@@ -262,6 +280,12 @@ class MainWindow(Adw.ApplicationWindow):
             action = Gio.SimpleAction.new(name, None)
             action.connect("activate", cb)
             self.add_action(action)
+
+    def _on_pointer(self, _ctrl, x: float, y: float) -> None:
+        w, h = max(self.get_width(), 1), max(self.get_height(), 1)
+        nx, ny = x / w * 2 - 1, y / h * 2 - 1
+        for land in self.landscapes:
+            land.set_pointer(nx, ny)
 
     # ------------------------------------------------------------------ game switching
 

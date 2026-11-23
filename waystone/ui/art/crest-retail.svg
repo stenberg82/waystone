@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="56" height="62" viewBox="0 0 56 62">
+<defs>
+  <linearGradient id="fill" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#6aa8ff"/><stop offset="0.55" stop-color="#1a3f9e"/><stop offset="1" stop-color="#0d1f55"/>
+  </linearGradient>
+  <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#f6e2a8"/><stop offset="0.5" stop-color="#d9b46a"/><stop offset="1" stop-color="#8a6d3b"/>
+  </linearGradient>
+  <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#fff" stop-opacity="0.35"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<path d="M6 4 H50 Q52 4 52 6 V26 Q52 46 28 58 Q4 46 4 26 V6 Q4 4 6 4 Z" fill="url(#fill)" stroke="url(#rim)" stroke-width="2.4"/>
+<path d="M6 4 H50 Q52 4 52 6 V26 Q52 46 28 58 Q4 46 4 26 V6 Q4 4 6 4 Z" fill="url(#shine)" transform="translate(28 31) scale(0.86) translate(-28 -31)"/>
+<path d="M6 4 H50 Q52 4 52 6 V26 Q52 46 28 58 Q4 46 4 26 V6 Q4 4 6 4 Z" fill="none" stroke="#000" stroke-opacity="0.35" stroke-width="1"
+      transform="translate(28 31) scale(0.9) translate(-28 -31)"/></svg>

@@ -68,9 +68,9 @@ CurseForge and Wago require approved API keys, so they are not supported.
 
 ```sh
 # Fedora
-sudo dnf install python3-gobject python3-cairo gtk4 libadwaita
+sudo dnf install python3-gobject python3-cairo gtk4 libadwaita librsvg2
 # Arch
-sudo pacman -S python-gobject python-cairo gtk4 libadwaita
+sudo pacman -S python-gobject python-cairo gtk4 libadwaita librsvg
 
 ./bin/waystone
 ```
@@ -91,6 +91,14 @@ Keep the data folder on ext4 or btrfs, not NTFS.
 ## Status
 
 Early prototype (0.1.0). Tested end to end against real Battle.net with Forever: set up, sign in, install and Play from a cold start. Retail and Classic are not tested yet.
+
+## Art and fonts
+
+All artwork is original and drawn in code: the landscapes, stone texture, frame corners, dividers and crests. `tools/make_ui_art.py` generates it as SVG into `waystone/ui/art/`. Waystone uses no game assets, logos, fonts or sounds from Blizzard.
+
+The bundled fonts are licensed under the [SIL Open Font License 1.1](https://openfontlicense.org). The license texts are in `waystone/data/fonts/`.
+- [Cinzel](https://github.com/NDISCOVER/Cinzel), by Natanael Gama and the Cinzel Project Authors
+- [EB Garamond](https://github.com/octaviopardo/EBGaramond12), by Georg Duffner, Octavio Pardo and the EB Garamond Project Authors
 
 ## License
 

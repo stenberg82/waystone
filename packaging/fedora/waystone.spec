@@ -7,7 +7,7 @@ URL:            https://github.com/stenberg82/waystone
 Source0:        %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildArch:      noarch
 BuildRequires:  make
-Requires:       python3 python3-gobject python3-cairo gtk4 libadwaita
+Requires:       python3 python3-gobject python3-cairo gtk4 libadwaita librsvg2
 Requires:       vulkan-loader
 Recommends:     umu-launcher
 

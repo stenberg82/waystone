@@ -64,10 +64,24 @@ class ParticleField(Gtk.DrawingArea):
         if w <= 0 or h <= 0:
             return GLib.SOURCE_CONTINUE
 
+        kind = self.style.kind
         alive = []
         for p in self.parts:
             p.age += dt * (4.0 if p.fade else 1.0)
-            p.x += (p.vx + math.sin(now * 0.6 + p.phase) * 4.0) * dt
+            if kind == "wisp":
+                # Wander: nudge the heading, keep the speed gentle.
+                p.vx += random.uniform(-1.0, 1.0) * 30.0 * dt
+                p.vy += random.uniform(-1.0, 1.0) * 30.0 * dt
+                speed = math.hypot(p.vx, p.vy)
+                limit = self.style.drift
+                if speed > limit:
+                    p.vx, p.vy = p.vx / speed * limit, p.vy / speed * limit
+                sway = 0.0
+            elif kind == "ember":
+                sway = math.sin(now * 2.2 + p.phase) * 14.0   # turbulent rise
+            else:
+                sway = math.sin(now * 0.6 + p.phase) * 4.0
+            p.x += (p.vx + sway) * dt
             p.y += p.vy * dt
             if p.age < p.life and -20 < p.y < h + 20:
                 alive.append(p)
@@ -86,15 +100,23 @@ class ParticleField(Gtk.DrawingArea):
             return
         cr.set_operator(cairo.OPERATOR_ADD)
         flicker = self.style.flicker
+        kind = self.style.kind
         t = self.last or 0.0
         for p in self.parts:
-            a = math.sin(math.pi * min(p.age / p.life, 1.0)) * 0.85
+            k = min(p.age / p.life, 1.0)
+            a = math.sin(math.pi * k) * 0.85
             if flicker:
                 a *= 1.0 - flicker * 0.5 * (1 + math.sin(t * 9.0 + p.phase * 3))
-            if a <= 0.01:
-                continue
             r, g, b = p.color
             glow = p.r * 5
+            if kind == "wisp":                      # slow firefly pulse
+                a *= 0.3 + 0.7 * (0.5 + 0.5 * math.sin(t * 1.6 + p.phase))
+                glow = p.r * 7
+            elif kind == "ember":                   # cools from gold to deep red
+                g *= 1.0 - 0.55 * k
+                b *= 1.0 - 0.8 * k
+            if a <= 0.01:
+                continue
             grad = cairo.RadialGradient(p.x, p.y, 0, p.x, p.y, glow)
             grad.add_color_stop_rgba(0, r, g, b, a * 0.55)
             grad.add_color_stop_rgba(1, r, g, b, 0)

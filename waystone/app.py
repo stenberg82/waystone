@@ -27,6 +27,9 @@ class WaystoneApp(Adw.Application):
         Adw.Application.do_startup(self)
         Adw.StyleManager.get_default().set_color_scheme(Adw.ColorScheme.FORCE_DARK)
 
+        from .ui import fonts
+        fonts.load()
+
         css = Gtk.CssProvider()
         css.load_from_path(str(Path(__file__).parent / "ui" / "style.css"))
         Gtk.StyleContext.add_provider_for_display(
@@ -59,7 +62,7 @@ class WaystoneApp(Adw.Application):
         PreferencesDialog(self.settings, self.window.launcher, reset).present(self.window)
 
     def _on_about(self, *_):
-        Adw.AboutDialog(
+        about = Adw.AboutDialog(
             application_name="Waystone",
             application_icon=paths.APP_ID,
             version=__version__,
@@ -68,7 +71,12 @@ class WaystoneApp(Adw.Application):
             comments="A simple launcher for World of Warcraft on Linux.\n\n"
                      "Not affiliated with or endorsed by Blizzard Entertainment. "
                      "World of Warcraft and Battle.net are trademarks of Blizzard Entertainment, Inc.",
-        ).present(self.window)
+        )
+        for name, holder in (("Cinzel", "The Cinzel Project Authors"),
+                             ("EB Garamond", "The EB Garamond Project Authors")):
+            about.add_legal_section(name, f"© {holder}", Gtk.License.CUSTOM,
+                                    "Licensed under the SIL Open Font License, Version 1.1.")
+        about.present(self.window)
 
 
 def main() -> int:
