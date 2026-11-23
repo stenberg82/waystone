@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T17:49:50+00:00",
+ "generated": "2026-11-23T17:54:21+00:00",
  "addons": [
   {
    "repo": "WeakAuras/WeakAuras2",
@@ -4256,23 +4256,6 @@
    }
   },
   {
-   "repo": "solocommand/Scoreboard",
-   "name": "Scoreboard",
-   "description": "Scoreboard (formerly TitanPoints) is an interface add-on for World of Warcraft that displays in-game currency amounts.",
-   "stars": 4,
-   "updated": "2026-01-21T21:03:59Z",
-   "version": "12.0.0",
-   "games": [
-    "retail"
-   ],
-   "flavors": {
-    "mainline": [
-     120000,
-     120001
-    ]
-   }
-  },
-  {
    "repo": "cybertk/WeeklyRewards",
    "name": "WeeklyRewards",
    "description": "WoW addon for keeping track of the weekly rewards progress accross all your characters.",
@@ -5778,6 +5761,45 @@
    }
   },
   {
+   "repo": "SFX-WoW/AceGUI-3.0_SFX-Widgets",
+   "name": "AceGUI-3.0_SFX-Widgets",
+   "description": "Custom widgets for AceGUI-3.0 and AceConfigDialog-3.0.",
+   "stars": 1,
+   "updated": "2026-10-14T23:32:11Z",
+   "version": "12.1.5",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "titan": [
+     38002
+    ],
+    "wrath": [
+     30405
+    ]
+   }
+  },
+  {
    "repo": "AvyAddons/AdiBags_Dragonflight_Crafting",
    "name": "AdiBags_Dragonflight_Crafting",
    "description": "Filters for Dragonflight Crafting categories in AdiBags.",
@@ -6167,6 +6189,23 @@
    "source": "toc"
   },
   {
+   "repo": "Estasleyendoesto/GhostUI",
+   "name": "GhostUI",
+   "description": "Smart opacity for the stock Blizzard UI. Reduces clutter with smooth fades and event-based visibility, keeping your screen clean but functional.",
+   "stars": 1,
+   "updated": "2026-11-15T17:33:57Z",
+   "version": "GhostUI-1.2.0",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   },
+   "source": "toc"
+  },
+  {
    "repo": "Oppzippy/GoldStockSummary",
    "name": "GoldStockSummary",
    "description": "World of Warcaft addon that tracks gold across all characters on an account.",
@@ -6246,6 +6285,42 @@
     ],
     "titan": [
      38000
+    ]
+   }
+  },
+  {
+   "repo": "Snakybo/LogSink-Table",
+   "name": "LogSink-Table",
+   "description": "A custom sink for LibLog-1.0, adds a table view that allows you to see and filter live logs",
+   "stars": 1,
+   "updated": "2026-09-28T11:53:43Z",
+   "version": "1.0.6",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120100
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30405
     ]
    }
   },
@@ -6652,23 +6727,6 @@
    "stars": 1,
    "updated": "2026-10-20T11:37:39Z",
    "version": "v1.0.0",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ]
-   },
-   "source": "toc"
-  },
-  {
-   "repo": "SiquiL/wow-tally",
-   "name": "wow-tally",
-   "description": "Tally Add-On for World of Warcraft",
-   "stars": 1,
-   "updated": "2026-10-19T17:37:17Z",
-   "version": "v1.3.0",
    "games": [
     "forever"
    ],
