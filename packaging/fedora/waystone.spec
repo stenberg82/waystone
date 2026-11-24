@@ -29,3 +29,7 @@ make install DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %{_datadir}/applications/app.waystone.Waystone.desktop
 %{_datadir}/metainfo/app.waystone.Waystone.metainfo.xml
 %{_datadir}/icons/hicolor/scalable/apps/app.waystone.Waystone.svg
+
+%changelog
+* Mon Nov 23 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.0-1
+- First release
