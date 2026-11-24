@@ -15,7 +15,7 @@ optdepends=('umu-launcher: use the system umu instead of the bundled download')
 makedepends=('make')
 conflicts=('waystone')
 source=("$_name-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
-sha256sums=('9106fc8ff1b6eb8f7443ae89f5aa93552cdcdbb010a93671b4862998240434ee')
+sha256sums=('d28b77877c875d5b154acb0e19b2a29574592ca46e40f0fa3d546fefa09df368')
 
 package() {
   cd "$_name-$pkgver"
