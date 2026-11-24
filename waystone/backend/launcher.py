@@ -142,17 +142,29 @@ class Launcher:
             return db_done, total
         size = _allocated_size(root)
         calib = self._calibration.get(game.id)
+        # The offset is the bytes on disk that are not this download (another
+        # flavour's files in the shared folder). It stays the same for the whole
+        # download, so it is saved and survives a restart of Waystone.
+        key = {"uid": product.uid, "path": product.install_path, "total": total}
         if not calib:
             # First look: product.db may be minutes old. If nothing else lives
             # in this folder, every byte on disk belongs to this download.
             shared = any(p.install_path == product.install_path and p.uid != product.uid
                          for p in productdb.read())
-            calib = (mtime, size - db_done if shared else 0)
+            saved = self.settings.game(game.id).get("download_offset") or {}
+            if not shared:
+                offset = 0
+            elif all(saved.get(k) == v for k, v in key.items()) and "offset" in saved:
+                offset = saved["offset"]
+            else:
+                offset = size - db_done   # undercounts until product.db is next written
+            calib = (mtime, offset)
             self._calibration[game.id] = calib
         elif calib[0] != mtime:
             # Fresh numbers from the Agent: re-anchor to them.
             calib = (mtime, size - db_done)
             self._calibration[game.id] = calib
+            self.settings.set_game(game.id, "download_offset", {**key, "offset": calib[1]})
         live = size - calib[1]
         return max(db_done, min(live, total)), total
 
