@@ -1,5 +1,5 @@
 Name:           waystone
-Version:        0.1.2
+Version:        0.1.3
 Release:        1%{?dist}
 Summary:        Simple, good-looking launcher for World of Warcraft on Linux
 License:        GPL-3.0-or-later
@@ -31,6 +31,10 @@ make install DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %{_datadir}/icons/hicolor/scalable/apps/app.waystone.Waystone.svg
 
 %changelog
+* Tue Nov 24 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.3-1
+- Preferences: switch to turn off fsync, to try against the Battle.net
+  sign-in hang
+
 * Tue Nov 24 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.2-1
 - Treat a Battle.net that lost its connection as signed out: Play waits for
   it to reconnect, then restarts it
