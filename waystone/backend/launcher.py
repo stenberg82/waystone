@@ -105,6 +105,13 @@ class Launcher:
         was_ready = bool(self.settings.game(game.id).get("ready_once"))
         if downloading:
             return State.UPDATING if was_ready else State.INSTALLING
+        # A first install looks finished before it starts: Battle.net writes
+        # Wow.exe and flags the product installed+playable seconds before the
+        # first byte counters reach product.db. Until a game has been seen
+        # ready once, only update_complete counts as done.
+        if not was_ready and (not product.update_complete if product
+                              else game.id in self.install_requested):
+            return State.INSTALLING if bnet_open else State.INSTALL
         if not self.game_installed(game, product):
             if bnet_open and game.id in self.install_requested:
                 return State.INSTALLING
