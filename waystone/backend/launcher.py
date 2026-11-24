@@ -24,6 +24,11 @@ STUB_LOG_LINE = "Leaving because another instance of battle.net is running"
 STUB_LOG_BYTES = 16384  # a hand-off stub log is ~2 KB; real sessions grow far past this
 RECONNECT_SECONDS = 20  # for a Battle.net that lost its connection to sign in again by itself
 PREFIX_EXIT_SECONDS = 15  # for Wine to wind down once Battle.net and its Agent are gone
+# Blizzard sometimes checks a sign-in in a small popup. Wine's Wayland driver
+# leaves it blank, so it never completes; on X11 it completes by itself.
+CHALLENGE_LINE = "browser state changed: Challenge"
+CHALLENGE_SECONDS = 10  # popup open this long under Wayland, still not signed in = stuck
+X11_ENV = {"PROTON_ENABLE_WAYLAND": "0"}
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
 
@@ -46,6 +51,7 @@ class SignIn(enum.Enum):
     OK = "ok"            # signed in
     STUCK = "stuck"      # hung (silent log, busy CPU) or exited: restart it
     TIMEOUT = "timeout"  # idle but not signed in: probably needs the user
+    CHALLENGE = "challenge"  # Blizzard's check popup, which Wayland cannot draw
 
 
 class Launcher:
@@ -243,24 +249,13 @@ class Launcher:
 
     def _open_worker(self, args: list[str]) -> None:
         try:
-            # Without saved credentials the user is typing in the sign-in
-            # window; a quiet log then means nothing, so just start it.
-            watch = self.logged_in()
-            for attempt in range(SIGN_IN_ATTEMPTS if watch else 1):
-                since = self._ensure_battlenet(args)
-                if since is None or not watch:
-                    return
-                result = self._wait_signed_in(since=since, timeout=LOGIN_TIMEOUT)
-                if result is not SignIn.STUCK or self._cancel.is_set():
-                    return
-                process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
-                if not self._kill_battlenet():
-                    break
-                if attempt + 1 < SIGN_IN_ATTEMPTS:
-                    self.notice = (f"Battle.net stopped responding. Restarting it "
-                                   f"({attempt + 2}/{SIGN_IN_ATTEMPTS})…")
-            self.launch_error = ("Battle.net keeps getting stuck while starting. "
-                                 "Open it again from the menu.")
+            if not self.logged_in():
+                # No saved credentials: the user signs in in the window, and
+                # Blizzard's popups (authenticator, checks) must be drawable,
+                # so use X11. A quiet log means nothing here; just start it.
+                self._ensure_battlenet(args, X11_ENV)
+                return
+            self._start_signed_in(args, report=lambda msg: setattr(self, "notice", msg))
         except Exception as exc:  # surfaced by the UI
             self.launch_error = str(exc)
 
@@ -324,29 +319,50 @@ class Launcher:
                 return False
             if self.battlenet_signed_in():
                 return True
-        for attempt in range(SIGN_IN_ATTEMPTS):
-            self.launch_status = ("Starting Battle.net…" if attempt == 0 else
-                                  f"Battle.net stopped responding. Restarting it "
-                                  f"({attempt + 1}/{SIGN_IN_ATTEMPTS})…")
-            since = self._ensure_battlenet()
+        self.launch_status = "Starting Battle.net and signing in…"
+        result = self._start_signed_in([*fixes.BATTLENET_ARGS, "--autostarted"],
+                                       report=lambda msg: setattr(self, "launch_status", msg))
+        if result is SignIn.TIMEOUT:
+            # Idle and still not signed in: it needs the user (password,
+            # authenticator…), so show the window.
+            self.launch_error = "Battle.net needs you to sign in. Then press Play again."
+            self.open_battlenet()
+        return result is SignIn.OK
+
+    def _start_signed_in(self, args: list[str], report: Callable[[str], None]) -> SignIn | None:
+        """Start Battle.net with ``args`` (unless it runs) and wait for it to
+        sign in. A hung start is restarted, up to SIGN_IN_ATTEMPTS starts. If
+        Blizzard's check popup comes up under Wayland, where it stays blank,
+        Battle.net is restarted on X11 and shown, so the check can complete.
+        Returns OK, TIMEOUT (it needs the user), or None if cancelled or it
+        kept hanging (then with launch_error set)."""
+        env: dict[str, str] | None = None
+        attempt = 0
+        while attempt < SIGN_IN_ATTEMPTS:
+            since = self._ensure_battlenet(args, env)
             if since is None:
-                return False
-            self.launch_status = "Signing in to Battle.net…"
+                return None
             result = self._wait_signed_in(since=since, timeout=LOGIN_TIMEOUT)
-            if result is SignIn.OK:
-                return True
             if self._cancel.is_set():
-                return False
-            if result is SignIn.TIMEOUT:
-                # Idle and still not signed in: it needs the user (password,
-                # authenticator…), so show the window.
-                self.launch_error = "Battle.net needs you to sign in. Then press Play again."
-                self.open_battlenet()
-                return False
-            process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
+                return None
+            if result in (SignIn.OK, SignIn.TIMEOUT):
+                return result
+            if result is SignIn.CHALLENGE:
+                process.Log.write("Battle.net is verifying the sign-in; restarting it on X11 "
+                                  "so its check popup can show")
+                report("Blizzard is verifying this sign-in. Opening Battle.net so the check can finish…")
+                args = [a for a in args if a != "--autostarted"]
+                env, attempt = X11_ENV, 0
+            else:
+                attempt += 1
+                process.Log.write(f"Battle.net is not responding (start {attempt}/{SIGN_IN_ATTEMPTS})")
+                if attempt < SIGN_IN_ATTEMPTS:
+                    report(f"Battle.net stopped responding. Restarting it "
+                           f"({attempt + 1}/{SIGN_IN_ATTEMPTS})…")
             if not self._kill_battlenet():
                 break
-        return self._fail_stuck()
+        self._fail_stuck()
+        return None
 
     def _reconnect(self) -> bool:
         """Battle.net lost its connection. Give it a moment to sign in again;
@@ -370,14 +386,15 @@ class Launcher:
 
     def _fail_stuck(self) -> bool:
         self.launch_error = ("Battle.net keeps getting stuck while starting. "
-                             "Press Play to try again, or open Battle.net from the menu.")
+                             "Try again with Play, or open Battle.net from the menu.")
         return False
 
-    def _ensure_battlenet(self, args: list[str] | None = None) -> float | None:
+    def _ensure_battlenet(self, args: list[str] | None = None,
+                          env: dict[str, str] | None = None) -> float | None:
         """Start Battle.net unless it runs (minimised by default, or with
-        ``args``), and wait until its process is up. Returns the time to look
-        for its session log from, or None (with launch_error set) if it never
-        started."""
+        ``args``; ``env`` on top of the usual), and wait until its process is
+        up. Returns the time to look for its session log from, or None (with
+        launch_error set) if it never started."""
         if self.battlenet_running():
             return 0.0
         if not process.prefix_active(paths.PREFIX):
@@ -385,7 +402,7 @@ class Launcher:
         since = time.time()
         if args is None:
             args = [*fixes.BATTLENET_ARGS, "--autostarted"]
-        proc = self.runner.spawn(paths.BNET_EXE, args, env=self._verb_env())
+        proc = self.runner.spawn(paths.BNET_EXE, args, env={**self._verb_env(), **(env or {})})
         # The clock for signing in starts only once Battle.net is up: before
         # that umu may spend a while downloading a new Proton.
         deadline = time.monotonic() + START_TIMEOUT
@@ -476,11 +493,13 @@ class Launcher:
 
         Battle.net logs steadily while it starts and signs in. If the log
         goes quiet while the process keeps a core busy, it is hung; if it
-        goes quiet while idle, it is most likely waiting for the user."""
+        goes quiet while idle, it is most likely waiting for the user. A check
+        popup that stays open under Wayland is reported as CHALLENGE."""
         start = time.monotonic()
         deadline = start + timeout
         last_size: int | None = None
         quiet_since, cpu_at_quiet = start, self._battlenet_cpu()
+        challenge_since: float | None = None
         while time.monotonic() < deadline:
             if self._cancel.is_set():
                 return SignIn.TIMEOUT
@@ -489,6 +508,11 @@ class Launcher:
             if not self.battlenet_running():
                 return SignIn.STUCK
             now = time.monotonic()
+            if challenge_since is None:
+                if self._log_has(since, CHALLENGE_LINE) and self._battlenet_on_wayland():
+                    challenge_since = now
+            elif now - challenge_since >= CHALLENGE_SECONDS:
+                return SignIn.CHALLENGE
             size = self._log_size(since)
             if size != last_size:
                 last_size = size
@@ -499,6 +523,24 @@ class Launcher:
                     return SignIn.STUCK
             time.sleep(1)
         return SignIn.TIMEOUT
+
+    def _log_has(self, since: float, line: str) -> bool:
+        log = self._session_log(since)
+        try:
+            return bool(log) and line in log.read_text(errors="replace")
+        except OSError:
+            return False
+
+    @staticmethod
+    def _battlenet_on_wayland() -> bool:
+        """Does the running Battle.net use Wine's Wayland driver?"""
+        for pid in process.find_processes("battle.net.exe"):
+            try:
+                if b"winewayland" in Path(f"/proc/{pid}/maps").read_bytes():
+                    return True
+            except OSError:
+                continue
+        return False
 
     def _log_size(self, since: float) -> int | None:
         log = self._session_log(since)

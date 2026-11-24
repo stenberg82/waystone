@@ -8,20 +8,28 @@ from typing import Any
 
 from . import paths
 
+# 2: native Wayland became the default (0.1.4); turned on once for everyone,
+#    since before it was an experimental switch left off by default.
+SETTINGS_VERSION = 2
+
 DEFAULTS: dict[str, Any] = {
     "game": "forever",
     # "GE-Proton" / "UMU-Proton" make umu fetch the latest build automatically;
     # anything else is treated as a path to a Proton directory.
     "proton": "GE-Proton",
     "gameid": "umu-default",
-    "wayland": False,
+    # Native Wayland (Proton ignores it outside a Wayland session). Under
+    # Xwayland Battle.net often hangs while signing in, so it is on.
+    "wayland": True,
     # Battle.net often hangs while signing in when Proton uses ntsync, so it
     # is off unless the user turns it back on.
     "ntsync": False,
     # Proton's default. An option because the sign-in hang may come from
-    # Wine's thread sync; with it off, Wine falls back to esync.
+    # Wine's thread sync. With it off, GE-Proton falls back to plain
+    # server-side sync (no esync), which is slower.
     "fsync": True,
     "close_battlenet": True,
+    "settings_version": SETTINGS_VERSION,
     # Linux folder mapped as drive W: for game installs (None = inside the prefix).
     "library": None,
     "games": {
@@ -40,7 +48,12 @@ class Settings:
             stored = json.loads(self.file.read_text())
             self._merge(self.data, stored)
         except (OSError, ValueError):
-            pass
+            return
+        if stored.get("settings_version", 1) < 2:
+            self.data["wayland"] = True
+        if stored.get("settings_version", 1) < SETTINGS_VERSION:
+            self.data["settings_version"] = SETTINGS_VERSION
+            self.save()
 
     @staticmethod
     def _merge(base: dict, extra: dict) -> None:

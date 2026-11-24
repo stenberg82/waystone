@@ -24,9 +24,9 @@ Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.wayston
 - **All games:** Battle.net gets `--in-process-gpu`, which avoids the blank white window.
 - **Forever:** sets `WINE_SIMULATE_WRITECOPY=1`, a reported fix for GPU hangs.
 - **Optional:** force DirectX 11 per game (writes `SET gxApi "D3D11"` to `Config.wtf`).
-- **Optional:** native Wayland (`PROTON_ENABLE_WAYLAND=1`).
+- **Native Wayland is on by default** (`PROTON_ENABLE_WAYLAND=1`; Proton ignores it outside a Wayland session). Under Xwayland, Battle.net often hangs while signing in: a stack trace shows its main thread caught in an endless resize-and-repaint loop in Qt, so the sign-in never gets to run. In a test of 12 alternating starts, Wayland signed in 6 of 6 in about 15 s, Xwayland 5 of 6 in 16–57 s. One catch: when Blizzard verifies a sign-in, its check popup stays blank under Wayland. Waystone notices and restarts Battle.net on X11 for that start, where the check completes by itself. A first sign-in also uses X11, for the same reason. You can turn Wayland off in Preferences.
 - **ntsync is off by default** (`PROTON_NO_NTSYNC=1`). With it, Battle.net often hangs right after "Connecting to server" and never signs in. It still hangs sometimes without it, so Waystone restarts a hung Battle.net (from Play and from the menu), up to five starts in all. You can turn ntsync back on in Preferences.
-- **fsync can be turned off** in Preferences (`PROTON_NO_FSYNC=1`, Wine then uses esync). It is on by default, as in Proton. Try it off if Battle.net keeps hanging while signing in.
+- **fsync can be turned off** in Preferences (`PROTON_NO_FSYNC=1`). GE-Proton then falls back to plain server-side sync, which is slower. It is on by default, as in Proton. In tests, turning it off did not stop the sign-in hang; it only made it happen later in the start.
 
 ### Game library on another disk
 

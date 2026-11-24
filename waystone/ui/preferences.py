@@ -55,7 +55,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
         compat.add(combo)
 
         wayland = Adw.SwitchRow(title="Native Wayland",
-                                subtitle="Experimental. Can improve smoothness on some setups.",
+                                subtitle="Recommended. Under Xwayland, Battle.net often hangs while "
+                                         "signing in. When Blizzard verifies a sign-in, Battle.net "
+                                         "opens without Wayland for that start, since the check "
+                                         "cannot be shown with it.",
                                 active=settings["wayland"])
         wayland.connect("notify::active", lambda r, _p: settings.__setitem__("wayland", r.get_active()))
         compat.add(wayland)
