@@ -19,7 +19,8 @@ LOGIN_TIMEOUT = 120   # seconds Battle.net may take to sign in once it is up
 START_TIMEOUT = 300   # seconds for Battle.net to appear; umu may fetch a new Proton first
 STALL_SECONDS = 40    # its log silent this long while it spins the CPU = hung
 BUSY_CPU = 0.5        # "spinning": at least half a core on average while silent
-SIGN_IN_ATTEMPTS = 3  # Battle.net starts before giving up on a hung one
+SIGN_IN_ATTEMPTS = 5  # Battle.net starts before giving up on a hung one
+PREFIX_EXIT_SECONDS = 15  # for Wine to wind down once Battle.net and its Agent are gone
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
 
@@ -250,7 +251,7 @@ class Launcher:
                 if result is not SignIn.STUCK or self._cancel.is_set():
                     return
                 process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
-                if not process.kill_processes("battle.net.exe"):
+                if not self._kill_battlenet():
                     break
                 if attempt + 1 < SIGN_IN_ATTEMPTS:
                     self.notice = (f"Battle.net stopped responding. Restarting it "
@@ -335,7 +336,7 @@ class Launcher:
                 self.open_battlenet()
                 return False
             process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
-            if not process.kill_processes("battle.net.exe"):
+            if not self._kill_battlenet():
                 break
         self.launch_error = ("Battle.net keeps getting stuck while starting. "
                              "Press Play to try again, or open Battle.net from the menu.")
@@ -365,6 +366,21 @@ class Launcher:
                 return None
             time.sleep(1)
         return since
+
+    @staticmethod
+    def _kill_battlenet() -> bool:
+        """Force-quit a hung Battle.net and its Agent, then wait for the
+        prefix to empty so the next start is a clean one. Returns False if
+        Battle.net itself would not die."""
+        if not process.kill_processes("battle.net.exe"):
+            return False
+        # The Agent lives in C:/ProgramData/Battle.net/Agent/Agent.NNNN/.
+        for token in ("battle.net/agent/", "battle.net\\agent\\"):
+            process.kill_processes(token)
+        deadline = time.monotonic() + PREFIX_EXIT_SECONDS
+        while process.prefix_active(paths.PREFIX) and time.monotonic() < deadline:
+            time.sleep(0.5)
+        return True
 
     def close_battlenet(self) -> None:
         """Close the Battle.net window the polite way (like clicking ✕).
