@@ -408,6 +408,9 @@ class MainWindow(Adw.ApplicationWindow):
             self._render_download(g, label)
         else:
             self.samples.pop(g.id, None)
+            if self.state == S.LAUNCHING and self.launcher.launch_progress is not None:
+                self.progress.set_visible(True)
+                self.progress.set_fraction(self.launcher.launch_progress)
 
     def _render_download(self, game: games.Game, label: str) -> None:
         prod = self.launcher.product(game)

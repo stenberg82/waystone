@@ -29,6 +29,8 @@ PREFIX_EXIT_SECONDS = 15  # for Wine to wind down once Battle.net and its Agent 
 CHALLENGE_LINE = "browser state changed: Challenge"
 CHALLENGE_SECONDS = 10  # popup open this long under Wayland, still not signed in = stuck
 X11_ENV = {"PROTON_ENABLE_WAYLAND": "0"}
+GAME_START_SECONDS = 30   # for the game to appear after a launch command
+UPDATE_STALL_SECONDS = 600  # an update before launch that makes no progress this long: give up
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
 
@@ -60,6 +62,7 @@ class Launcher:
         self.runner = process.Runner(settings)
         self.launch_error: str | None = None
         self.launch_status: str | None = None   # shown while LAUNCHING
+        self.launch_progress: float | None = None  # 0..1 while updating before a launch
         self.notice: str | None = None          # one-off message for the UI to toast
         self._worker: threading.Thread | None = None
         self._opener: threading.Thread | None = None
@@ -285,29 +288,93 @@ class Launcher:
                 if not self._sign_in():
                     return
                 time.sleep(2)  # let the client finish settling after sign-in
-            self.launch_status = f"Launching {game.short}…"
-            for _attempt in range(2):
+            product = self.product(game)
+            uid = product.uid if product else ""
+            attempts = updates = 0
+            # Battle.net ignores a launch command while the game needs an
+            # update; it updates first and does not launch afterwards, so the
+            # command is sent again once the update is done.
+            while attempts < 2 and updates < 3:
                 if self._cancel.is_set():
                     return
+                self.launch_status = f"Launching {game.short}…"
+                self.launch_progress = None
                 self.runner.spawn(
                     paths.BNET_EXE,
                     [*fixes.BATTLENET_ARGS, f"--exec=launch {game.launch_code}"],
                     env={**fixes.env(game), **self._verb_env()},
                 )
-                deadline = time.monotonic() + 30
-                while time.monotonic() < deadline and not self._cancel.is_set():
-                    if process.process_running(game.folder):
-                        if self.settings["close_battlenet"]:
-                            time.sleep(3)  # let Battle.net hand over to the game
-                            self.close_battlenet()
-                        return
-                    time.sleep(1)
+                outcome = self._wait_for_game(game, uid)
+                if outcome == "started":
+                    if self.settings["close_battlenet"]:
+                        time.sleep(3)  # let Battle.net hand over to the game
+                        self.close_battlenet()
+                    return
+                if outcome == "stalled":
+                    self.launch_error = (f"Battle.net is updating {game.short} but the update is not "
+                                         "moving. Check Battle.net, then press Play again.")
+                    self.open_battlenet()
+                    return
+                if outcome == "updated":
+                    updates += 1
+                else:
+                    attempts += 1
             if not self._cancel.is_set():
                 self.launch_error = "The game did not start. Try again, or open Battle.net from the menu."
         except Exception as exc:  # surfaced by the UI
             self.launch_error = str(exc)
         finally:
             self.launch_status = None
+            self.launch_progress = None
+
+    def _wait_for_game(self, game: games.Game, uid: str) -> str:
+        """After a launch command: "started" once the game runs; "updated"
+        when Battle.net has updated it meanwhile (send the command again);
+        "stalled" if that update stops moving; "timeout" otherwise."""
+        deadline = time.monotonic() + GAME_START_SECONDS
+        updating = False
+        last_done, moved_at = -1, time.monotonic()
+        while not self._cancel.is_set():
+            now = time.monotonic()
+            if process.process_running(game.folder):
+                return "started"
+            if uid and self._game_updating(uid):
+                updating = True
+                done = self._show_update_progress(game)
+                if done != last_done:
+                    last_done, moved_at = done, now
+                elif now - moved_at >= UPDATE_STALL_SECONDS:
+                    return "stalled"
+                deadline = now + GAME_START_SECONDS
+            elif updating:
+                return "updated"
+            if now > deadline or not self.battlenet_running():
+                return "timeout"
+            time.sleep(2)
+        return "timeout"
+
+    def _game_updating(self, uid: str) -> bool:
+        """Is Battle.net updating ``uid`` right now, going by its log?"""
+        log = self._session_log()
+        try:
+            text = log.read_text(errors="replace") if log else ""
+        except OSError:
+            return False
+        return text.rfind(f"Update started: {uid}") > text.rfind(f"Update completed: {uid}")
+
+    def _show_update_progress(self, game: games.Game) -> int:
+        """Put the update's progress in the launch status. Returns a number
+        that grows while the update moves (bytes done, or else the size of
+        Battle.net's log, which logs as it updates), to tell a stalled one."""
+        product = self.product(game)
+        if product and product.total_bytes > 0:
+            done, total = self.download_progress(game, product)
+            self.launch_progress = max(0.0, min(done / total, 1.0))
+            self.launch_status = f"Updating {game.short} before it starts… {self.launch_progress:.0%}"
+            return done
+        self.launch_progress = None
+        self.launch_status = f"Updating {game.short} before it starts…"
+        return self._log_size(0.0) or 0
 
     def _sign_in(self) -> bool:
         """Get a signed-in Battle.net, starting it if needed. A Battle.net that
