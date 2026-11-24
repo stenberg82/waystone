@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T17:54:21+00:00",
+ "generated": "2026-11-24T14:55:00+00:00",
  "addons": [
   {
    "repo": "WeakAuras/WeakAuras2",
@@ -33,7 +33,7 @@
    "repo": "Questie/Questie",
    "name": "Questie",
    "description": "Questie: The WoW Classic quest helper",
-   "stars": 1170,
+   "stars": 1171,
    "updated": "2026-11-23T17:00:03Z",
    "version": "bundle/v12.13.0+v1.1.5",
    "games": [
@@ -234,8 +234,8 @@
    "name": "LittleWigs",
    "description": "Boss warnings for 5-man dungeons & scenarios.",
    "stars": 116,
-   "updated": "2026-11-04T18:52:31Z",
-   "version": "v12.1.23",
+   "updated": "2026-11-24T06:52:36Z",
+   "version": "v12.1.24",
    "games": [
     "classic",
     "forever",
@@ -831,8 +831,8 @@
    "name": "raiderio-addon",
    "description": "RaiderIO AddOn",
    "stars": 44,
-   "updated": "2026-11-23T07:15:45Z",
-   "version": "v202611230600",
+   "updated": "2026-11-24T07:19:41Z",
+   "version": "v202611240600",
    "games": [
     "retail"
    ],
@@ -1084,6 +1084,42 @@
    "source": "toc"
   },
   {
+   "repo": "NumyAddon/MacroToolkit",
+   "name": "MacroToolkit",
+   "description": "https://www.curseforge.com/wow/addons/macro-toolkit",
+   "stars": 28,
+   "updated": "2026-10-14T09:11:53Z",
+   "version": "v2.3.53",
+   "games": [
+    "classic",
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "bcc": [
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50504
+    ],
+    "wrath": [
+     30403
+    ]
+   }
+  },
+  {
    "repo": "funkydude/BadBoy",
    "name": "BadBoy",
    "description": "A simple spam blocker & reporter for World of Warcraft.",
@@ -1128,46 +1164,10 @@
    }
   },
   {
-   "repo": "NumyAddon/MacroToolkit",
-   "name": "MacroToolkit",
-   "description": "https://www.curseforge.com/wow/addons/macro-toolkit",
-   "stars": 27,
-   "updated": "2026-10-14T09:11:53Z",
-   "version": "v2.3.53",
-   "games": [
-    "classic",
-    "forever",
-    "retail"
-   ],
-   "flavors": {
-    "bcc": [
-     20506
-    ],
-    "cata": [
-     40402
-    ],
-    "classic": [
-     11509
-    ],
-    "forever": [
-     16001
-    ],
-    "mainline": [
-     120105
-    ],
-    "mists": [
-     50504
-    ],
-    "wrath": [
-     30403
-    ]
-   }
-  },
-  {
    "repo": "Geraldlol/witchcraft",
    "name": "witchcraft",
    "description": "Claude Code, Codex, Copilot, and Antigravity terminals inside WoW Forever, with a local WoW MCP server for live character context, quests, and Lua errors.",
-   "stars": 26,
+   "stars": 27,
    "updated": "2026-11-23T08:01:44Z",
    "version": "v0.4.0",
    "games": [
@@ -1550,8 +1550,8 @@
    "name": "MAMA-multiboxing",
    "description": "not so Minimal anymore yet Awesome Multiboxing Assistant - WoW addon",
    "stars": 19,
-   "updated": "2026-11-17T20:52:25Z",
-   "version": "v2.21.2",
+   "updated": "2026-11-23T21:48:04Z",
+   "version": "v2.21.3",
    "games": [
     "forever",
     "retail"
@@ -1646,8 +1646,8 @@
    "name": "Molinari",
    "description": "One-click Milling, Prospecting, Disenchanting and Lockpicking!",
    "stars": 17,
-   "updated": "2026-10-31T11:54:28Z",
-   "version": "120100.151-Release",
+   "updated": "2026-11-23T22:18:27Z",
+   "version": "120100.152-Release",
    "games": [
     "classic",
     "forever",
@@ -1700,8 +1700,8 @@
    "name": "XLoot",
    "description": "World of Warcraft addon enhancing loot related functionality",
    "stars": 17,
-   "updated": "2026-11-20T06:10:42Z",
-   "version": "12.23.1",
+   "updated": "2026-11-24T05:27:04Z",
+   "version": "12.24.0",
    "games": [
     "classic",
     "forever",
@@ -1853,6 +1853,22 @@
    }
   },
   {
+   "repo": "catubba/twinmap-forever",
+   "name": "twinmap-forever",
+   "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
+   "stars": 16,
+   "updated": "2026-11-23T23:39:27Z",
+   "version": "v0.16.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
    "repo": "mooreatv/DynamicBoxer",
    "name": "DynamicBoxer",
    "description": "Multiboxing with dynamic teams wow addon",
@@ -1896,22 +1912,6 @@
     "mainline": [
      120105,
      120107
-    ]
-   }
-  },
-  {
-   "repo": "catubba/twinmap-forever",
-   "name": "twinmap-forever",
-   "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
-   "stars": 15,
-   "updated": "2026-11-23T00:18:05Z",
-   "version": "v0.15.1",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
     ]
    }
   },
@@ -2075,8 +2075,8 @@
    "name": "EasyControllerWowForever",
    "description": "Play WoW Forever comfortably with a gamepad: a chat keyboard with word prediction, extra functions on back paddles and free buttons, and quest items you can't sell by mistake.",
    "stars": 13,
-   "updated": "2026-11-21T17:19:37Z",
-   "version": "v1.24.0",
+   "updated": "2026-11-24T14:02:53Z",
+   "version": "v1.25.0",
    "games": [
     "forever"
    ],
@@ -2356,8 +2356,8 @@
    "name": "shortest-path-forever",
    "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
    "stars": 11,
-   "updated": "2026-11-23T17:10:41Z",
-   "version": "v1.45.4",
+   "updated": "2026-11-24T14:50:57Z",
+   "version": "v1.45.7",
    "games": [
     "forever"
    ],
@@ -2481,8 +2481,8 @@
    "name": "CaerdonWardrobe",
    "description": "",
    "stars": 9,
-   "updated": "2026-11-16T22:07:49Z",
-   "version": "v5.0.1",
+   "updated": "2026-11-24T03:21:32Z",
+   "version": "v6.0.0",
    "games": [
     "forever",
     "retail"
@@ -2967,8 +2967,8 @@
    "name": "DBM-PvP",
    "description": "This mod adds support for PvP battlegrounds and arena to Deadly Boss Mods.",
    "stars": 7,
-   "updated": "2026-10-18T18:34:55Z",
-   "version": "r194",
+   "updated": "2026-11-23T23:18:43Z",
+   "version": "r195",
    "games": [
     "classic",
     "forever",
@@ -2988,8 +2988,8 @@
      16001
     ],
     "mainline": [
-     120100,
-     120105
+     120105,
+     120107
     ],
     "mists": [
      50504
@@ -3316,8 +3316,8 @@
    "name": "ItemRack-Universal",
    "description": "Universal ItemRack addon for WoW Classic Era, Hardcore, Season of Discovery, TBC Anniversary, and Forever/Camelot—gear sets, events, quick swaps, and AutoQueue.",
    "stars": 6,
-   "updated": "2026-11-05T01:37:32Z",
-   "version": "v4.58",
+   "updated": "2026-11-24T05:57:24Z",
+   "version": "v4.59",
    "games": [
     "forever"
    ],
@@ -3640,8 +3640,8 @@
    "name": "MelloUI",
    "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
    "stars": 5,
-   "updated": "2026-11-23T14:25:55Z",
-   "version": "v2.1.79",
+   "updated": "2026-11-24T05:15:20Z",
+   "version": "v2.1.83",
    "games": [
     "forever"
    ],
@@ -4193,8 +4193,8 @@
    "name": "NodeSight",
    "description": "See what every herb and ore on your minimap is, and make the ones near you sparkle. WoW Forever addon",
    "stars": 4,
-   "updated": "2026-11-17T22:02:07Z",
-   "version": "v3.2.1",
+   "updated": "2026-11-24T14:52:59Z",
+   "version": "v4.0.3.4",
    "games": [
     "forever"
    ],
@@ -4322,8 +4322,8 @@
    "name": "AddUI",
    "description": "",
    "stars": 3,
-   "updated": "2026-11-21T17:26:17Z",
-   "version": "20261122",
+   "updated": "2026-11-23T18:44:19Z",
+   "version": "20261124",
    "games": [
     "forever",
     "retail"
@@ -4760,8 +4760,8 @@
    "name": "Memento",
    "description": "This is a World of Warcraft addon that automatically takes screenshots of selected gameplay moments.",
    "stars": 3,
-   "updated": "2026-11-17T17:39:14Z",
-   "version": "v2.50",
+   "updated": "2026-11-23T23:31:19Z",
+   "version": "v2.51",
    "games": [
     "classic",
     "forever",
@@ -5327,10 +5327,10 @@
   {
    "repo": "BellaHealFr/Lyorune",
    "name": "Lyorune",
-   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres même en combat, qui buffe qui entre paladins, vos recharges et du groupe, auras, boucliers, affaiblissements utiles en combat, dissipation par type, mana des soigneurs, éléments placés, masqués",
+   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres, qui buffe qui entre paladins, vos recharges et du groupe, vos totems, auras, boucliers, affaiblissements utiles en combat, dissipation par type, mana des soigneurs, éléments placés, carnet",
    "stars": 2,
-   "updated": "2026-11-23T08:08:27Z",
-   "version": "v1.43.1",
+   "updated": "2026-11-24T11:36:11Z",
+   "version": "v1.48.1",
    "games": [
     "forever"
    ],
@@ -6143,8 +6143,8 @@
    "name": "forever-shortroyalty",
    "description": "Short Royalty: a World of Warcraft: Forever addon for our guild. Browse guildmates' gear, talents, professions and recipes in game, find crafters, level your professions with Forever's own skill-up data, and plan reagents with a shopping list. Shares data only over the guild addon channel.",
    "stars": 1,
-   "updated": "2026-11-23T13:10:19Z",
-   "version": "v0.16.4",
+   "updated": "2026-11-23T22:12:57Z",
+   "version": "v0.16.6",
    "games": [
     "forever"
    ],
@@ -6242,8 +6242,8 @@
    "name": "Itemwatch",
    "description": "A WoW addon for tracking item counts in your bags with movable icon+count displays",
    "stars": 1,
-   "updated": "2026-11-09T11:12:27Z",
-   "version": "v2.3.7",
+   "updated": "2026-11-23T23:54:31Z",
+   "version": "v2.3.8",
    "games": [
     "forever",
     "retail"
@@ -6254,7 +6254,8 @@
     ],
     "mainline": [
      120100,
-     120105
+     120105,
+     120107
     ]
    }
   },
@@ -6532,8 +6533,8 @@
    "name": "OxedHub",
    "description": "Feature-rich World of Warcraft addon for event-driven sound triggers, custom sprite animations, floating ToyBox dock, radial ring menus, and utilities.",
    "stars": 1,
-   "updated": "2026-11-22T21:27:18Z",
-   "version": "v2.4.78",
+   "updated": "2026-11-23T20:18:03Z",
+   "version": "v2.4.79",
    "games": [
     "classic",
     "forever",
