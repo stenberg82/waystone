@@ -64,6 +64,17 @@ CurseForge and Wago require approved API keys, so they are not supported.
 
 `WoWF` is verified against a live install of Forever 1.60.1.
 
+## Install
+
+**Fedora 43, 44 and 45** ([COPR](https://copr.fedorainfracloud.org/coprs/stenberg82/waystone/)):
+
+```sh
+sudo dnf copr enable stenberg82/waystone
+sudo dnf install waystone
+```
+
+Other distros: build from `packaging/` or run from source, see below. Waystone is not on Flathub: Flathub accepts apps that run Windows programs through Wine only when the original developer submits them.
+
 ## Running from source
 
 ```sh
