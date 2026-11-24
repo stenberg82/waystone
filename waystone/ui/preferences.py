@@ -79,8 +79,10 @@ class PreferencesDialog(Adw.PreferencesDialog):
         fsync.connect("notify::active", lambda r, _p: settings.__setitem__("fsync", r.get_active()))
         compat.add(fsync)
 
-        close_bnet = Adw.SwitchRow(title="Close Battle.net when the game starts",
-                                   subtitle="Keeps the desktop tidy. The game keeps running.",
+        close_bnet = Adw.SwitchRow(title="Keep Battle.net out of sight",
+                                   subtitle="Hides its window while it updates a game and once the "
+                                            "game starts. It keeps running in the background, so the "
+                                            "next start is quick. Open it from the menu at any time.",
                                    active=settings["close_battlenet"])
         close_bnet.connect("notify::active",
                            lambda r, _p: settings.__setitem__("close_battlenet", r.get_active()))

@@ -112,10 +112,15 @@ def apply_battlenet_defaults(library: Path | None) -> None:
 # Battle.net per-account settings (Roaming/Battle.net/<id>.config) we preset
 # for new users only; a value the user has chosen is never overwritten.
 ACCOUNT_DEFAULTS = {
-    # Closing the window hides Battle.net instead of quitting, so a running
-    # download keeps going while Waystone shows its progress.
-    "HideOnClose": "true",
     "DisplayExitPrompt": "false",
+}
+
+# Settings Waystone relies on, kept at these values. Closing the window must
+# hide Battle.net rather than quit it: Waystone hides it while it updates a
+# game and once the game starts, and an update stops if Battle.net quits.
+# (Battle.net itself writes "false" when it first creates the file.)
+ACCOUNT_MANAGED = {
+    "HideOnClose": "true",
 }
 
 
@@ -131,10 +136,11 @@ def apply_account_defaults() -> None:
             except (OSError, ValueError):
                 continue
             client = data.setdefault("User", {}).setdefault("Client", {})
-            missing = {k: v for k, v in ACCOUNT_DEFAULTS.items() if k not in client}
-            if not missing:
+            changes = {k: v for k, v in ACCOUNT_DEFAULTS.items() if k not in client}
+            changes.update({k: v for k, v in ACCOUNT_MANAGED.items() if client.get(k) != v})
+            if not changes:
                 continue
-            client.update(missing)
+            client.update(changes)
             tmp = account_cfg.with_suffix(".waystone-tmp")
             tmp.write_text(json.dumps(data, indent=4))
             tmp.replace(account_cfg)

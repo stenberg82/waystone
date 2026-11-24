@@ -339,6 +339,10 @@ class Launcher:
             if process.process_running(game.folder):
                 return "started"
             if uid and self._game_updating(uid):
+                if not updating and self.settings["close_battlenet"]:
+                    # Waystone shows the progress; keep Battle.net out of sight.
+                    # With HideOnClose this hides it and the update goes on.
+                    self.close_battlenet()
                 updating = True
                 done = self._show_update_progress(game)
                 if done != last_done:
@@ -501,8 +505,9 @@ class Launcher:
         """Close the Battle.net window the polite way (like clicking ✕).
 
         Works on every desktop, unlike minimising, which some Wayland
-        compositors ignore. A running game is unaffected; with Battle.net's
-        HideOnClose it hides, otherwise it exits."""
+        compositors ignore. Waystone keeps Battle.net's HideOnClose on, so it
+        hides and keeps running (and updating) in the background. A running
+        game is unaffected."""
         if self.battlenet_running():
             self.runner.spawn(Path("taskkill"), ["/IM", "Battle.net.exe"],
                               env={"PROTON_VERB": "runinprefix"})

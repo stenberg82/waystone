@@ -15,7 +15,9 @@ The theme changes with the selected game: background, ambient particles, accent 
 | **Set up** | Downloads [umu-launcher](https://github.com/Open-Wine-Components/umu-launcher) (unless it is already on the system). umu fetches GE-Proton and the Steam Linux Runtime. Then it downloads and runs Blizzard's own Battle.net installer in a private Wine prefix. |
 | **Log in** | Opens Blizzard's own Battle.net sign-in window. Waystone never sees your password. |
 | **Install** | Opens Battle.net on the selected game so it can download it. |
-| **Play** | Applies per-game fixes, then runs `Battle.net.exe --exec="launch <code>"`. |
+| **Play** | Applies per-game fixes, then runs `Battle.net.exe --exec="launch <code>"`. If Battle.net updates the game first, Waystone shows the progress and starts the game when the update is done. |
+
+Battle.net stays out of sight: Waystone hides its window while it updates a game and once the game starts. It keeps running in the background, so the next start is quick, and you can open it from the menu at any time. For this Waystone keeps Battle.net's *HideOnClose* setting on. You can turn this off in Preferences (**Keep Battle.net out of sight**).
 
 Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.waystone.Waystone/data/waystone/`).
 
