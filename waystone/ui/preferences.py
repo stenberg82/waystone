@@ -68,6 +68,14 @@ class PreferencesDialog(Adw.PreferencesDialog):
         ntsync.connect("notify::active", lambda r, _p: settings.__setitem__("ntsync", r.get_active()))
         compat.add(ntsync)
 
+        fsync = Adw.SwitchRow(title="Use fsync",
+                              subtitle="Proton's default thread sync. Try turning it off if "
+                                       "Battle.net keeps hanging while signing in. Applies "
+                                       "after Battle.net and the game are closed.",
+                              active=settings["fsync"])
+        fsync.connect("notify::active", lambda r, _p: settings.__setitem__("fsync", r.get_active()))
+        compat.add(fsync)
+
         close_bnet = Adw.SwitchRow(title="Close Battle.net when the game starts",
                                    subtitle="Keeps the desktop tidy. The game keeps running.",
                                    active=settings["close_battlenet"])

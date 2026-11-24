@@ -46,6 +46,8 @@ class Runner:
             env["PROTON_ENABLE_WAYLAND"] = "1"
         if not self.settings["ntsync"]:
             env["PROTON_NO_NTSYNC"] = "1"
+        if not self.settings["fsync"]:
+            env["PROTON_NO_FSYNC"] = "1"
         return env
 
     def spawn(

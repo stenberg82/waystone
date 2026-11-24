@@ -26,6 +26,7 @@ Everything lives in `~/.local/share/waystone/` (Flatpak: `~/.var/app/app.wayston
 - **Optional:** force DirectX 11 per game (writes `SET gxApi "D3D11"` to `Config.wtf`).
 - **Optional:** native Wayland (`PROTON_ENABLE_WAYLAND=1`).
 - **ntsync is off by default** (`PROTON_NO_NTSYNC=1`). With it, Battle.net often hangs right after "Connecting to server" and never signs in. It still hangs sometimes without it, so Waystone restarts a hung Battle.net (from Play and from the menu), up to five starts in all. You can turn ntsync back on in Preferences.
+- **fsync can be turned off** in Preferences (`PROTON_NO_FSYNC=1`, Wine then uses esync). It is on by default, as in Proton. Try it off if Battle.net keeps hanging while signing in.
 
 ### Game library on another disk
 

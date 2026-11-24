@@ -18,6 +18,9 @@ DEFAULTS: dict[str, Any] = {
     # Battle.net often hangs while signing in when Proton uses ntsync, so it
     # is off unless the user turns it back on.
     "ntsync": False,
+    # Proton's default. An option because the sign-in hang may come from
+    # Wine's thread sync; with it off, Wine falls back to esync.
+    "fsync": True,
     "close_battlenet": True,
     # Linux folder mapped as drive W: for game installs (None = inside the prefix).
     "library": None,
