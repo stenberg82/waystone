@@ -1,5 +1,5 @@
 Name:           waystone
-Version:        0.1.0
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Simple, good-looking launcher for World of Warcraft on Linux
 License:        GPL-3.0-or-later
@@ -31,5 +31,12 @@ make install DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %{_datadir}/icons/hicolor/scalable/apps/app.waystone.Waystone.svg
 
 %changelog
+* Tue Nov 24 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.1-1
+- Restart a hung Battle.net also when it is opened from the menu, up to five
+  starts, and stop its Agent too between starts
+- Keep a first install in Installing until Battle.net says it is complete
+- Keep download progress right across a restart of Waystone
+- Use less memory for the landscapes of hidden games
+
 * Mon Nov 23 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.0-1
 - First release
