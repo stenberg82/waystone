@@ -371,9 +371,10 @@ class MainWindow(Adw.ApplicationWindow):
 
         self.progress.set_visible(False)
         g = self.game
-        if self.launcher.launch_error:
-            self.toast(self.launcher.launch_error)
-            self.launcher.launch_error = None
+        for attr in ("notice", "launch_error"):
+            if msg := getattr(self.launcher, attr):
+                self.toast(msg)
+                setattr(self.launcher, attr, None)
         self.state = self.launcher.state(g)
         S = State
         table = {

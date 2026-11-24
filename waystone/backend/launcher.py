@@ -50,7 +50,9 @@ class Launcher:
         self.runner = process.Runner(settings)
         self.launch_error: str | None = None
         self.launch_status: str | None = None   # shown while LAUNCHING
+        self.notice: str | None = None          # one-off message for the UI to toast
         self._worker: threading.Thread | None = None
+        self._opener: threading.Thread | None = None
         self._cancel = threading.Event()
         self.install_requested: set[str] = set()
         self._calibration: dict[str, tuple[float, int]] = {}
@@ -222,10 +224,41 @@ class Launcher:
         return found
 
     def open_battlenet(self, extra: list[str] | None = None) -> None:
-        if not self.battlenet_running():
-            library.apply_battlenet_defaults(self.library())
-        self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, *(extra or [])],
-                          env=self._verb_env())
+        """Show Battle.net. A cold start is watched from a thread, like Play
+        does, so a Battle.net that hangs while signing in is restarted."""
+        args = [*fixes.BATTLENET_ARGS, *(extra or [])]
+        if self.battlenet_running():
+            self.runner.spawn(paths.BNET_EXE, args, env=self._verb_env())
+            return
+        if self._opener and self._opener.is_alive():
+            return
+        if not self.launching:
+            self._cancel.clear()
+        self._opener = threading.Thread(target=self._open_worker, args=(args,), daemon=True)
+        self._opener.start()
+
+    def _open_worker(self, args: list[str]) -> None:
+        try:
+            # Without saved credentials the user is typing in the sign-in
+            # window; a quiet log then means nothing, so just start it.
+            watch = self.logged_in()
+            for attempt in range(SIGN_IN_ATTEMPTS if watch else 1):
+                since = self._ensure_battlenet(args)
+                if since is None or not watch:
+                    return
+                result = self._wait_signed_in(since=since, timeout=LOGIN_TIMEOUT)
+                if result is not SignIn.STUCK or self._cancel.is_set():
+                    return
+                process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
+                if not process.kill_processes("battle.net.exe"):
+                    break
+                if attempt + 1 < SIGN_IN_ATTEMPTS:
+                    self.notice = (f"Battle.net stopped responding. Restarting it "
+                                   f"({attempt + 2}/{SIGN_IN_ATTEMPTS})…")
+            self.launch_error = ("Battle.net keeps getting stuck while starting. "
+                                 "Open it again from the menu.")
+        except Exception as exc:  # surfaced by the UI
+            self.launch_error = str(exc)
 
     def install_game(self, game: games.Game) -> None:
         self.install_requested.add(game.id)
@@ -308,17 +341,19 @@ class Launcher:
                              "Press Play to try again, or open Battle.net from the menu.")
         return False
 
-    def _ensure_battlenet(self) -> float | None:
-        """Start Battle.net (minimised) unless it runs, and wait until its
-        process is up. Returns the time to look for its session log from,
-        or None (with launch_error set) if it never started."""
+    def _ensure_battlenet(self, args: list[str] | None = None) -> float | None:
+        """Start Battle.net unless it runs (minimised by default, or with
+        ``args``), and wait until its process is up. Returns the time to look
+        for its session log from, or None (with launch_error set) if it never
+        started."""
         if self.battlenet_running():
             return 0.0
         if not process.prefix_active(paths.PREFIX):
             library.apply_battlenet_defaults(self.library())
         since = time.time()
-        proc = self.runner.spawn(paths.BNET_EXE, [*fixes.BATTLENET_ARGS, "--autostarted"],
-                                 env=self._verb_env())
+        if args is None:
+            args = [*fixes.BATTLENET_ARGS, "--autostarted"]
+        proc = self.runner.spawn(paths.BNET_EXE, args, env=self._verb_env())
         # The clock for signing in starts only once Battle.net is up: before
         # that umu may spend a while downloading a new Proton.
         deadline = time.monotonic() + START_TIMEOUT
