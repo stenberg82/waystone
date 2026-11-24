@@ -1,6 +1,6 @@
 pkgbase = waystone-launcher
 	pkgdesc = Simple, good-looking launcher for World of Warcraft on Linux
-	pkgver = 0.1.3
+	pkgver = 0.1.4
 	pkgrel = 1
 	url = https://github.com/stenberg82/waystone
 	arch = any
@@ -17,7 +17,7 @@ pkgbase = waystone-launcher
 	depends = vulkan-icd-loader
 	optdepends = umu-launcher: use the system umu instead of the bundled download
 	conflicts = waystone
-	source = waystone-0.1.3.tar.gz::https://github.com/stenberg82/waystone/archive/v0.1.3.tar.gz
-	sha256sums = d28b77877c875d5b154acb0e19b2a29574592ca46e40f0fa3d546fefa09df368
+	source = waystone-0.1.4.tar.gz::https://github.com/stenberg82/waystone/archive/v0.1.4.tar.gz
+	sha256sums = 26c31c4656ba27ab863186da7dacfc829bef81691ee9311aecf74977c57d5c14
 
 pkgname = waystone-launcher
