@@ -3,7 +3,7 @@
 # same paths (/usr/bin/waystone, /usr/lib/waystone), hence the name and conflict.
 pkgname=waystone-launcher
 _name=waystone
-pkgver=0.1.4
+pkgver=0.1.5
 pkgrel=1
 pkgdesc="Simple, good-looking launcher for World of Warcraft on Linux"
 arch=('any')
