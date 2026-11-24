@@ -7,7 +7,9 @@ nearer layers move further when the pointer moves.
 
 from __future__ import annotations
 
+import ctypes
 import threading
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import gi
@@ -20,6 +22,25 @@ ASPECT = 900 / 1600                          # height / width of the SVG layers
 DEPTH = (0.12, 0.25, 0.45, 0.7, 1.0)         # parallax per layer, back to front
 SHIFT_X, SHIFT_Y = 26.0, 9.0                 # max offset of the nearest layer, px
 COVER = 0.78                                 # the landscape covers at least this much height
+
+M_MMAP_THRESHOLD = -3
+
+
+def _fix_mmap_threshold() -> None:
+    """Give each layer's pixels (~17 MB) their own mapping, freed at once.
+
+    By default glibc raises its mmap threshold every time a large block is
+    freed, so after the first release the pixel buffers land in the heap, which
+    fragments and keeps hundreds of MB after the landscapes are dropped. A fixed
+    threshold turns that off. On other C libraries this is a no-op.
+    """
+    try:
+        ctypes.CDLL("libc.so.6").mallopt(M_MMAP_THRESHOLD, 1 << 20)
+    except (OSError, AttributeError):
+        pass
+
+
+_fix_mmap_threshold()
 
 
 class Landscape(Gtk.Widget):
@@ -41,7 +62,19 @@ class Landscape(Gtk.Widget):
         key = (img_w, int(img_w * ASPECT), self.get_scale_factor())
         if key[:2] != self.tex_size and key != self.pending:
             self.pending = key
-            GLib.timeout_add(120, self._render_if_current, key)
+            # Debounce resizes; render at once when there is nothing to show yet.
+            GLib.timeout_add(120 if self.textures else 0, self._render_if_current, key)
+
+    def release(self) -> None:
+        """Drop the textures (~135 MB at HiDPI) while this landscape is hidden.
+
+        The next allocation, when it is shown again, renders them anew. Bumping
+        the generation discards a render that is still in flight.
+        """
+        self.generation += 1
+        self.textures, self.tex_size, self.pending = [], (0, 0), None
+        # GTK skips size_allocate when the size is unchanged; force the next one.
+        self.queue_allocate()
 
     def _render_if_current(self, key) -> bool:
         if key == self.pending:
@@ -52,15 +85,20 @@ class Landscape(Gtk.Widget):
 
     def _render(self, key, gen: int) -> None:
         w, h, scale = key
-        textures = []
-        for f in self.files:
+
+        def layer(f: Path) -> Gdk.Texture | None:
             try:
                 pb = GdkPixbuf.Pixbuf.new_from_file_at_scale(str(f), w * scale, h * scale, False)
             except GLib.Error:
-                continue
+                return None
             fmt = (Gdk.MemoryFormat.R8G8B8A8 if pb.get_has_alpha() else Gdk.MemoryFormat.R8G8B8)
-            textures.append(Gdk.MemoryTexture.new(pb.get_width(), pb.get_height(), fmt,
-                                                  pb.read_pixel_bytes(), pb.get_rowstride()))
+            return Gdk.MemoryTexture.new(pb.get_width(), pb.get_height(), fmt,
+                                         pb.read_pixel_bytes(), pb.get_rowstride())
+
+        # The layers are independent; rendering them side by side takes about a
+        # third of the time, so a game's landscape is back within the crossfade.
+        with ThreadPoolExecutor(max(1, len(self.files))) as pool:
+            textures = [t for t in pool.map(layer, self.files) if t is not None]
         GLib.idle_add(self._swap, gen, textures, (w, h))
 
     def _swap(self, gen: int, textures, size) -> bool:

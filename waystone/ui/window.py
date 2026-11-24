@@ -109,6 +109,7 @@ class MainWindow(Adw.ApplicationWindow):
             layer.add_overlay(land)
             self.landscapes.append(land)
             self.bg.add_named(layer, game.id)
+        self.bg.connect("notify::transition-running", self._on_bg_transition)
         overlay.set_child(self.bg)
 
         motion = Gtk.EventControllerMotion()
@@ -294,6 +295,14 @@ class MainWindow(Adw.ApplicationWindow):
         self.pages.set_visible_child_name(name)
         if name == "addons":
             self.addons_page.set_game(self.game)
+
+    def _on_bg_transition(self, stack: Gtk.Stack, _pspec) -> None:
+        """Once the crossfade is over, free the landscapes of the hidden games."""
+        if stack.get_transition_running():
+            return
+        for game, land in zip(games.GAMES, self.landscapes):
+            if game.id != stack.get_visible_child_name():
+                land.release()
 
     def _on_tile_toggled(self, tile: GameTile) -> None:
         if tile.get_active() and tile.game is not self.game:
