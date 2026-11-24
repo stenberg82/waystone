@@ -20,6 +20,9 @@ START_TIMEOUT = 300   # seconds for Battle.net to appear; umu may fetch a new Pr
 STALL_SECONDS = 40    # its log silent this long while it spins the CPU = hung
 BUSY_CPU = 0.5        # "spinning": at least half a core on average while silent
 SIGN_IN_ATTEMPTS = 5  # Battle.net starts before giving up on a hung one
+STUB_LOG_LINE = "Leaving because another instance of battle.net is running"
+STUB_LOG_BYTES = 16384  # a hand-off stub log is ~2 KB; real sessions grow far past this
+RECONNECT_SECONDS = 20  # for a Battle.net that lost its connection to sign in again by itself
 PREFIX_EXIT_SECONDS = 15  # for Wine to wind down once Battle.net and its Agent are gone
 
 INSTALLER_URL = "https://downloader.battle.net/download/getInstaller?os=win&installer=Battle.net-Setup.exe"
@@ -316,6 +319,11 @@ class Launcher:
         hangs (a Wine race, worse with ntsync) is restarted, up to
         SIGN_IN_ATTEMPTS starts in all. On failure sets launch_error and
         returns False."""
+        if self.battlenet_running() and self._battlenet_disconnected():
+            if not self._reconnect() or self._cancel.is_set():
+                return False
+            if self.battlenet_signed_in():
+                return True
         for attempt in range(SIGN_IN_ATTEMPTS):
             self.launch_status = ("Starting Battle.net…" if attempt == 0 else
                                   f"Battle.net stopped responding. Restarting it "
@@ -338,6 +346,29 @@ class Launcher:
             process.Log.write(f"Battle.net is not responding (start {attempt + 1}/{SIGN_IN_ATTEMPTS})")
             if not self._kill_battlenet():
                 break
+        return self._fail_stuck()
+
+    def _reconnect(self) -> bool:
+        """Battle.net lost its connection. Give it a moment to sign in again;
+        if it does not, stop it so a fresh start can (its sign-in window can
+        get stuck then). Returns False, with launch_error set, if it must be
+        left alone because a game is running."""
+        self.launch_status = "Battle.net lost its connection. Reconnecting…"
+        deadline = time.monotonic() + RECONNECT_SECONDS
+        while time.monotonic() < deadline:
+            if self._cancel.is_set() or self.battlenet_signed_in():
+                return True
+            time.sleep(1)
+        if any(process.process_running(g.folder) for g in games.GAMES):
+            self.launch_error = ("Battle.net lost its connection and is signed out. "
+                                 "Sign in in its window, then press Play again.")
+            self.open_battlenet()
+            return False
+        process.Log.write("Battle.net did not reconnect; restarting it")
+        self.launch_status = "Restarting Battle.net to sign in again…"
+        return self._kill_battlenet() or self._fail_stuck()
+
+    def _fail_stuck(self) -> bool:
         self.launch_error = ("Battle.net keeps getting stuck while starting. "
                              "Press Play to try again, or open Battle.net from the menu.")
         return False
@@ -394,19 +425,51 @@ class Launcher:
 
     @staticmethod
     def _session_log(since: float = 0.0) -> Path | None:
-        logs = list(paths.BNET_LOG_DIR.glob("battle.net-*.log")) if paths.BNET_LOG_DIR.is_dir() else []
-        logs = [p for p in logs if p.stat().st_mtime >= since]
-        return max(logs, key=lambda p: p.stat().st_mtime, default=None)
+        """The running Battle.net's log: the newest one, skipping the stubs
+        that a second Battle.net (each --exec=launch hand-off) writes before
+        it passes its command on and exits."""
+        logs = []
+        if paths.BNET_LOG_DIR.is_dir():
+            for p in paths.BNET_LOG_DIR.glob("battle.net-*.log"):
+                try:
+                    st = p.stat()
+                except OSError:
+                    continue
+                if st.st_mtime >= since:
+                    logs.append((st.st_mtime, st.st_size, p))
+        for _mtime, size, p in sorted(logs, reverse=True):
+            if size < STUB_LOG_BYTES:
+                try:
+                    if STUB_LOG_LINE in p.read_text(errors="replace"):
+                        continue
+                except OSError:
+                    continue
+            return p
+        return None
 
-    def battlenet_signed_in(self, since: float = 0.0) -> bool:
-        """Has the running Battle.net session finished signing in?"""
+    def _login_events(self, since: float = 0.0) -> tuple[int, int]:
+        """Where in the session log the last sign-in and the last disconnect
+        are (-1 if absent). Battle.net drops its connection now and then and
+        logs a new sign-in when it gets back."""
         log = self._session_log(since)
         if not log:
-            return False
+            return -1, -1
         try:
-            return "Logged into Battle.net successfully" in log.read_text(errors="replace")
+            text = log.read_text(errors="replace")
         except OSError:
-            return False
+            return -1, -1
+        return (text.rfind("Logged into Battle.net successfully"),
+                text.rfind("Disconnected from Battle.net"))
+
+    def battlenet_signed_in(self, since: float = 0.0) -> bool:
+        """Is the running Battle.net session signed in right now?"""
+        signed_in, disconnected = self._login_events(since)
+        return signed_in > disconnected
+
+    def _battlenet_disconnected(self) -> bool:
+        """Signed in once this session, but lost the connection since."""
+        signed_in, disconnected = self._login_events()
+        return 0 <= signed_in < disconnected
 
     def _wait_signed_in(self, since: float, timeout: float) -> SignIn:
         """Wait for the sign-in line in Battle.net's log.
