@@ -1,18 +1,23 @@
-# Maintainer: Waystone contributors
-pkgname=waystone
+# Maintainer: Thomas <id+22034981+stenberg82@users.noreply.github.com>
+# The AUR name "waystone" belongs to an unrelated program that installs the
+# same paths (/usr/bin/waystone, /usr/lib/waystone), hence the name and conflict.
+pkgname=waystone-launcher
+_name=waystone
 pkgver=0.1.0
 pkgrel=1
 pkgdesc="Simple, good-looking launcher for World of Warcraft on Linux"
 arch=('any')
 url="https://github.com/stenberg82/waystone"
 license=('GPL-3.0-or-later')
-depends=('python' 'python-gobject' 'python-cairo' 'gtk4' 'libadwaita' 'librsvg' 'vulkan-icd-loader')
+depends=('python' 'python-gobject' 'python-cairo' 'glib2' 'gtk4' 'libadwaita' 'librsvg'
+         'hicolor-icon-theme' 'vulkan-icd-loader')
 optdepends=('umu-launcher: use the system umu instead of the bundled download')
 makedepends=('make')
-source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+conflicts=('waystone')
+source=("$_name-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
 sha256sums=('a9c73aa17ca70bb2794cda30b15c4e5bef054a335322b090336e8225b7b2896d')
 
 package() {
-  cd "$pkgname-$pkgver"
+  cd "$_name-$pkgver"
   make install DESTDIR="$pkgdir" PREFIX=/usr
 }
