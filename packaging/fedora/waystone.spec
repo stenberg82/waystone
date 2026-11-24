@@ -1,5 +1,5 @@
 Name:           waystone
-Version:        0.1.5
+Version:        0.1.6
 Release:        1%{?dist}
 Summary:        Simple, good-looking launcher for World of Warcraft on Linux
 License:        GPL-3.0-or-later
@@ -31,6 +31,10 @@ make install DESTDIR=%{buildroot} PREFIX=%{_prefix}
 %{_datadir}/icons/hicolor/scalable/apps/app.waystone.Waystone.svg
 
 %changelog
+* Tue Nov 24 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.6-1
+- Hide Battle.net while it updates a game before launch; keep its
+  HideOnClose on so it stays in the background instead of quitting
+
 * Tue Nov 24 2026 Thomas <id+22034981+stenberg82@users.noreply.github.com> - 0.1.5-1
 - Play waits for a pending game update with progress, then launches the game
 

@@ -105,7 +105,7 @@ Keep the data folder on ext4 or btrfs, not NTFS.
 
 ## Status
 
-Early prototype (0.1.5). Tested end to end against real Battle.net with Forever: set up, sign in, install and Play from a cold start. Retail and Classic are not tested yet.
+Early prototype (0.1.6). Tested end to end against real Battle.net with Forever: set up, sign in, install and Play from a cold start. Retail and Classic are not tested yet.
 
 ## Art and fonts
 
