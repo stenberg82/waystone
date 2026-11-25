@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T14:55:00+00:00",
+ "generated": "2026-11-25T14:26:20+00:00",
  "addons": [
   {
    "repo": "WeakAuras/WeakAuras2",
@@ -33,9 +33,9 @@
    "repo": "Questie/Questie",
    "name": "Questie",
    "description": "Questie: The WoW Classic quest helper",
-   "stars": 1171,
-   "updated": "2026-11-23T17:00:03Z",
-   "version": "bundle/v12.13.0+v1.1.5",
+   "stars": 1172,
+   "updated": "2026-11-24T16:53:59Z",
+   "version": "bundle/v12.14.0+v1.1.6",
    "games": [
     "classic",
     "forever"
@@ -831,8 +831,8 @@
    "name": "raiderio-addon",
    "description": "RaiderIO AddOn",
    "stars": 44,
-   "updated": "2026-11-24T07:19:41Z",
-   "version": "v202611240600",
+   "updated": "2026-11-25T07:17:30Z",
+   "version": "v202611250600",
    "games": [
     "retail"
    ],
@@ -899,8 +899,8 @@
    "name": "Capping",
    "description": "Battleground timers and other PvP features.",
    "stars": 34,
-   "updated": "2026-11-19T23:58:45Z",
-   "version": "v12.1.10",
+   "updated": "2026-11-25T09:40:05Z",
+   "version": "v12.1.11",
    "games": [
     "classic",
     "forever",
@@ -1185,8 +1185,8 @@
    "name": "AuctionDB",
    "description": "Wow (classic) Auction Database addon",
    "stars": 25,
-   "updated": "2026-11-22T23:26:32Z",
-   "version": "v2.8.2",
+   "updated": "2026-11-25T03:04:57Z",
+   "version": "v2.8.3",
    "games": [
     "forever",
     "retail"
@@ -1471,6 +1471,26 @@
    }
   },
   {
+   "repo": "mooreatv/MAMA-multiboxing",
+   "name": "MAMA-multiboxing",
+   "description": "not so Minimal anymore yet Awesome Multiboxing Assistant - WoW addon",
+   "stars": 20,
+   "updated": "2026-11-23T21:48:04Z",
+   "version": "v2.21.3",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
+     120105
+    ]
+   }
+  },
+  {
    "repo": "tullamods/tullaRange",
    "name": "tullaRange",
    "description": "Colors actionbuttons when out of range",
@@ -1542,26 +1562,6 @@
     ],
     "wrath": [
      30405
-    ]
-   }
-  },
-  {
-   "repo": "mooreatv/MAMA-multiboxing",
-   "name": "MAMA-multiboxing",
-   "description": "not so Minimal anymore yet Awesome Multiboxing Assistant - WoW addon",
-   "stars": 19,
-   "updated": "2026-11-23T21:48:04Z",
-   "version": "v2.21.3",
-   "games": [
-    "forever",
-    "retail"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ],
-    "mainline": [
-     120105
     ]
    }
   },
@@ -1696,12 +1696,28 @@
    }
   },
   {
+   "repo": "catubba/twinmap-forever",
+   "name": "twinmap-forever",
+   "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
+   "stars": 17,
+   "updated": "2026-11-24T19:19:46Z",
+   "version": "v0.17.0",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   }
+  },
+  {
    "repo": "Xuerian/XLoot",
    "name": "XLoot",
    "description": "World of Warcraft addon enhancing loot related functionality",
    "stars": 17,
-   "updated": "2026-11-24T05:27:04Z",
-   "version": "12.24.0",
+   "updated": "2026-11-25T02:07:01Z",
+   "version": "12.24.1",
    "games": [
     "classic",
     "forever",
@@ -1853,22 +1869,6 @@
    }
   },
   {
-   "repo": "catubba/twinmap-forever",
-   "name": "twinmap-forever",
-   "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
-   "stars": 16,
-   "updated": "2026-11-23T23:39:27Z",
-   "version": "v0.16.1",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ]
-   }
-  },
-  {
    "repo": "mooreatv/DynamicBoxer",
    "name": "DynamicBoxer",
    "description": "Multiboxing with dynamic teams wow addon",
@@ -1940,8 +1940,8 @@
    "name": "DandersFrames",
    "description": "Customizable party and raid frame addon for World of Warcraft",
    "stars": 14,
-   "updated": "2026-11-23T10:41:10Z",
-   "version": "v6.0.0",
+   "updated": "2026-11-25T11:13:13Z",
+   "version": "v6.1.0",
    "games": [
     "forever",
     "retail"
@@ -2075,8 +2075,8 @@
    "name": "EasyControllerWowForever",
    "description": "Play WoW Forever comfortably with a gamepad: a chat keyboard with word prediction, extra functions on back paddles and free buttons, and quest items you can't sell by mistake.",
    "stars": 13,
-   "updated": "2026-11-24T14:02:53Z",
-   "version": "v1.25.0",
+   "updated": "2026-11-25T13:59:52Z",
+   "version": "v1.26.0",
    "games": [
     "forever"
    ],
@@ -2210,8 +2210,8 @@
    "name": "ImprovedForever",
    "description": "WoW Forever addon: quality-of-life tweaks for playing with a gamepad (wheels, touchpad, vibration, button overrides)",
    "stars": 12,
-   "updated": "2026-11-17T15:01:10Z",
-   "version": "Chat-v0.7.0",
+   "updated": "2026-11-25T04:54:04Z",
+   "version": "Core-v0.20.1",
    "games": [
     "forever"
    ],
@@ -2356,8 +2356,8 @@
    "name": "shortest-path-forever",
    "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
    "stars": 11,
-   "updated": "2026-11-24T14:50:57Z",
-   "version": "v1.45.7",
+   "updated": "2026-11-25T12:58:04Z",
+   "version": "v1.45.9",
    "games": [
     "forever"
    ],
@@ -2777,8 +2777,8 @@
    "name": "super-tweaks",
    "description": "Opinionated and highly optimized quality-of-life tweaks for WoW Forever in one neat package.",
    "stars": 8,
-   "updated": "2026-11-23T01:04:50Z",
-   "version": "v4.12.0",
+   "updated": "2026-11-24T23:58:24Z",
+   "version": "v4.15.0",
    "games": [
     "forever"
    ],
@@ -2817,8 +2817,8 @@
    "name": "Waymark",
    "description": "Addon for Wow Era Battlefield Map. (and wow Forever when it releases)",
    "stars": 8,
-   "updated": "2026-11-22T21:44:01Z",
-   "version": "v1.3.2",
+   "updated": "2026-11-25T09:51:54Z",
+   "version": "v1.3.3",
    "games": [
     "forever"
    ],
@@ -3065,8 +3065,8 @@
    "name": "ForeverPlusPlus",
    "description": "A World of Warcraft addon for WoW: Forever that adds to and changes the default UI in small, separate modules. It doesn't replace the UI: every change is meant to look like Blizzard shipped it, needs no setup, and can be turned off on its own.",
    "stars": 7,
-   "updated": "2026-11-17T01:21:28Z",
-   "version": "v1.8.0",
+   "updated": "2026-11-25T04:11:32Z",
+   "version": "v1.9.0",
    "games": [
     "forever"
    ],
@@ -3215,8 +3215,8 @@
    "name": "CompassHUD",
    "description": "A configurable compass strip showing player's heading along with questmarkers including distance and time to arive.",
    "stars": 6,
-   "updated": "2026-11-17T06:46:18Z",
-   "version": "v2.1.1",
+   "updated": "2026-11-25T05:42:43Z",
+   "version": "v2.1.2",
    "games": [
     "forever"
    ],
@@ -3443,8 +3443,8 @@
    "name": "AutoCombatLogger",
    "description": "WoW addon that automatically enables or disables combat logging based on location.",
    "stars": 5,
-   "updated": "2026-10-30T02:10:48Z",
-   "version": "12.1.6",
+   "updated": "2026-11-24T20:53:47Z",
+   "version": "12.1.7",
    "games": [
     "classic",
     "forever",
@@ -3549,12 +3549,16 @@
    "name": "BuffReminders",
    "description": "Track missing buffs at a glance",
    "stars": 5,
-   "updated": "2026-11-16T17:26:57Z",
-   "version": "v6.11.0",
+   "updated": "2026-11-25T12:32:08Z",
+   "version": "v7.0.0",
    "games": [
+    "forever",
     "retail"
    ],
    "flavors": {
+    "forever": [
+     16001
+    ],
     "mainline": [
      120105
     ]
@@ -3623,8 +3627,8 @@
    "name": "MagicMap",
    "description": "Your minimap, but it zooms out to the whole world: WoW Forever's minimap blips on a smooth, zoomable map drawn from the game's own terrain. M grows it into a big map.",
    "stars": 5,
-   "updated": "2026-11-22T23:30:38Z",
-   "version": "v3.3.0",
+   "updated": "2026-11-24T16:30:47Z",
+   "version": "v3.4.0",
    "games": [
     "forever"
    ],
@@ -3640,8 +3644,8 @@
    "name": "MelloUI",
    "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
    "stars": 5,
-   "updated": "2026-11-24T05:15:20Z",
-   "version": "v2.1.83",
+   "updated": "2026-11-25T06:51:16Z",
+   "version": "v2.1.88",
    "games": [
     "forever"
    ],
@@ -4252,6 +4256,23 @@
    "flavors": {
     "mainline": [
      120105
+    ]
+   }
+  },
+  {
+   "repo": "solocommand/Scoreboard",
+   "name": "Scoreboard",
+   "description": "Scoreboard (formerly TitanPoints) is an interface add-on for World of Warcraft that displays in-game currency amounts.",
+   "stars": 4,
+   "updated": "2026-01-21T21:03:59Z",
+   "version": "12.0.0",
+   "games": [
+    "retail"
+   ],
+   "flavors": {
+    "mainline": [
+     120000,
+     120001
     ]
    }
   },
@@ -5327,10 +5348,10 @@
   {
    "repo": "BellaHealFr/Lyorune",
    "name": "Lyorune",
-   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres, qui buffe qui entre paladins, vos recharges et du groupe, vos totems, auras, boucliers, affaiblissements utiles en combat, dissipation par type, mana des soigneurs, éléments placés, carnet",
+   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres, qui buffe qui entre paladins, recharges, totems, auras, boucliers, affaiblissements utiles, dissipation par type, mana des soigneurs, éléments placés par personnage, carnet, canal des soigneurs",
    "stars": 2,
-   "updated": "2026-11-24T11:36:11Z",
-   "version": "v1.48.1",
+   "updated": "2026-11-25T13:38:10Z",
+   "version": "v1.50.2",
    "games": [
     "forever"
    ],
@@ -6143,8 +6164,8 @@
    "name": "forever-shortroyalty",
    "description": "Short Royalty: a World of Warcraft: Forever addon for our guild. Browse guildmates' gear, talents, professions and recipes in game, find crafters, level your professions with Forever's own skill-up data, and plan reagents with a shopping list. Shares data only over the guild addon channel.",
    "stars": 1,
-   "updated": "2026-11-23T22:12:57Z",
-   "version": "v0.16.6",
+   "updated": "2026-11-25T10:44:56Z",
+   "version": "v0.16.8",
    "games": [
     "forever"
    ],
@@ -6464,8 +6485,8 @@
    "name": "MidnightHelper",
    "description": "A free World of Warcraft addon that explains why, not just what: weekly planning, Great Vault advice, Delves coaching, a beginner professions course and a class keybind coach. Seven languages built in, no dependencies.",
    "stars": 1,
-   "updated": "2026-11-22T21:40:38Z",
-   "version": "v5.8.0",
+   "updated": "2026-11-25T08:45:37Z",
+   "version": "v5.9.1",
    "games": [
     "forever",
     "retail"
@@ -6533,8 +6554,8 @@
    "name": "OxedHub",
    "description": "Feature-rich World of Warcraft addon for event-driven sound triggers, custom sprite animations, floating ToyBox dock, radial ring menus, and utilities.",
    "stars": 1,
-   "updated": "2026-11-23T20:18:03Z",
-   "version": "v2.4.79",
+   "updated": "2026-11-24T20:32:28Z",
+   "version": "v2.4.80",
    "games": [
     "classic",
     "forever",
@@ -6593,6 +6614,23 @@
      50504
     ]
    }
+  },
+  {
+   "repo": "ProfessionsForever/Professions_Forever",
+   "name": "Professions_Forever",
+   "description": "A replacement professions window for WoW: Forever that knows your bags, bank, mail and alts, with a crafting queue, a shopping list that follows it, Disenchanting Mode, and optional navigation to vendors, trainers and bankers.  https://www.curseforge.com/wow/addons/professionsforever",
+   "stars": 1,
+   "updated": "2026-11-24T17:50:15Z",
+   "version": "v0.10.6",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   },
+   "source": "toc"
   },
   {
    "repo": "funkydude/SharedMedia_Noto",
@@ -6775,17 +6813,39 @@
    "name": "AtlasViewer",
    "description": "A texture atlas browser for World of Warcraft. Search every atlas, see it, and copy the name or code.",
    "stars": 0,
-   "updated": "2026-11-18T06:47:20Z",
-   "version": "2.0.0",
+   "updated": "2026-11-25T03:55:00Z",
+   "version": "2.0.1",
    "games": [
-    "forever"
+    "classic",
+    "forever",
+    "retail"
    ],
    "flavors": {
+    "bcc": [
+     20505,
+     20506
+    ],
+    "cata": [
+     40402
+    ],
+    "classic": [
+     11508,
+     11509
+    ],
     "forever": [
      16001
+    ],
+    "mainline": [
+     120105
+    ],
+    "mists": [
+     50503,
+     50504
+    ],
+    "titan": [
+     38001
     ]
-   },
-   "source": "toc"
+   }
   },
   {
    "repo": "funkydude/BasicBuffHide",
@@ -7106,6 +7166,26 @@
    "flavors": {
     "mainline": [
      120100,
+     120105
+    ]
+   }
+  },
+  {
+   "repo": "Kkthnx-Wow/LatencyGuard",
+   "name": "LatencyGuard",
+   "description": "A lightweight, set-and-forget tuner for your Spell Queue Window — it adapts to your ping so your combat always feels snappy.",
+   "stars": 0,
+   "updated": "2026-11-25T02:49:49Z",
+   "version": "3.0.0",
+   "games": [
+    "forever",
+    "retail"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ],
+    "mainline": [
      120105
     ]
    }
