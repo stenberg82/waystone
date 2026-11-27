@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T13:57:30+00:00",
+ "generated": "2026-11-27T13:54:39+00:00",
  "addons": [
   {
    "repo": "WeakAuras/WeakAuras2",
@@ -33,7 +33,7 @@
    "repo": "Questie/Questie",
    "name": "Questie",
    "description": "Questie: The WoW Classic quest helper",
-   "stars": 1173,
+   "stars": 1172,
    "updated": "2026-11-25T22:27:52Z",
    "version": "bundle/v12.15.0+v1.1.6",
    "games": [
@@ -65,8 +65,8 @@
    "name": "DeadlyBossMods",
    "description": "The ultimate encounter helper to give you fight info that's easy to process at a glance. DBM aims to focus on what's happening to you, and what YOU need to do about it.",
    "stars": 284,
-   "updated": "2026-11-23T05:25:23Z",
-   "version": "12.1.25",
+   "updated": "2026-11-27T02:51:11Z",
+   "version": "12.1.26",
    "games": [
     "classic",
     "forever",
@@ -105,8 +105,8 @@
    "name": "BigWigs",
    "description": "Modular and lightweight approach to providing you with the tools you need to beat any boss encounter.",
    "stars": 277,
-   "updated": "2026-11-25T17:30:55Z",
-   "version": "v428.4",
+   "updated": "2026-11-26T18:24:14Z",
+   "version": "v429",
    "games": [
     "classic",
     "forever",
@@ -218,8 +218,8 @@
    "name": "WeakAuras-WotLK",
    "description": "World of Warcraft addon that provides a powerful framework to display customizable graphics on your screen.",
    "stars": 123,
-   "updated": "2026-11-21T06:20:33Z",
-   "version": "5.22.1-dc4b1108",
+   "updated": "2026-11-26T14:05:35Z",
+   "version": "5.22.1-dc7ceda9",
    "games": [
     "classic"
    ],
@@ -831,8 +831,8 @@
    "name": "raiderio-addon",
    "description": "RaiderIO AddOn",
    "stars": 44,
-   "updated": "2026-11-26T07:15:15Z",
-   "version": "v202611260600",
+   "updated": "2026-11-27T07:38:59Z",
+   "version": "v202611270600",
    "games": [
     "retail"
    ],
@@ -895,12 +895,29 @@
    }
   },
   {
+   "repo": "VgerMods/Pawn",
+   "name": "Pawn",
+   "description": "Pawn: find upgrades, do more damage, win. (Download releases and ask questions at CurseForge.)",
+   "stars": 35,
+   "updated": "2026-11-21T17:03:12Z",
+   "version": "Pawn-2.14.8",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   },
+   "source": "toc"
+  },
+  {
    "repo": "BigWigsMods/Capping",
    "name": "Capping",
    "description": "Battleground timers and other PvP features.",
    "stars": 34,
-   "updated": "2026-11-26T07:21:25Z",
-   "version": "v12.1.15",
+   "updated": "2026-11-26T23:54:47Z",
+   "version": "v12.1.17",
    "games": [
     "classic",
     "forever",
@@ -937,23 +954,6 @@
      30405
     ]
    }
-  },
-  {
-   "repo": "VgerMods/Pawn",
-   "name": "Pawn",
-   "description": "Pawn: find upgrades, do more damage, win. (Download releases and ask questions at CurseForge.)",
-   "stars": 34,
-   "updated": "2026-11-21T17:03:12Z",
-   "version": "Pawn-2.14.8",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ]
-   },
-   "source": "toc"
   },
   {
    "repo": "DeadlyBossMods/DBM-Dungeons",
@@ -1124,8 +1124,8 @@
    "name": "witchcraft",
    "description": "Claude Code, Codex, Copilot, and Antigravity terminals inside WoW Forever, with a local WoW MCP server for live character context, quests, and Lua errors.",
    "stars": 28,
-   "updated": "2026-11-26T08:19:00Z",
-   "version": "v0.5.1",
+   "updated": "2026-11-26T16:38:57Z",
+   "version": "v0.5.2",
    "games": [
     "forever"
    ],
@@ -1385,8 +1385,8 @@
    "name": "RCLootCouncil2",
    "description": "RCLootCouncil - addon for World of Warcraft",
    "stars": 23,
-   "updated": "2026-11-06T18:52:58Z",
-   "version": "3.25.0",
+   "updated": "2026-11-27T09:37:52Z",
+   "version": "3.26.0",
    "games": [
     "retail"
    ],
@@ -1700,8 +1700,8 @@
    "name": "twinmap-forever",
    "description": "An interactive map of World of Warcraft: Forever for your second screen, with your position in real time.",
    "stars": 17,
-   "updated": "2026-11-26T02:06:08Z",
-   "version": "v0.18.0",
+   "updated": "2026-11-26T21:43:51Z",
+   "version": "v0.19.0",
    "games": [
     "forever"
    ],
@@ -1716,8 +1716,8 @@
    "name": "XLoot",
    "description": "World of Warcraft addon enhancing loot related functionality",
    "stars": 17,
-   "updated": "2026-11-25T02:07:01Z",
-   "version": "12.24.1",
+   "updated": "2026-11-26T20:09:54Z",
+   "version": "12.25.0",
    "games": [
     "classic",
     "forever",
@@ -2229,8 +2229,8 @@
    "name": "shortest-path-forever",
    "description": "The fastest way anywhere in WoW: Forever: walks, flight paths, boats, zeppelins, lifts, the tram and portals, guided turn by turn",
    "stars": 12,
-   "updated": "2026-11-26T12:30:20Z",
-   "version": "v1.45.12",
+   "updated": "2026-11-27T05:32:02Z",
+   "version": "v1.48.1",
    "games": [
     "forever"
    ],
@@ -2245,8 +2245,8 @@
    "name": "BlizzHUDTweaks",
    "description": "World of Warcraft addon for WoW: Forever and Retail: fade the default Blizzard HUD by situation (combat, mouseover, target, resting) and tweak it, without replacing it.",
    "stars": 11,
-   "updated": "2026-11-22T22:32:17Z",
-   "version": "v3.9.1",
+   "updated": "2026-11-27T11:19:19Z",
+   "version": "v3.10.0",
    "games": [
     "forever",
     "retail"
@@ -2481,8 +2481,8 @@
    "name": "CaerdonWardrobe",
    "description": "",
    "stars": 9,
-   "updated": "2026-11-24T03:21:32Z",
-   "version": "v6.0.0",
+   "updated": "2026-11-26T19:42:05Z",
+   "version": "v6.0.1",
    "games": [
     "forever",
     "retail"
@@ -2736,6 +2736,23 @@
    }
   },
   {
+   "repo": "xIGBClutchIx/ForeverPlusPlus",
+   "name": "ForeverPlusPlus",
+   "description": "A World of Warcraft addon for WoW: Forever that adds to and changes the default UI in small, separate modules. It doesn't replace the UI: every change is meant to look like Blizzard shipped it, needs no setup, and can be turned off on its own.",
+   "stars": 8,
+   "updated": "2026-11-25T23:52:28Z",
+   "version": "v1.9.1",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
+    ]
+   },
+   "source": "toc"
+  },
+  {
    "repo": "sfmict/HidingBar",
    "name": "HidingBar",
    "description": "Adds a custom panel for easy add-on management.",
@@ -2967,8 +2984,8 @@
    "name": "DBM-PvP",
    "description": "This mod adds support for PvP battlegrounds and arena to Deadly Boss Mods.",
    "stars": 7,
-   "updated": "2026-11-25T22:17:29Z",
-   "version": "r196",
+   "updated": "2026-11-27T10:50:29Z",
+   "version": "r197",
    "games": [
     "classic",
     "forever",
@@ -3059,23 +3076,6 @@
      38002
     ]
    }
-  },
-  {
-   "repo": "xIGBClutchIx/ForeverPlusPlus",
-   "name": "ForeverPlusPlus",
-   "description": "A World of Warcraft addon for WoW: Forever that adds to and changes the default UI in small, separate modules. It doesn't replace the UI: every change is meant to look like Blizzard shipped it, needs no setup, and can be turned off on its own.",
-   "stars": 7,
-   "updated": "2026-11-25T23:52:28Z",
-   "version": "v1.9.1",
-   "games": [
-    "forever"
-   ],
-   "flavors": {
-    "forever": [
-     16001
-    ]
-   },
-   "source": "toc"
   },
   {
    "repo": "Oppzippy/GlobalSearch",
@@ -3549,8 +3549,8 @@
    "name": "BuffReminders",
    "description": "Track missing buffs at a glance",
    "stars": 5,
-   "updated": "2026-11-26T12:38:26Z",
-   "version": "v7.1.0",
+   "updated": "2026-11-27T11:35:01Z",
+   "version": "v7.1.1",
    "games": [
     "forever",
     "retail"
@@ -3644,8 +3644,8 @@
    "name": "MelloUI",
    "description": "All-in-one UI for World of Warcraft: Forever: one clean look, a seamless world map, voiced quest givers, and frames, nameplates and bars with live designers. Quests come from Questie (install it too). Works with RestedXP, Zygor, RareScanner, HandyNotes, Clique and more. Voice pack: https://github.com/MelloCro/MelloUI/releases/tag/v0.18.3",
    "stars": 5,
-   "updated": "2026-11-26T05:36:20Z",
-   "version": "v2.1.89",
+   "updated": "2026-11-27T06:08:35Z",
+   "version": "v2.1.91",
    "games": [
     "forever"
    ],
@@ -3917,8 +3917,8 @@
    "name": "DBM-SoundEventsPack",
    "description": "Several media files for DBM encounter Event feature.",
    "stars": 4,
-   "updated": "2026-10-14T19:40:11Z",
-   "version": "1.6.46",
+   "updated": "2026-11-27T01:40:14Z",
+   "version": "1.6.48",
    "games": [
     "classic",
     "forever",
@@ -3935,8 +3935,8 @@
      16001
     ],
     "mainline": [
-     120100,
-     120105
+     120105,
+     120107
     ],
     "mists": [
      50504
@@ -4020,6 +4020,22 @@
     ],
     "wrath": [
      30405
+    ]
+   }
+  },
+  {
+   "repo": "thewoolfi/ForeverTrading",
+   "name": "ForeverTrading",
+   "description": "Exchange-style trading terminal for the WoW Forever auction house: price and profit charts, order books, craft profitability and buy/sell signals.",
+   "stars": 4,
+   "updated": "2026-11-23T08:03:17Z",
+   "version": "v1.1.4",
+   "games": [
+    "forever"
+   ],
+   "flavors": {
+    "forever": [
+     16001
     ]
    }
   },
@@ -4197,8 +4213,8 @@
    "name": "NodeSight",
    "description": "See what every herb and ore on your minimap is, and make the ones near you sparkle. WoW Forever addon",
    "stars": 4,
-   "updated": "2026-11-26T02:34:03Z",
-   "version": "v4.0.5",
+   "updated": "2026-11-27T07:41:19Z",
+   "version": "v4.0.6",
    "games": [
     "forever"
    ],
@@ -4260,19 +4276,25 @@
    }
   },
   {
-   "repo": "solocommand/Scoreboard",
-   "name": "Scoreboard",
-   "description": "Scoreboard (formerly TitanPoints) is an interface add-on for World of Warcraft that displays in-game currency amounts.",
+   "repo": "BrenoLudgero/Recipe_Master",
+   "name": "Recipe_Master",
+   "description": "The ultimate recipe tracking add-on for World of Warcraft",
    "stars": 4,
-   "updated": "2026-01-21T21:03:59Z",
-   "version": "12.0.0",
+   "updated": "2026-11-14T18:07:28Z",
+   "version": "3.2.0",
    "games": [
-    "retail"
+    "classic",
+    "forever"
    ],
    "flavors": {
-    "mainline": [
-     120000,
-     120001
+    "bcc": [
+     20506
+    ],
+    "classic": [
+     11509
+    ],
+    "forever": [
+     16001
     ]
    }
   },
@@ -4281,8 +4303,8 @@
    "name": "skillup-forever",
    "description": "Classic profession-levelling numbers (required skill, thresholds, skill-up chance) in WoW: Forever's Professions window",
    "stars": 4,
-   "updated": "2026-11-25T20:40:42Z",
-   "version": "v1.14.27",
+   "updated": "2026-11-27T05:30:54Z",
+   "version": "v1.15.3",
    "games": [
     "forever"
    ],
@@ -4678,10 +4700,10 @@
   {
    "repo": "BellaHealFr/Lyorune",
    "name": "Lyorune",
-   "description": "Cadres de soin pour WoW Forever : clic-soin de vos soins et buffs au rang choisi, autre sort sur ennemi, tank, en JcJ ou hors combat, buffs sous les cadres, qui buffe qui entre paladins, recharges, totems, auras, boucliers, affaiblissements utiles, dissipation par type, mana des soigneurs, éléments placés par personnage, carnet, canal des soigneurs",
+   "description": "Healing frames for WoW Forever: click-casting at the rank you choose, missing buffs, dispels, healer mana. Every feature optional, in English and French.",
    "stars": 3,
-   "updated": "2026-11-25T13:38:10Z",
-   "version": "v1.50.2",
+   "updated": "2026-11-27T08:25:26Z",
+   "version": "v1.51.1",
    "games": [
     "forever"
    ],
@@ -6501,8 +6523,8 @@
    "name": "MidnightHelper",
    "description": "A free World of Warcraft addon that explains why, not just what: weekly planning, Great Vault advice, Delves coaching, a beginner professions course and a class keybind coach. Seven languages built in, no dependencies.",
    "stars": 1,
-   "updated": "2026-11-25T19:51:04Z",
-   "version": "v5.10.0",
+   "updated": "2026-11-26T20:32:45Z",
+   "version": "v5.11.0",
    "games": [
     "forever",
     "retail"
@@ -6524,8 +6546,8 @@
    "name": "MouseShift",
    "description": "WoW Addon: Bind SHIFT/ALT/CTRL to a mouse button",
    "stars": 1,
-   "updated": "2026-11-13T22:20:52Z",
-   "version": "v0.3.1",
+   "updated": "2026-11-27T12:39:29Z",
+   "version": "v0.3.3",
    "games": [
     "forever",
     "retail"
@@ -6570,8 +6592,8 @@
    "name": "OxedHub",
    "description": "Feature-rich World of Warcraft addon for event-driven sound triggers, custom sprite animations, floating ToyBox dock, radial ring menus, and utilities.",
    "stars": 1,
-   "updated": "2026-11-25T17:49:43Z",
-   "version": "v2.4.81",
+   "updated": "2026-11-26T18:31:34Z",
+   "version": "v2.4.82",
    "games": [
     "classic",
     "forever",
@@ -6632,12 +6654,12 @@
    }
   },
   {
-   "repo": "ProfessionsForever/Professions_Forever",
-   "name": "Professions_Forever",
+   "repo": "ThreeLightsInTheDark/ProfessionsForever",
+   "name": "ProfessionsForever",
    "description": "A replacement professions window for WoW: Forever that knows your bags, bank, mail and alts, with a crafting queue, a shopping list that follows it, Disenchanting Mode, and optional navigation to vendors, trainers and bankers.  https://www.curseforge.com/wow/addons/professionsforever",
    "stars": 1,
-   "updated": "2026-11-24T17:50:15Z",
-   "version": "v0.10.6",
+   "updated": "2026-11-26T16:12:15Z",
+   "version": "v0.10.8",
    "games": [
     "forever"
    ],
